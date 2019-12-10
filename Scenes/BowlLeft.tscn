@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
+
+[node name="BowlLeft" type="Node2D"]
+editor/display_folded = true
+
+[node name="RacetrackRectangle" parent="." instance=ExtResource( 1 )]
+position = Vector2( 66.5308, 221.769 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 66.5306, 616.624 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 114.231, 1011.48 )
+rotation = 1.309
+
+[node name="RacetrackRectangle6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 360.192, 1737.92 )
+rotation = 1.0472
+
+[node name="RacetrackRectangle4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 214.932, 1387.78 )
+rotation = 1.309
+
+[node name="RacetrackRectangle5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 552.414, 2068.47 )
+rotation = 1.0472
+
+[node name="RacetrackRectangle7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 786.934, 2383.07 )
+rotation = 0.785397
+
+[node name="RacetrackRectangle8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1067.22, 2663.35 )
+rotation = 0.785397
+
+[node name="RacetrackRectangle9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1381.46, 2911.21 )
+rotation = 0.523598
+
+[node name="RacetrackRectangle10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1722.27, 3110.38 )
+rotation = 0.523598
+
+[node name="RacetrackRectangle11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2092.13, 3269.02 )
+rotation = 0.261799
+
+[node name="RacetrackRectangle12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2468.34, 3370.82 )
+rotation = 0.261799
+
+[node name="RacetrackRectangle13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2862.26, 3428.36 )
