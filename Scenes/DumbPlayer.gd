@@ -39,7 +39,6 @@ func get_input():
 				velocity.x = lerp(velocity.x, 0, 0.2)
 func move_player():
 	## translation
-	print(str(velocity.x))
 	velocity = move_and_slide(velocity, floor_normal, true, 4, 0.8, true)
 	
 	## rotation
