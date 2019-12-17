@@ -8,7 +8,7 @@ func _ready():
 	
 
 func input_handling():
-	if Input.is_action_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel"):
 		print("Escape pressed.")
 		emit_signal("game_finished")
 		
