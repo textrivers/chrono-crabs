@@ -97,10 +97,10 @@ func _on_Join_Button_pressed():
 		_set_status("IP address is invalid", false)
 		return
 	
-	var host = NetworkedMultiplayerENet.new()
-	host.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
-	host.create_client(ip, DEFAULT_PORT)
-	get_tree().set_network_peer(host)
+	var joiner = NetworkedMultiplayerENet.new()
+	joiner.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
+	joiner.create_client(ip, DEFAULT_PORT)
+	get_tree().set_network_peer(joiner)
 	
 	_set_status("Connecting...", true)
 	

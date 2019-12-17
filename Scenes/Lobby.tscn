@@ -88,7 +88,7 @@ margin_left = 10.0
 margin_top = 120.0
 margin_right = 210.0
 margin_bottom = 140.0
-text = "Play Now!"
+text = "Click for single player"
 [connection signal="pressed" from="Panel/Host_Button" to="." method="_on_Host_Button_pressed"]
 [connection signal="pressed" from="Panel/Join_Button" to="." method="_on_Join_Button_pressed"]
 [connection signal="pressed" from="Panel/Status_1_Player" to="." method="_on_Status_1_Player_pressed"]
