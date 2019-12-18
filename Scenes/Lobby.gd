@@ -5,6 +5,7 @@ const DEFAULT_PORT = 11880
 var game_on = false
 
 var player_info = { }
+var player_info_index = 1
 var my_name = "name string"
 
 func _ready():
@@ -23,17 +24,16 @@ func _ready():
 
 ### Network callback functions ###
 
-func _player_connected(_id):
+func _player_connected(id):
 	print("somebody connected")
 	
 	## change solo button text to PLAY
 	## $Panel/Solo_Button.set_text("PLAY")
 	
-	## clients and server sync player_info
-	rpc_id(_id, "register_player", my_name)
-	
-	## add "[name] connected" below status line
-	get_node("Panel/Player" + str(_id) + "_Connected").set_text(str(player_info[_id] + " connected"))
+	## send name to server
+	if not is_network_master():
+		rpc_id(1, "register_player", my_name)
+
 
 func _player_disconnected(_id):
 	if get_tree().is_network_server():
@@ -63,6 +63,7 @@ func _end_game(with_error=""):
 		get_node("/root/World").free() ## immediate
 		show()
 		game_on = false
+		player_info_index = 1
 	
 	get_tree().set_network_peer(null) ## remove peer
 	$Panel/Join_Button.set_disabled(false)
@@ -79,10 +80,26 @@ func _set_status(text, isok):
 		$Panel/Status_OK.set_text("")
 		$Panel/Status_Fail.set_text(text)
 
-remotesync func register_player(name):
-	print(name + " registered")
-	var id = get_tree().get_rpc_sender_id()
-	player_info[id] = name
+remote func register_player(name):
+	
+	player_info[player_info_index] = name
+	rpc("update_player_registry", player_info, player_info_index)
+	player_info_index += 1
+
+remotesync func update_player_registry(other_player_info, other_player_info_index):
+	## update player dictionary
+	player_info = other_player_info
+	## display connection info
+	for i in player_info:
+		if player_info[i] != "":
+			if other_player_info_index == 1:
+				$Panel/Player1_Connected.set_text(other_player_info[other_player_info_index] + "is hosting")
+			if other_player_info_index == 2:
+				$Panel/Player2_Connected.set_text(other_player_info[other_player_info_index] + "connected")
+			if other_player_info_index == 3:
+				$Panel/Player3_Connected.set_text(other_player_info[other_player_info_index] + "connected")
+			if other_player_info_index == 4:
+				$Panel/Player4_Connected.set_text(other_player_info[other_player_info_index] + "connected")
 
 func _on_Host_Button_pressed():
 	my_name = $Panel/Name.get_text()
@@ -109,9 +126,10 @@ func _on_Host_Button_pressed():
 	$Panel/Host_Button.set_disabled(true)
 	_set_status("Waiting for players...", true)
 	
-	get_node("Panel/Player1_Connected").set_text(my_name + " connected")
+	get_node("Panel/Player1_Connected").set_text(my_name + " is hosting")
 	
 	player_info[1] = my_name
+	player_info_index += 1
 
 func _on_Join_Button_pressed():
 	my_name = $Panel/Name.get_text()
@@ -119,7 +137,6 @@ func _on_Join_Button_pressed():
 		_set_status("Please enter a name", false)
 		return
 		
-	## $Panel/Solo_Button.set_disabled(true)
 	var ip = get_node("Panel/Address").get_text()
 	if not ip.is_valid_ip_address():
 		_set_status("IP address is invalid", false)
