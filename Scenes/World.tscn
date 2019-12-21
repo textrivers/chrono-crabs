@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/World.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/DumbPlayer.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Camera2D.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/BowlLeft.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/StartingSystem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=9]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
@@ -129,7 +131,7 @@ position = Vector2( 10483.2, 4493.84 )
 rotation = -0.785397
 
 [node name="DumbPlayer" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1426.3, 7506.54 )
+position = Vector2( 272.021, 243.289 )
 
 [node name="Camera2D" type="Camera2D" parent="DumbPlayer"]
 current = true
@@ -142,3 +144,9 @@ position = Vector2( 3.05542, 4768.93 )
 [node name="BowlLeft2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 6123.97, 4769.68 )
 scale = Vector2( -1, 1 )
+
+[node name="StartingSystem" parent="." instance=ExtResource( 8 )]
+position = Vector2( 390.027, 157.341 )
+
+[node name="FinishSystem" parent="." instance=ExtResource( 9 )]
+position = Vector2( 10569.2, 4102.96 )

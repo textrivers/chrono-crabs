@@ -12,11 +12,16 @@ var pos_diff = 0
 var flipped = false
 var flip_now = false
 
+var racing = false
+var current_ghost = {}
+var ghost_data_index = 0
+
 const REST_AMOUNT = 10
 const ROTATION_CONST = 1.8
 
 func _ready():
-	pass
+	get_node("/root/World/FinishSystem").connect("race_finished", self, "finish_race")
+	get_node("/root/World/StartingSystem").connect("race_started", self, "start_race")
 
 func get_floor_normal():
 	if $RayDown.is_colliding():
@@ -45,7 +50,6 @@ func get_input():
 				velocity.x = lerp(velocity.x, 0, 0.2)
 func move_player():
 	
-	
 	## translation
 	velocity = move_and_slide(velocity, floor_normal, true, 4, 0.8, true)
 	
@@ -66,17 +70,32 @@ func move_player():
 	last_frame_pos.x = position.x
 
 func _physics_process(delta):
+	
 	get_floor_normal()
 	if !is_on_floor() or rolling:
 		velocity.y += gravity * delta
 	
-	get_input()
+	if racing == true:
+		get_input()
+	
 	move_player()
 	
-
+	if racing == true:
+		## record ghost data: position, rotation, ?
+		current_ghost[ghost_data_index] = [position, rotation_degrees]
+		ghost_data_index += 1
 
 func _on_FlipTimer_timeout():
 	$FlipTimer.stop()
 	flip_now = true
 	flipped = false
 	
+func start_race():
+	racing = true
+	
+	
+func finish_race():
+	racing = false
+	## if this race was faster than previous races
+	ghost_data.keep_ghost_data[0] = current_ghost
+	print("ghost added")
