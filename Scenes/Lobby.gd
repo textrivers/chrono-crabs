@@ -6,6 +6,9 @@ var game_on = false
 
 var player_info = { }
 var my_name = "name string"
+var my_id = 1
+
+signal start_game
 
 func _ready():
 
@@ -23,19 +26,18 @@ func _ready():
 
 ### Network callback functions ###
 
-func _player_connected(_id):
-	print("somebody connected")
+func _player_connected(id):
+	print("_player_connected_called")
 	
+	my_id = SceneTree.get_unique_network_id()
 	## change solo button text to PLAY
 	## $Panel/Solo_Button.set_text("PLAY")
 	
-	## clients and server sync player_info
-	rpc_id(_id, "register_player", my_name)
-	
-	## add "[name] connected" below status line
-	get_node("Panel/Player" + str(_id) + "_Connected").set_text(str(player_info[_id] + " connected"))
+	# Called on both clients and server when a peer connects. Send my info to it.
+	rpc("register_player", my_id, my_name)
 
-func _player_disconnected(_id):
+
+func _player_disconnected(id):
 	if get_tree().is_network_server():
 		_end_game("Client disconnected")
 	else:
@@ -79,10 +81,17 @@ func _set_status(text, isok):
 		$Panel/Status_OK.set_text("")
 		$Panel/Status_Fail.set_text(text)
 
-remotesync func register_player(name):
-	print(name + " registered")
-	var id = get_tree().get_rpc_sender_id()
-	player_info[id] = name
+remote func register_player(their_id, their_name):
+	## register self
+	player_info[my_id] = my_name
+	
+	## register player who just sent me their info
+	player_info[their_id] = their_name
+	
+	print(player_info)
+	
+	## TODO make the Lobby display update with player info
+	
 
 func _on_Host_Button_pressed():
 	my_name = $Panel/Name.get_text()
@@ -109,7 +118,7 @@ func _on_Host_Button_pressed():
 	$Panel/Host_Button.set_disabled(true)
 	_set_status("Waiting for players...", true)
 	
-	get_node("Panel/Player1_Connected").set_text(my_name + " connected")
+	get_node("Panel/Player1_Connected").set_text(my_name + " is hosting")
 	
 	player_info[1] = my_name
 
@@ -119,7 +128,6 @@ func _on_Join_Button_pressed():
 		_set_status("Please enter a name", false)
 		return
 		
-	## $Panel/Solo_Button.set_disabled(true)
 	var ip = get_node("Panel/Address").get_text()
 	if not ip.is_valid_ip_address():
 		_set_status("IP address is invalid", false)
@@ -136,14 +144,18 @@ func _on_Solo_Button_pressed():
 	## load game
 	var game_world = load("res://Scenes/World.tscn").instance()
 	game_world.connect("game_finished", self, "_end_game", [], CONNECT_DEFERRED) ## deferred so it can be safely erased...?
-	
 	##start game
 	get_tree().get_root().add_child(game_world)
+	
+	game_on = true
+	
+	emit_signal("start_game")
+	print("game start signal sent")
 	
 	## hide lobby
 	hide()
 	
-	game_on = true
+	
 
 # warning-ignore:unused_argument
 func _process(delta):

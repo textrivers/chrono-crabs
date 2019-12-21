@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Lobby="*res://Scenes/Lobby.gd"
+ghost_data="*res://ghost_data.gd"
 
 [input]
 
