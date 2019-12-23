@@ -21,6 +21,7 @@ align = 1
 valign = 1
 
 [node name="Panel" type="Panel" parent="."]
+editor/display_folded = true
 margin_left = 400.0
 margin_top = 100.0
 margin_right = 620.0
@@ -99,7 +100,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 
-[node name="Player1_Connected" type="Label" parent="Panel"]
+[node name="Player_1" type="Label" parent="Panel"]
 margin_left = 10.0
 margin_top = 120.0
 margin_right = 210.0
@@ -108,7 +109,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0.666667, 0.470588, 0.941176, 1 )
 
-[node name="Player2_Connected" type="Label" parent="Panel"]
+[node name="Player_2" type="Label" parent="Panel"]
 margin_left = 10.0
 margin_top = 150.0
 margin_right = 210.0
@@ -117,7 +118,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0.666667, 0.470588, 0.941176, 1 )
 
-[node name="Player3_Connected" type="Label" parent="Panel"]
+[node name="Player_3" type="Label" parent="Panel"]
 margin_left = 10.0
 margin_top = 180.0
 margin_right = 210.0
@@ -126,7 +127,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 1
 custom_colors/font_color = Color( 0.666667, 0.470588, 0.941176, 1 )
 
-[node name="Player4_Connected" type="Label" parent="Panel"]
+[node name="Player_4" type="Label" parent="Panel"]
 margin_left = 10.0
 margin_top = 210.0
 margin_right = 210.0

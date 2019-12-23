@@ -29,13 +29,16 @@ func _ready():
 func _player_connected(id):
 	print("_player_connected_called")
 	
-	my_id = SceneTree.get_unique_network_id()
+	my_id = get_tree().get_network_unique_id()
+	
 	## change solo button text to PLAY
-	## $Panel/Solo_Button.set_text("PLAY")
+	$Panel/Solo_Button.set_text("PLAY")
+	
+	## register self
+	player_info[my_id] = my_name
 	
 	# Called on both clients and server when a peer connects. Send my info to it.
 	rpc("register_player", my_id, my_name)
-
 
 func _player_disconnected(id):
 	if get_tree().is_network_server():
@@ -73,6 +76,7 @@ func _end_game(with_error=""):
 	_set_status(with_error, false)
 
 func _set_status(text, isok):
+	
 	## simple way to show status
 	if isok:
 		$Panel/Status_OK.set_text(text)
@@ -82,8 +86,6 @@ func _set_status(text, isok):
 		$Panel/Status_Fail.set_text(text)
 
 remote func register_player(their_id, their_name):
-	## register self
-	player_info[my_id] = my_name
 	
 	## register player who just sent me their info
 	player_info[their_id] = their_name
@@ -91,7 +93,14 @@ remote func register_player(their_id, their_name):
 	print(player_info)
 	
 	## TODO make the Lobby display update with player info
+	## if $Panel/Player_1.get_text() == "":
+		## $Panel/Player_1.set_text(player_info[1] + " is hosting")
+	var info_index = 1
 	
+	for i in player_info:
+		if get_node("Panel/Player_" + str(info_index)).get_text() == "":
+			get_node("Panel/Player_" + str(info_index)).set_text(player_info[i] + " connected")
+		info_index += 1 
 
 func _on_Host_Button_pressed():
 	my_name = $Panel/Name.get_text()
@@ -118,11 +127,12 @@ func _on_Host_Button_pressed():
 	$Panel/Host_Button.set_disabled(true)
 	_set_status("Waiting for players...", true)
 	
-	get_node("Panel/Player1_Connected").set_text(my_name + " is hosting")
+	get_node("Panel/Player_1").set_text(my_name + " is hosting")
 	
 	player_info[1] = my_name
 
 func _on_Join_Button_pressed():
+	
 	my_name = $Panel/Name.get_text()
 	if my_name == "":
 		_set_status("Please enter a name", false)
@@ -133,10 +143,10 @@ func _on_Join_Button_pressed():
 		_set_status("IP address is invalid", false)
 		return
 	
-	var host = NetworkedMultiplayerENet.new()
-	host.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
-	host.create_client(ip, DEFAULT_PORT)
-	get_tree().set_network_peer(host)
+	var join = NetworkedMultiplayerENet.new()
+	join.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
+	join.create_client(ip, DEFAULT_PORT)
+	get_tree().set_network_peer(join)
 	
 	_set_status("Connecting...", true)
 
@@ -149,8 +159,9 @@ func _on_Solo_Button_pressed():
 	
 	game_on = true
 	
-	emit_signal("start_game")
-	print("game start signal sent")
+	if has_node("/root/World"):
+		emit_signal("start_game")
+		print("game start signal sent")
 	
 	## hide lobby
 	hide()

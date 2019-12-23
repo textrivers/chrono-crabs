@@ -20,8 +20,9 @@ const REST_AMOUNT = 10
 const ROTATION_CONST = 1.8
 
 func _ready():
-	get_node("/root/World/FinishSystem").connect("race_finished", self, "finish_race")
-	get_node("/root/World/StartingSystem").connect("race_started", self, "start_race")
+	## get_node("/root/World/FinishSystem").connect("race_finished", self, "finish_race")
+	## get_node("/root/World/StartingSystem").connect("race_started", self, "start_race")
+	pass
 
 func get_floor_normal():
 	if $RayDown.is_colliding():
@@ -93,9 +94,11 @@ func _on_FlipTimer_timeout():
 func start_race():
 	racing = true
 	
-	
 func finish_race():
 	racing = false
 	## if this race was faster than previous races
 	ghost_data.keep_ghost_data[0] = current_ghost
 	print("ghost added")
+	
+func display_time(minutes, seconds, msec):
+	$Camera2D/Panel/Label.set_text(str(minutes) + ":" + str(seconds) + ":" + str(msec))
