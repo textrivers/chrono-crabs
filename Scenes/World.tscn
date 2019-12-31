@@ -1,153 +1,18 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/World.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/RacetrackTriangle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/RacetrackTriangleUp.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/DumbPlayer.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/BowlLeft.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/StartingSystem.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/BasicDownhillTrack.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DumbPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Bowl.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="BasicDownhillTrack" type="Node2D" parent="."]
-editor/display_folded = true
+[node name="BasicDownhillTrack" parent="." instance=ExtResource( 2 )]
+position = Vector2( 151.582, 0.000793457 )
 
-[node name="RacetrackRectangle" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 201, 409 )
+[node name="DumbPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 272, 243 )
 
-[node name="RacetrackTriangle" parent="BasicDownhillTrack" instance=ExtResource( 3 )]
-position = Vector2( 600.802, 409.266 )
-
-[node name="RacetrackTriangleUp" parent="BasicDownhillTrack" instance=ExtResource( 4 )]
-position = Vector2( 986.075, 409.214 )
-rotation = -3.14159
-scale = Vector2( 1, -1 )
-
-[node name="RacetrackRectangle2" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 1386.54, 409 )
-
-[node name="RacetrackTriangle3" parent="BasicDownhillTrack" instance=ExtResource( 3 )]
-position = Vector2( 1789.13, 409.266 )
-
-[node name="RacetrackTriangle4" parent="BasicDownhillTrack" instance=ExtResource( 3 )]
-position = Vector2( 2182.45, 509.688 )
-
-[node name="RacetrackTriangle5" parent="BasicDownhillTrack" instance=ExtResource( 3 )]
-position = Vector2( 2575.77, 610.111 )
-
-[node name="RacetrackTriangleUp2" parent="BasicDownhillTrack" instance=ExtResource( 4 )]
-position = Vector2( 2975, 610.059 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-
-[node name="RacetrackTriangleUp4" parent="BasicDownhillTrack" instance=ExtResource( 4 )]
-position = Vector2( 3368.32, 663.059 )
-rotation = -3.40339
-scale = Vector2( 1, -1 )
-
-[node name="RacetrackTriangleUp3" parent="BasicDownhillTrack" instance=ExtResource( 4 )]
-position = Vector2( 4138.22, 515.215 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-
-[node name="RacetrackRectangle3" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 3749.26, 612.634 )
-
-[node name="RacetrackRectangle4" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 4560.86, 1045.01 )
-rotation = 0.677698
-
-[node name="RacetrackRectangle16" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 7589.24, 2859.05 )
-rotation = 0.677698
-
-[node name="RacetrackRectangle5" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 4867.71, 1296.06 )
-rotation = 0.689635
-
-[node name="RacetrackRectangle21" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 7896.09, 3110.11 )
-rotation = 0.689635
-
-[node name="RacetrackRectangle6" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 5110.4, 1583.38 )
-rotation = 1.0472
-
-[node name="RacetrackRectangle17" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 8138.77, 3397.43 )
-rotation = 1.0472
-
-[node name="RacetrackRectangle7" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 5258.24, 1934.86 )
-rotation = 1.309
-
-[node name="RacetrackRectangle19" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 8286.62, 3738.85 )
-rotation = 1.309
-
-[node name="RacetrackRectangle8" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 5408.88, 2300.29 )
-rotation = 1.0472
-
-[node name="RacetrackRectangle15" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 8437.25, 4104.27 )
-rotation = 1.0472
-
-[node name="RacetrackRectangle9" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 5687.83, 2584.82 )
-rotation = 0.523598
-
-[node name="RacetrackRectangle18" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 8716.2, 4388.8 )
-rotation = 0.523598
-
-[node name="RacetrackRectangle10" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 6031.07, 2741.03 )
-rotation = 0.261799
-
-[node name="RacetrackRectangle20" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 9059.45, 4545.02 )
-rotation = 0.261799
-
-[node name="RacetrackRectangle11" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 6396.5, 2796.82 )
-
-[node name="RacetrackRectangle22" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 9424.88, 4600.81 )
-
-[node name="RacetrackRectangle12" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 6753.56, 2757.77 )
-rotation = -0.261799
-
-[node name="RacetrackRectangle14" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 9781.92, 4561.75 )
-rotation = -0.261799
-
-[node name="RacetrackRectangle13" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 7082.72, 2579.24 )
-rotation = -0.785397
-
-[node name="RacetrackRectangle23" parent="BasicDownhillTrack" instance=ExtResource( 2 )]
-position = Vector2( 10111.1, 4363.11 )
-rotation = -0.785397
-
-[node name="DumbPlayer" parent="." instance=ExtResource( 5 )]
-position = Vector2( 272.021, 243.289 )
-
-[node name="BowlLeft" parent="." instance=ExtResource( 6 )]
-position = Vector2( 10130.9, 4869.7 )
-
-[node name="BowlLeft2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 16251.9, 4870.45 )
-scale = Vector2( -1, 1 )
-
-[node name="StartingSystem" parent="." instance=ExtResource( 7 )]
-position = Vector2( 390.027, 157.341 )
-
-[node name="FinishSystem" parent="." instance=ExtResource( 8 )]
-position = Vector2( 10187.1, 3992.34 )
-[connection signal="race_started" from="StartingSystem" to="DumbPlayer" method="start_race"]
-[connection signal="race_finished" from="FinishSystem" to="DumbPlayer" method="finish_race"]
+[node name="Bowl" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1045.92, 8882.72 )

@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="Chrono Crabs"
-run/main_scene="res://Scenes/Lobby.tscn"
+run/main_scene="res://Scenes/ChronoCrabs.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-ghost_data="*res://ghost_data.gd"
+game_data="*res://Scripts/game_data.gd"
 
 [input]
 

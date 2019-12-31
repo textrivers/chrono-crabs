@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Scenes/Lobby.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Lobby.gd" type="Script" id=1]
 
 [node name="Lobby" type="Control"]
 margin_right = 40.0
@@ -21,7 +21,6 @@ align = 1
 valign = 1
 
 [node name="Panel" type="Panel" parent="."]
-editor/display_folded = true
 margin_left = 400.0
 margin_top = 100.0
 margin_right = 620.0
@@ -62,7 +61,7 @@ margin_left = 10.0
 margin_top = 65.0
 margin_right = 70.0
 margin_bottom = 85.0
-text = "Solo"
+text = "Play"
 
 [node name="Host_Button" type="Button" parent="Panel"]
 margin_left = 80.0

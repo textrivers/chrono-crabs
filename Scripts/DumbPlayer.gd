@@ -20,15 +20,19 @@ const REST_AMOUNT = 10
 const ROTATION_CONST = 1.8
 
 func _ready():
-	## get_node("/root/World/FinishSystem").connect("race_finished", self, "finish_race")
-	## get_node("/root/World/StartingSystem").connect("race_started", self, "start_race")
-	pass
+	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
+	get_node("/root/ChronoCrabs/GameControl/StartingSystem").connect("race_started", self, "start_race")
+	print(self.name)
 
 func get_floor_normal():
 	if $RayDown.is_colliding():
 		floor_normal = $RayDown.get_collision_normal()
 
 func get_input():
+	if Input.is_action_just_pressed("ui_cancel"):
+		## TODO pause 
+		pass
+	
 	if Input.is_action_pressed("ui_down"):
 		rolling = true
 		flip_now = false
@@ -96,9 +100,15 @@ func start_race():
 	
 func finish_race():
 	racing = false
-	## if this race was faster than previous races
-	ghost_data.keep_ghost_data[0] = current_ghost
-	print("ghost added")
 	
-func display_time(minutes, seconds, msec):
-	$Camera2D/Panel/Label.set_text(str(minutes) + ":" + str(seconds) + ":" + str(msec))
+	## pause for incoming info from GameControl
+	$GhostWriteTimer.start()
+	## if this race was faster than previous races
+	
+
+func _on_GhostWriteTimer_timeout():
+	if !game_data.ghost_data.has(0) || current_ghost["time_msec"] < game_data.ghost_data[0]["time_msec"]:
+		## ...write ghost to game_data
+		current_ghost["track"] = 0
+		game_data.ghost_data[0] = current_ghost
+		print("ghost saved")

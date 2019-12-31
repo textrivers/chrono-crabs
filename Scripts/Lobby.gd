@@ -2,6 +2,8 @@ extends Control
 
 const DEFAULT_PORT = 11880
 
+var all_control
+
 var game_on = false
 
 var player_info = { }
@@ -63,11 +65,12 @@ func _server_disconnected():
 
 func _end_game(with_error=""):
 	
-	if has_node("/root/World"):
+	if has_node(game_data.world_path):
 		## erase world, start over
-		get_node("/root/World").free() ## immediate
-		show()
-		game_on = false
+		get_node(game_data.world_path).free() ## immediate
+	
+	show()
+	game_on = false
 	
 	get_tree().set_network_peer(null) ## remove peer
 	$Panel/Join_Button.set_disabled(false)
@@ -154,14 +157,19 @@ func _on_Solo_Button_pressed():
 	## load game
 	var game_world = load("res://Scenes/World.tscn").instance()
 	game_world.connect("game_finished", self, "_end_game", [], CONNECT_DEFERRED) ## deferred so it can be safely erased...?
+	
 	##start game
 	get_tree().get_root().add_child(game_world)
+	if game_world.is_inside_tree():
+		game_data.world_path = game_world.get_path()
+	## why doesn't this work?
+	## game_world.set_name("World")
 	
 	game_on = true
 	
 	if has_node("/root/World"):
+		print(str(game_world.name))
 		emit_signal("start_game")
-		print("game start signal sent")
 	
 	## hide lobby
 	hide()
