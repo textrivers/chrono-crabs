@@ -22,7 +22,6 @@ const ROTATION_CONST = 1.8
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
 	get_node("/root/ChronoCrabs/GameControl/StartingSystem").connect("race_started", self, "start_race")
-	print(self.name)
 
 func get_floor_normal():
 	if $RayDown.is_colliding():
@@ -107,6 +106,9 @@ func finish_race():
 	
 
 func _on_GhostWriteTimer_timeout():
+	
+	print(current_ghost["time_msec"])
+	
 	if !game_data.ghost_data.has(0) || current_ghost["time_msec"] < game_data.ghost_data[0]["time_msec"]:
 		## ...write ghost to game_data
 		current_ghost["track"] = 0
