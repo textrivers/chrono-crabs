@@ -2,17 +2,19 @@ extends Control
 
 const DEFAULT_PORT = 11880
 
-var all_control
-
 var game_on = false
 
 var player_info = { }
 var my_name = "name string"
-var my_id = 1
 
 signal start_game
 
+var world
+var game_control
+
 func _ready():
+
+	game_control = get_node("../GameControl")
 
 # connect all the callbacks related to networking
 # warning-ignore:return_value_discarded
@@ -26,21 +28,21 @@ func _ready():
 # warning-ignore:return_value_discarded
 	get_tree().connect("server_disconnected", self, "_server_disconnected")
 
+func _on_World_ready():
+	world = get_node("/root/ChronoCrabs/World")
+
 ### Network callback functions ###
 
 func _player_connected(id):
-	print("_player_connected_called")
-	
-	my_id = get_tree().get_network_unique_id()
 	
 	## change solo button text to PLAY
 	$Panel/Solo_Button.set_text("PLAY")
 	
 	## register self
-	player_info[my_id] = my_name
+	player_info[id] = my_name
 	
 	# Called on both clients and server when a peer connects. Send my info to it.
-	rpc("register_player", my_id, my_name)
+	rpc("register_player", id, my_name)
 
 func _player_disconnected(id):
 	if get_tree().is_network_server():
@@ -49,7 +51,7 @@ func _player_disconnected(id):
 		_end_game("Server disconnected")
 
 func _connected_ok(): ## client only, not server
-	print("_connected_ok() called")
+	$Panel/Solo_Button.set_text("PLAY")
 
 func _connected_fail(): ## client only, not server
 	_set_status("Couldn't connect", false)
@@ -64,10 +66,6 @@ func _server_disconnected():
 ### Game Creation functions ###
 
 func _end_game(with_error=""):
-	
-	if has_node(game_data.world_path):
-		## erase world, start over
-		get_node(game_data.world_path).free() ## immediate
 	
 	show()
 	game_on = false
@@ -93,11 +91,6 @@ remote func register_player(their_id, their_name):
 	## register player who just sent me their info
 	player_info[their_id] = their_name
 	
-	print(player_info)
-	
-	## TODO make the Lobby display update with player info
-	## if $Panel/Player_1.get_text() == "":
-		## $Panel/Player_1.set_text(player_info[1] + " is hosting")
 	var info_index = 1
 	
 	for i in player_info:
@@ -106,6 +99,8 @@ remote func register_player(their_id, their_name):
 		info_index += 1 
 
 func _on_Host_Button_pressed():
+	$Panel/Solo_Button.set_text("PLAY")
+	
 	my_name = $Panel/Name.get_text()
 	if my_name == "":
 		_set_status("Please enter a name", false)
@@ -116,7 +111,6 @@ func _on_Host_Button_pressed():
 		_set_status("IP address is invalid", false)
 		return
 	
-	## $Panel/Solo_Button.set_text("PLAY")
 	var host = NetworkedMultiplayerENet.new()
 	host.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)
 	var err = host.create_server(DEFAULT_PORT, 3)
@@ -154,25 +148,17 @@ func _on_Join_Button_pressed():
 	_set_status("Connecting...", true)
 
 func _on_Solo_Button_pressed():
-	## load game
-	var game_world = load("res://Scenes/World.tscn").instance()
-	game_world.connect("game_finished", self, "_end_game", [], CONNECT_DEFERRED) ## deferred so it can be safely erased...?
-	
-	##start game
-	get_tree().get_root().add_child(game_world)
-	if game_world.is_inside_tree():
-		game_data.world_path = game_world.get_path()
-	## why doesn't this work?
-	## game_world.set_name("World")
-	
+	## TODO move game_on tracking to GameControl
 	game_on = true
 	
-	if has_node("/root/World"):
-		print(str(game_world.name))
-		emit_signal("start_game")
+	## make player_info accessible
+	game_data.player_info = player_info
 	
 	## hide lobby
 	hide()
+	
+	## show TrackSelectMenu
+	game_control.TrackSelectMenuContainer.show()
 	
 	
 
@@ -181,3 +167,4 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if game_on == false: 
 			get_tree().quit()
+

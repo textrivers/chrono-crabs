@@ -10,7 +10,12 @@ var str_elapsed
 var racing = false
 var race_over = false
 
+signal race_started
+signal race_finished
+
+var timer_countdown = 3
 var timer_label
+
 var lobby
 var world
 var player
@@ -18,8 +23,13 @@ var player
 func _ready():
 	
 	timer_label = get_node("TimerContainer/Label")
+	get_node("/root/ChronoCrabs/Lobby").connect("start_game", self, "initiate_race")
+	
+func _on_Lobby_ready():
 	lobby = get_node("/root/ChronoCrabs/Lobby")
-	get_node("/root/ChronoCrabs/Lobby").connect("start_game", self, "start_game")
+
+func _on_World_ready():
+	world = get_node("/root/ChronoCrabs/World")
 
 func _physics_process(delta):
 	
@@ -36,29 +46,50 @@ func _physics_process(delta):
 
 	timer_label.set_text(str_elapsed)
 
-func start_game():
-	$TimerContainer.show()
+func initiate_race():
+	## TODO move all game creation functions from Lobby to here,
+	## hide menu
+	$TrackSelectMenuContainer.hide()
+	## add track, correct number of players, and ghosts
+	world.build()
+	world.show()
 	
-	## find player 
-	if game_data.world_path == "":
-		player = get_node("/root/World/DumbPlayer")
-	else:
-		player = get_node(str(game_data.world_path) + "/DumbPlayer")
+	## sync all (with yield/coroutine? See GDSCript basics page)
+	
+	## start race countdown sequence
+	$TimerContainer.show()
+	$StartingTimer.start()
+
+func _on_StartingTimer_timeout():
+	
+	if timer_countdown > 0: 
+		$AudioStreamPlayer.play()
+		timer_countdown -= 1
+	elif timer_countdown == 0:
+		## high beep
+		$AudioStreamPlayer.pitch_scale = 2
+		$AudioStreamPlayer.play()
+		## race starts
+		$StartingTimer.stop()
+		start_timing()
+		emit_signal("race_started")
 
 func start_timing():
 	racing = true
 	start_moment = OS.get_ticks_msec()
 
+## TODO make this function responsive to player signal upon crossing finish line
 func on_finish_line_crossed():
 	racing = false
 	end_moment = OS.get_ticks_msec()
 	elapsed = end_moment - start_moment
-	player.current_ghost["time_msec"] = elapsed
-	$MenuContainer.show()
+	## send the elapsed time as a signal's argument, rather than setting the variable
+	emit_signal("race_finished", elapsed)
+	$PostRaceMenuContainer.show()
 
-func reset_playstate():
+func reset_race():
 	## hide Menu
-	$MenuContainer.hide()
+	$PostRaceMenuContainer.hide()
 	
 	## reset vars
 	start_moment = 0
@@ -69,39 +100,53 @@ func reset_playstate():
 	racing = false
 	race_over = false
 	
-	$StartingSystem/AudioStreamPlayer.pitch_scale = 1
-	$StartingSystem.timer_countdown = 3
+	$AudioStreamPlayer.pitch_scale = 1
+	timer_countdown = 3
+	
+	## clear track, all players, and all ghosts
+	world.destroy()
 
 func _on_RaceGhost_pressed():
 	
-	reset_playstate()
-	
-	## reload World
-	world = get_node(game_data.world_path)
-	world.queue_free()
+	reset_race()
 	game_data.playing_with_ghost = true
-	lobby._on_Solo_Button_pressed()
+	initiate_race()
 
 func _on_RaceNoGhost_pressed():
 	
-	reset_playstate()
-	
-	## reload World
-	world = get_node(game_data.world_path)
-	world.queue_free()
+	reset_race()
 	game_data.playing_with_ghost = false
-	lobby._on_Solo_Button_pressed()
+	initiate_race()
 
 func _on_QuitToMenu_pressed():
 	
-	reset_playstate()
+	reset_race()
 	
-	## hide menu, hide Timer 
 	$TimerContainer.hide()
+	$MainMenuContainer.show()
+
+func _on_SinglePlayer_pressed():
+	$MainMenuContainer.hide()
+	$TrackSelectMenuContainer.show()
 	
-	## call _end_game from Lobby
-	lobby._end_game()
-	
+func _on_Multiplayer_pressed():
+	$MainMenuContainer.hide()
+	lobby.show()
+
+func _on_Options_pressed():
+	$MainMenuContainer/Panel/Options.set_text("Options coming soon")
 
 func _on_QuitToDesktop_pressed():
 	get_tree().quit()
+
+func _on_MainMenu_pressed():
+	$TrackSelectMenuContainer.hide()
+	$MainMenuContainer.show()
+	
+func _on_TrackList_item_selected(index):
+	game_data.track_data_index = index
+	## TODO add multiplayer selectability
+	
+	$TrackSelectMenuContainer/Panel/PlayAlready.disabled = false
+	
+	

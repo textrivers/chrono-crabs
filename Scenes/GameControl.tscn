@@ -1,84 +1,194 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/GameControl.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/StartingSystem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/basic_blip.wav" type="AudioStream" id=2]
 
 [sub_resource type="Theme" id=1]
 
 [node name="GameControl" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="TimerContainer" type="MarginContainer" parent="."]
-editor/display_folded = true
+[node name="MainMenuContainer" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -142.0
+margin_right = 200.0
+margin_bottom = 142.0
+
+[node name="Panel" type="Panel" parent="MainMenuContainer"]
+margin_right = 400.0
+margin_bottom = 284.0
+
+[node name="Label" type="Label" parent="MainMenuContainer/Panel"]
+margin_top = 23.0303
+margin_right = 400.0
+margin_bottom = 37.0303
+text = "Welcome to CHRONO CRABS"
+align = 1
+
+[node name="SinglePlayer" type="Button" parent="MainMenuContainer/Panel"]
+margin_left = 120.0
+margin_top = 50.0284
+margin_right = 280.0
+margin_bottom = 90.0
+text = "Single Player Game"
+
+[node name="Multiplayer" type="Button" parent="MainMenuContainer/Panel"]
+margin_left = 120.0
+margin_top = 100.0
+margin_right = 280.0
+margin_bottom = 140.0
+text = "Multiplayer Game"
+
+[node name="Options" type="Button" parent="MainMenuContainer/Panel"]
+margin_left = 120.0
+margin_top = 150.0
+margin_right = 280.0
+margin_bottom = 190.0
+text = "Options"
+
+[node name="QuitToDesktop" type="Button" parent="MainMenuContainer/Panel"]
+margin_left = 120.0
+margin_top = 200.0
+margin_right = 280.0
+margin_bottom = 240.0
+text = "Quit to Desktop"
+
+[node name="TrackSelectMenuContainer" type="MarginContainer" parent="."]
 visible = false
-margin_left = 804.0
-margin_top = 33.0
-margin_right = 989.0
-margin_bottom = 93.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -142.0
+margin_right = 200.0
+margin_bottom = 142.0
+
+[node name="Panel" type="Panel" parent="TrackSelectMenuContainer"]
+margin_right = 400.0
+margin_bottom = 284.0
+
+[node name="Label" type="Label" parent="TrackSelectMenuContainer/Panel"]
+margin_top = 23.0303
+margin_right = 400.0
+margin_bottom = 37.0303
+text = "Please select your track"
+align = 1
+
+[node name="TrackList" type="ItemList" parent="TrackSelectMenuContainer/Panel"]
+margin_left = 15.0
+margin_top = 50.0
+margin_right = 385.0
+margin_bottom = 230.0
+items = [ "Basic Downhill Track", null, false, "Roller Coaster", null, true, "Outer Space", null, true, "Dummy Item 1", null, true, "Dummy Item 2", null, true, "Dummy Item 3", null, true, "Dummy Item 4", null, true, "Dummy Item 5", null, true, "Dummy Item 6", null, true, "Dummy Item 7", null, true, "Dummy Item 8", null, true, "Dummy Item 9", null, true ]
+
+[node name="MainMenu" type="Button" parent="TrackSelectMenuContainer/Panel"]
+margin_left = 15.0
+margin_top = 245.0
+margin_right = 125.0
+margin_bottom = 270.0
+text = "Back to Menu"
+
+[node name="PlayAlready" type="Button" parent="TrackSelectMenuContainer/Panel"]
+margin_left = 145.0
+margin_top = 245.0
+margin_right = 385.0
+margin_bottom = 270.0
+disabled = true
+text = "PLAY ALREADY"
+
+[node name="TimerContainer" type="MarginContainer" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -100.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = 50.0
 
 [node name="Panel" type="Panel" parent="TimerContainer"]
-margin_right = 185.0
-margin_bottom = 60.0
+margin_right = 85.0
+margin_bottom = 35.0
 
 [node name="Label" type="Label" parent="TimerContainer"]
-margin_left = 185.0
-margin_top = 23.0
-margin_right = 185.0
-margin_bottom = 37.0
+margin_left = 21.0
+margin_top = 10.0
+margin_right = 85.0
+margin_bottom = 24.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 theme = SubResource( 1 )
+text = "00:00:000"
 align = 1
 
-[node name="StartingSystem" parent="." instance=ExtResource( 2 )]
-
-[node name="MenuContainer" type="MarginContainer" parent="."]
+[node name="PostRaceMenuContainer" type="MarginContainer" parent="."]
 visible = false
-margin_left = 312.0
-margin_top = 136.0
-margin_right = 712.0
-margin_bottom = 420.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -142.0
+margin_right = 200.0
+margin_bottom = 142.0
 
-[node name="Panel" type="Panel" parent="MenuContainer"]
+[node name="Panel" type="Panel" parent="PostRaceMenuContainer"]
 margin_right = 400.0
 margin_bottom = 284.0
 
-[node name="Label" type="Label" parent="MenuContainer/Panel"]
+[node name="Label" type="Label" parent="PostRaceMenuContainer/Panel"]
 margin_top = 23.0303
 margin_right = 400.0
 margin_bottom = 37.0303
 text = "Race this course again?"
 align = 1
 
-[node name="RaceGhost" type="Button" parent="MenuContainer/Panel"]
+[node name="RaceGhost" type="Button" parent="PostRaceMenuContainer/Panel"]
 margin_left = 132.138
 margin_top = 50.0284
 margin_right = 262.138
 margin_bottom = 94.0284
 text = "Race against ghost"
 
-[node name="RaceNoGhost" type="Button" parent="MenuContainer/Panel"]
+[node name="RaceNoGhost" type="Button" parent="PostRaceMenuContainer/Panel"]
 margin_left = 130.304
 margin_top = 103.681
 margin_right = 263.304
 margin_bottom = 147.681
 text = "Race without ghost"
 
-[node name="QuitToMenu" type="Button" parent="MenuContainer/Panel"]
+[node name="QuitToMenu" type="Button" parent="PostRaceMenuContainer/Panel"]
 margin_left = 133.304
 margin_top = 158.166
 margin_right = 262.304
 margin_bottom = 202.166
 text = "Quit to Menu"
 
-[node name="QuitToDesktop" type="Button" parent="MenuContainer/Panel"]
+[node name="QuitToDesktop" type="Button" parent="PostRaceMenuContainer/Panel"]
 margin_left = 133.304
 margin_top = 213.166
 margin_right = 262.304
 margin_bottom = 257.166
 text = "Quit to Desktop"
-[connection signal="pressed" from="MenuContainer/Panel/RaceGhost" to="." method="_on_RaceGhost_pressed"]
-[connection signal="pressed" from="MenuContainer/Panel/RaceNoGhost" to="." method="_on_RaceNoGhost_pressed"]
-[connection signal="pressed" from="MenuContainer/Panel/QuitToMenu" to="." method="_on_QuitToMenu_pressed"]
-[connection signal="pressed" from="MenuContainer/Panel/QuitToDesktop" to="." method="_on_QuitToDesktop_pressed"]
+
+[node name="StartingTimer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+[connection signal="pressed" from="MainMenuContainer/Panel/SinglePlayer" to="." method="_on_SinglePlayer_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/Multiplayer" to="." method="_on_Multiplayer_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainMenuContainer/Panel/QuitToDesktop" to="." method="_on_QuitToDesktop_pressed"]
+[connection signal="item_selected" from="TrackSelectMenuContainer/Panel/TrackList" to="." method="_on_TrackList_item_selected"]
+[connection signal="pressed" from="TrackSelectMenuContainer/Panel/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="TrackSelectMenuContainer/Panel/PlayAlready" to="." method="initiate_race"]
+[connection signal="pressed" from="PostRaceMenuContainer/Panel/RaceGhost" to="." method="_on_RaceGhost_pressed"]
+[connection signal="pressed" from="PostRaceMenuContainer/Panel/RaceNoGhost" to="." method="_on_RaceNoGhost_pressed"]
+[connection signal="pressed" from="PostRaceMenuContainer/Panel/QuitToMenu" to="." method="_on_QuitToMenu_pressed"]
+[connection signal="pressed" from="PostRaceMenuContainer/Panel/QuitToDesktop" to="." method="_on_QuitToDesktop_pressed"]
+[connection signal="timeout" from="StartingTimer" to="." method="_on_StartingTimer_timeout"]

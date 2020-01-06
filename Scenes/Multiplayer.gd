@@ -1,18 +1,8 @@
-extends Node
+extends Button
 
-var player_info = {
-	0: 1
-}
-
-var track_data_index = 0
-var track_data = {
-	0: "res://Scenes/BasicDownhillTrack.tscn"
-}
-
-var playing_with_ghost = false
-var ghost_data = {}
-
-
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

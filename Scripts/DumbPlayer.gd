@@ -16,12 +16,13 @@ var racing = false
 var current_ghost = {}
 var ghost_data_index = 0
 
-const REST_AMOUNT = 10
 const ROTATION_CONST = 1.8
+const CAMERA_OFFSET_SPEED = 1
 
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
-	get_node("/root/ChronoCrabs/GameControl/StartingSystem").connect("race_started", self, "start_race")
+	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
+	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
 
 func get_floor_normal():
 	if $RayDown.is_colliding():
@@ -45,8 +46,10 @@ func get_input():
 		if is_on_floor():
 			if flipped == false:
 				if Input.is_action_pressed("ui_right"):
+					$Sprite2.flip_h = false
 					velocity.x = min(velocity.x + accel, MAX_SPEED)
 				elif Input.is_action_pressed("ui_left"):
+					$Sprite2.flip_h = true
 					velocity.x = max(velocity.x - accel, -MAX_SPEED)
 				else:
 					velocity.x = lerp(velocity.x, 0, 0.2)
@@ -73,6 +76,16 @@ func move_player():
 				
 	last_frame_pos.x = position.x
 
+func adjust_camera_offset():
+	$Camera2D.offset.x = lerp($Camera2D.offset.x, clamp(velocity.x, 100, 300), 0.03)
+	$Camera2D.offset.y = lerp($Camera2D.offset.y, clamp(velocity.y, 0, 200), 0.03)
+
+func record_ghost():
+	if racing == true:
+		## record ghost data: position, rotation, ?
+		current_ghost[ghost_data_index] = [position, rotation_degrees, $Sprite2.flip_h]
+		ghost_data_index += 1
+
 func _physics_process(delta):
 	
 	get_floor_normal()
@@ -84,10 +97,10 @@ func _physics_process(delta):
 	
 	move_player()
 	
-	if racing == true:
-		## record ghost data: position, rotation, ?
-		current_ghost[ghost_data_index] = [position, rotation_degrees]
-		ghost_data_index += 1
+	adjust_camera_offset()
+	
+	record_ghost()
+	
 
 func _on_FlipTimer_timeout():
 	$FlipTimer.stop()
@@ -97,20 +110,20 @@ func _on_FlipTimer_timeout():
 func start_race():
 	racing = true
 	
-func finish_race():
+func finish_race(elapsed):
+	print(elapsed)
+	
 	racing = false
+	current_ghost["time_msec"] = elapsed
 	
-	## pause for incoming info from GameControl
-	$GhostWriteTimer.start()
-	## if this race was faster than previous races
-	
-
-func _on_GhostWriteTimer_timeout():
-	
-	print(current_ghost["time_msec"])
-	
-	if !game_data.ghost_data.has(0) || current_ghost["time_msec"] < game_data.ghost_data[0]["time_msec"]:
+	if !game_data.ghost_data.has(game_data.track_data_index):
 		## ...write ghost to game_data
-		current_ghost["track"] = 0
-		game_data.ghost_data[0] = current_ghost
-		print("ghost saved")
+		game_data.ghost_data[game_data.track_data_index] = current_ghost
+		## print("ghost saved - no previous ghost")
+	else:
+		print("previous ghost")
+	if current_ghost["time_msec"] < game_data.ghost_data[game_data.track_data_index]["time_msec"]:
+		game_data.ghost_data[game_data.track_data_index] = current_ghost
+		## print("ghost saved - faster than previous")
+	else: 
+		print(str(elapsed) + " is not less than " + str(game_data.ghost_data[game_data.track_data_index]["time_msec"]))
