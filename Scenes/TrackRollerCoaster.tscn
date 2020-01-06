@@ -1,0 +1,300 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/RacetrackTriangle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/RacetrackTriangleUp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Bowl.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/RaceTrackCrescent1000.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/RaceTrackCrescent500.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/RaceTrackCrescent250.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=9]
+
+[node name="TrackRollerCoaster" type="Node2D"]
+
+[node name="TrackPieces" type="Node2D" parent="."]
+editor/display_folded = true
+
+[node name="RacetrackRectangle" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 201, 409 )
+
+[node name="RacetrackRectangle24" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 597.309, 314.241 )
+rotation = 2.61799
+
+[node name="RacetrackRectangle50" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 910.404, 79.4188 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle55" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 1994.78, -1000.54 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle51" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 1175.33, -185.508 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle57" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 2259.71, -1265.46 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle52" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 1440.26, -450.436 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle54" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 2524.64, -1530.39 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle53" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 1711.21, -721.384 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle56" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 2795.59, -1801.34 )
+rotation = 2.35619
+
+[node name="RacetrackRectangle28" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 3789.31, -1506.21 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle31" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 5852.92, 1026.58 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle48" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( -48.7138, -537.429 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle34" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 5979.98, 2170.14 )
+rotation = 0.785397
+
+[node name="RacetrackRectangle25" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6161.45, 1597.39 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle27" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 3802.96, -1109.63 )
+rotation = 1.49905
+
+[node name="RacetrackRectangle30" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 5852.92, 1435 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle47" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( -48.7138, -129.018 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle33" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6243.18, 2451.48 )
+rotation = 0.785397
+
+[node name="RacetrackRectangle26" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6410.46, 1349.58 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle29" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 3844.93, -721.35 )
+rotation = 1.41922
+
+[node name="RacetrackRectangle32" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 5852.92, 1825.25 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle49" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( -48.7138, 261.241 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle35" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6551.75, 2696.53 )
+rotation = 0.523598
+
+[node name="RacetrackRectangle36" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6932.94, 2805.44 )
+
+[node name="RacetrackRectangle40" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 8485.32, 2805.44 )
+
+[node name="RacetrackRectangle38" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 7698.73, 2804.21 )
+
+[node name="RacetrackRectangle42" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 9251.11, 2804.21 )
+
+[node name="RacetrackRectangle37" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 7332.94, 2805.44 )
+
+[node name="RacetrackRectangle41" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 8885.32, 2805.44 )
+
+[node name="RacetrackRectangle39" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 8098.73, 2804.21 )
+
+[node name="RacetrackRectangle43" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 9651.11, 2752.47 )
+rotation = -0.261799
+
+[node name="RacetrackRectangle44" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 10035.5, 2597.23 )
+rotation = -0.523598
+
+[node name="RacetrackRectangle45" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 10360.8, 2353.28 )
+rotation = -0.785397
+
+[node name="RacetrackRectangle46" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 10619.5, 2068.63 )
+rotation = -0.859334
+
+[node name="RacetrackTriangle" parent="TrackPieces" instance=ExtResource( 2 )]
+position = Vector2( 600.802, 409.266 )
+
+[node name="RacetrackTriangleUp" parent="TrackPieces" instance=ExtResource( 3 )]
+position = Vector2( 986.075, 409.214 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="RacetrackRectangle2" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 1386.54, 409 )
+
+[node name="RacetrackTriangle3" parent="TrackPieces" instance=ExtResource( 2 )]
+position = Vector2( 1789.13, 409.266 )
+
+[node name="RacetrackTriangle4" parent="TrackPieces" instance=ExtResource( 2 )]
+position = Vector2( 2182.45, 509.688 )
+
+[node name="RacetrackTriangle5" parent="TrackPieces" instance=ExtResource( 2 )]
+position = Vector2( 2575.77, 610.111 )
+
+[node name="RacetrackTriangleUp2" parent="TrackPieces" instance=ExtResource( 3 )]
+position = Vector2( 2975, 610.059 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="RacetrackTriangleUp4" parent="TrackPieces" instance=ExtResource( 3 )]
+position = Vector2( 3368.32, 663.059 )
+rotation = -3.40339
+scale = Vector2( 1, -1 )
+
+[node name="RacetrackTriangleUp3" parent="TrackPieces" instance=ExtResource( 3 )]
+position = Vector2( 4138.22, 515.215 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="RacetrackRectangle3" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 4081.7, 41.0282 )
+rotation = 1.10469
+
+[node name="RacetrackRectangle4" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 3934.25, -332.584 )
+rotation = 1.27842
+
+[node name="RacetrackRectangle16" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6523.19, 1863.04 )
+rotation = 0.677698
+
+[node name="RacetrackRectangle5" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11117.9, 1446.03 )
+rotation = 1.86878
+
+[node name="RacetrackRectangle59" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11216.7, 1764.42 )
+rotation = 1.309
+
+[node name="RacetrackRectangle21" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6370.94, 876.858 )
+rotation = 0.689635
+
+[node name="RacetrackRectangle6" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6121.98, 1132.06 )
+rotation = 1.0472
+
+[node name="RacetrackRectangle17" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6395.74, 2136.85 )
+rotation = 1.0472
+
+[node name="RacetrackRectangle7" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 7585.51, -2085.21 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle58" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11184.7, 1452.74 )
+rotation = 1.57079
+
+[node name="RacetrackRectangle19" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 6660.32, 1427.79 )
+rotation = 1.309
+
+[node name="RacetrackRectangle8" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 4299.3, 383.098 )
+rotation = 0.877655
+
+[node name="RacetrackRectangle15" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11142.3, 2345.94 )
+rotation = 1.0472
+
+[node name="RacetrackRectangle9" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 4599.31, 646.56 )
+rotation = 0.523598
+
+[node name="RacetrackRectangle18" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11421.3, 2630.47 )
+rotation = 0.523598
+
+[node name="RacetrackRectangle10" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 4963.62, 802.77 )
+rotation = 0.261799
+
+[node name="RacetrackRectangle20" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11764.5, 2786.69 )
+rotation = 0.261799
+
+[node name="RacetrackRectangle11" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 5336.08, 858.56 )
+
+[node name="RacetrackRectangle22" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 12130, 2842.48 )
+
+[node name="RacetrackRectangle12" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 5714.2, 819.51 )
+rotation = -0.261799
+
+[node name="RacetrackRectangle14" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 12487, 2803.42 )
+rotation = -0.261799
+
+[node name="RacetrackRectangle13" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 10903, 1781.15 )
+rotation = -0.785397
+
+[node name="RacetrackRectangle60" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 11327.2, 2027.62 )
+rotation = -2.31564
+
+[node name="RacetrackRectangle23" parent="TrackPieces" instance=ExtResource( 1 )]
+position = Vector2( 12816.2, 2604.78 )
+rotation = -0.785397
+
+[node name="Bowl" parent="TrackPieces" instance=ExtResource( 4 )]
+position = Vector2( 10441.6, 2673.23 )
+
+[node name="RaceTrackCrescent1000" parent="TrackPieces" instance=ExtResource( 5 )]
+position = Vector2( 3342.8, -1966.35 )
+
+[node name="RaceTrackCrescent1002" parent="TrackPieces" instance=ExtResource( 5 )]
+position = Vector2( 6021.86, 121.108 )
+rotation = 1.10205
+
+[node name="RaceTrackCrescent1001" parent="TrackPieces" instance=ExtResource( 6 )]
+position = Vector2( 5514.21, 84.5447 )
+rotation = -1.95304
+
+[node name="RaceTrackCrescent1003" parent="TrackPieces" instance=ExtResource( 7 )]
+
+[node name="StartingLine" parent="." instance=ExtResource( 8 )]
+visible = true
+position = Vector2( 200.624, 171.962 )
+
+[node name="FinishSystem" parent="." instance=ExtResource( 9 )]
+position = Vector2( 13505.6, 5846.06 )

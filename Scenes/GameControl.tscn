@@ -84,7 +84,7 @@ margin_left = 15.0
 margin_top = 50.0
 margin_right = 385.0
 margin_bottom = 230.0
-items = [ "Basic Downhill Track", null, false, "Roller Coaster", null, true, "Outer Space", null, true, "Dummy Item 1", null, true, "Dummy Item 2", null, true, "Dummy Item 3", null, true, "Dummy Item 4", null, true, "Dummy Item 5", null, true, "Dummy Item 6", null, true, "Dummy Item 7", null, true, "Dummy Item 8", null, true, "Dummy Item 9", null, true ]
+items = [ "Basic Downhill Track", null, false, "Roller Coaster", null, false, "Outer Space", null, true, "Dummy Item 1", null, true, "Dummy Item 2", null, true, "Dummy Item 3", null, true, "Dummy Item 4", null, true, "Dummy Item 5", null, true, "Dummy Item 6", null, true, "Dummy Item 7", null, true, "Dummy Item 8", null, true, "Dummy Item 9", null, true ]
 
 [node name="MainMenu" type="Button" parent="TrackSelectMenuContainer/Panel"]
 margin_left = 15.0

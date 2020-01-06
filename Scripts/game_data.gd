@@ -6,7 +6,8 @@ var player_info = {
 
 var track_data_index = 0
 var track_data = {
-	0: "res://Scenes/BasicDownhillTrack.tscn"
+	0: "res://Scenes/BasicDownhillTrack.tscn",
+	1: "res://Scenes/TrackRollerCoaster.tscn"
 }
 
 var playing_with_ghost = false
