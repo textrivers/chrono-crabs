@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/RacetrackTriangle.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/RaceTrackCrescent250.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/TestyTestPlayer.tscn" type="PackedScene" id=10]
 
 [node name="TrackRollerCoaster" type="Node2D"]
 
@@ -291,6 +292,7 @@ position = Vector2( 5514.21, 84.5447 )
 rotation = -1.95304
 
 [node name="RaceTrackCrescent1003" parent="TrackPieces" instance=ExtResource( 7 )]
+position = Vector2( 782.292, 1319.44 )
 
 [node name="StartingLine" parent="." instance=ExtResource( 8 )]
 visible = true
@@ -298,3 +300,6 @@ position = Vector2( 200.624, 171.962 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 9 )]
 position = Vector2( 13505.6, 5846.06 )
+
+[node name="TestyTestPlayer" parent="." instance=ExtResource( 10 )]
+position = Vector2( 126.176, 273.983 )
