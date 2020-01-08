@@ -101,6 +101,8 @@ func reset_race():
 	race_over = false
 	
 	$AudioStreamPlayer.pitch_scale = 1
+	$StartingTimer.stop()
+	$StartingTimer.wait_time = 1
 	timer_countdown = 3
 	
 	## clear track, all players, and all ghosts
@@ -122,7 +124,9 @@ func _on_QuitToMenu_pressed():
 	
 	reset_race()
 	
+	lobby.hide()
 	$TimerContainer.hide()
+	$TrackSelectMenuContainer.hide()
 	$MainMenuContainer.show()
 
 func _on_SinglePlayer_pressed():
@@ -148,5 +152,13 @@ func _on_TrackList_item_selected(index):
 	## TODO add multiplayer selectability
 	
 	$TrackSelectMenuContainer/Panel/PlayAlready.disabled = false
-	
-	
+	if game_data.ghost_data.has(game_data.track_data_index):
+		$TrackSelectMenuContainer/Panel/GhostCheckbox.disabled = false
+	else:
+		$TrackSelectMenuContainer/Panel/GhostCheckbox.disabled = true
+
+func _on_GhostCheckbox_toggled(button_pressed):
+	if button_pressed == true:
+		game_data.playing_with_ghost = true
+	else:
+		game_data.playing_with_ghost = false

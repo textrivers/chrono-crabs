@@ -1,15 +1,15 @@
 extends Node2D
 
-signal race_finished
+signal finish_line_crossed
 var race_over = false
 
 func _ready():
-	self.connect("race_finished", get_node("/root/ChronoCrabs/GameControl"), "on_finish_line_crossed")
+	self.connect("finish_line_crossed", get_node("/root/ChronoCrabs/GameControl"), "on_finish_line_crossed")
 
 
 func _on_Area2D_body_entered(body):
 	if race_over == false: 
 	
-		emit_signal("race_finished")
+		emit_signal("finish_line_crossed")
 		$AudioStreamPlayer.play()
 		race_over = true

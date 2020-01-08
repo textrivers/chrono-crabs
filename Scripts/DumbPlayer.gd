@@ -12,7 +12,7 @@ var pos_diff = 0
 var flipped = false
 var flip_now = false
 
-var racing = true
+var racing = false
 var current_ghost = {}
 var ghost_data_index = 0
 
@@ -21,8 +21,8 @@ const CAMERA_OFFSET_SPEED = 1
 
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
-	## get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
-	## get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
+	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
+	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
 	pass
 
 func get_floor_normal():

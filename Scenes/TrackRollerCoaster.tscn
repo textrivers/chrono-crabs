@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/RacetrackTriangle.tscn" type="PackedScene" id=2]
@@ -9,12 +9,10 @@
 [ext_resource path="res://Scenes/RaceTrackCrescent250.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/TestyTestPlayer.tscn" type="PackedScene" id=10]
 
 [node name="TrackRollerCoaster" type="Node2D"]
 
 [node name="TrackPieces" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="RacetrackRectangle" parent="TrackPieces" instance=ExtResource( 1 )]
 position = Vector2( 201, 409 )
@@ -288,8 +286,9 @@ position = Vector2( 6021.86, 121.108 )
 rotation = 1.10205
 
 [node name="RaceTrackCrescent1001" parent="TrackPieces" instance=ExtResource( 6 )]
-position = Vector2( 5514.21, 84.5447 )
+position = Vector2( 5575.85, 276.081 )
 rotation = -1.95304
+scale = Vector2( 0.905846, 0.6442 )
 
 [node name="RaceTrackCrescent1003" parent="TrackPieces" instance=ExtResource( 7 )]
 position = Vector2( 782.292, 1319.44 )
@@ -300,6 +299,3 @@ position = Vector2( 200.624, 171.962 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 9 )]
 position = Vector2( 13505.6, 5846.06 )
-
-[node name="TestyTestPlayer" parent="." instance=ExtResource( 10 )]
-position = Vector2( 126.176, 273.983 )

@@ -1,11 +1,14 @@
 extends Node2D
 
+var game_control
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	game_control = get_node("/root/ChronoCrabs/GameControl")
 	
 func _physics_process(delta):
-	pass
+	if Input.is_action_pressed("ui_cancel"):
+		game_control._on_QuitToMenu_pressed()
 
 func build():
 	add_track()
@@ -26,11 +29,10 @@ func add_players():
 		add_child(player)
 
 func add_ghosts():
-	## TODO load all player ghosts, only each player's ghosts, or only fastest?
-	
-	var ghost = load("res://Scenes/Ghost.tscn").instance()
-	ghost.position = Vector2(150, 325)
-	add_child(ghost)
+	if game_data.ghost_data.has(game_data.track_data_index):
+		var ghost = load("res://Scenes/Ghost.tscn").instance()
+		ghost.position = Vector2(150, 325)
+		add_child(ghost)
 
 func destroy():
 	for n in self.get_children():
