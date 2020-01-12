@@ -31,6 +31,7 @@ func get_input():
 		pass
 
 	if Input.is_action_pressed("ui_down"):
+		$Sprite2/Sprite2.hide()
 		rolling = true
 		flip_now = false
 		if floor_normal == Vector2(0, -1):
@@ -39,14 +40,17 @@ func get_input():
 			else:
 				velocity.x = lerp(velocity.x, 0, 0.2)
 	else:
+		$Sprite2/Sprite2.show()
 		rolling = false
 		if is_on_floor():
 			if flipped == false:
 				if Input.is_action_pressed("ui_right"):
 					$Sprite2.flip_h = false
+					$Sprite2/Sprite2.flip_h = false
 					velocity.x = min(velocity.x + accel, MAX_SPEED)
 				elif Input.is_action_pressed("ui_left"):
 					$Sprite2.flip_h = true
+					$Sprite2/Sprite2.flip_h = true
 					velocity.x = max(velocity.x - accel, -MAX_SPEED)
 				else:
 					velocity.x = lerp(velocity.x, 0, 0.2)

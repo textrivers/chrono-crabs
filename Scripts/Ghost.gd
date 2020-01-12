@@ -16,9 +16,9 @@ func _physics_process(delta):
 		position = data[frame_index][0]
 		rotation_degrees = data[frame_index][1]
 		if data[frame_index][2] == true:
-			$Sprite/Particles2D.scale.x = -1
+			$Particles2D.scale.x = -1
 		else:
-			$Sprite/Particles2D.scale.x = 1
+			$Particles2D.scale.x = 1
 		frame_index += 1
 	else:
 		if frame_index > 1:

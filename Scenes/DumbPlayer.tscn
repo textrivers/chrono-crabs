@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/DumbPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/placeholder_shell.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/shell_outline.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/clumsy_shell.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/clumsy_crab.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -10,9 +11,11 @@ radius = 33.4425
 [node name="DumbPlayer" type="KinematicBody2D" groups=[
 "player",
 ]]
+scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="RayDown" type="RayCast2D" parent="."]
@@ -30,8 +33,15 @@ smoothing_speed = 20.0
 self_modulate = Color( 0.980392, 0.647059, 0.647059, 1 )
 texture = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="Sprite2"]
-visible = false
+[node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.321569, 0.494118, 0.952941, 1 )
+scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 3 )
+offset = Vector2( 60, 0 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+modulate = Color( 0.937255, 0.384314, 0.384314, 1 )
+scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+offset = Vector2( 60, 0 )
 [connection signal="timeout" from="FlipTimer" to="." method="_on_FlipTimer_timeout"]

@@ -16,10 +16,11 @@ scale = Vector2( -1, 1 )
 
 [node name="StartingLine" parent="." instance=ExtResource( 2 )]
 visible = true
-position = Vector2( 336, 1352 )
+position = Vector2( 104.252, -185.965 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 3 )]
-position = Vector2( 5792, 1344 )
+position = Vector2( 5792, 782.186 )
+rotation = -1.309
 
 [node name="RacetrackRectangle" parent="." instance=ExtResource( 4 )]
 position = Vector2( -83, 71 )
