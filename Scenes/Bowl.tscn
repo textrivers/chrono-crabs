@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/BowlLeft.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/TestPlayer.tscn" type="PackedScene" id=5]
 
 [node name="Bowl" type="Node2D"]
 position = Vector2( 208, 248 )
@@ -28,3 +29,12 @@ position = Vector2( -83, 71 )
 [node name="RacetrackRectangle2" parent="." instance=ExtResource( 4 )]
 position = Vector2( -158, -83 )
 rotation = 1.5708
+
+[node name="TestPlayer" parent="." instance=ExtResource( 5 )]
+editor/display_folded = true
+position = Vector2( 3397.94, 3321.81 )
+
+[node name="Sprite2" parent="TestPlayer" index="4"]
+self_modulate = Color( 0.909804, 0.215686, 0.94902, 1 )
+
+[editable path="TestPlayer"]

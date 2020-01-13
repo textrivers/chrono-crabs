@@ -12,7 +12,13 @@ var pos_diff = 0
 var flipped = false
 var flip_now = false
 
+var world
+var track
+
 var racing = false
+var occupied = false
+var can_swap = false
+var swap_target = ""
 
 const ROTATION_CONST = 1.8
 
@@ -20,6 +26,16 @@ func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
+	
+	## accessing world variable for later
+	world = get_node("/root/ChronoCrabs/World")
+	track = get_node("..")
+	
+	## disable Area2D for player
+	if get_node("..").is_in_group("player"):
+		$Area2D/CollisionShape2D.disabled = true
+		$Sprite2/Sprite2.show()
+		occupied = true
 
 func get_floor_normal():
 	if $RayDown.is_colliding():
@@ -78,16 +94,39 @@ func move_player():
 
 	last_frame_pos.x = position.x
 
+func swap_shells():
+	can_swap = false
+	for n in swap_target.get_children():
+		if n.is_in_group("shell"):
+			n.racing = false
+			n.can_swap = true
+			n.occupied = false
+			swap_target.remove_child(n)
+			## TODO this is a problem. Don't know why adding the other shell to the world, or the track, breaks the game.
+			## track.add_child(n)
+	track.remove_child(self)
+	swap_target.add_child(self)
+	can_swap = false
+	$Area2D/CollisionShape2D.disabled = true
+	$Sprite2/Sprite2.show()
+	occupied = true
+
 func _physics_process(delta):
-
 	get_floor_normal()
+	
 	if !is_on_floor() or rolling:
-		velocity.y += gravity * delta
-
-	if racing == true:
-		get_input()
-
+			velocity.y += gravity * delta
+	
+	if occupied == true:
+		
+		if racing == true:
+			get_input()
+	
 	move_player()
+	
+	if can_swap == true:
+		if Input.is_action_just_pressed("ui_up"):
+			swap_shells()
 
 func _on_FlipTimer_timeout():
 	$FlipTimer.stop()
@@ -98,5 +137,16 @@ func start_race():
 	racing = true
 
 func finish_race(elapsed):
-
 	racing = false
+
+func _on_Area2D_body_entered(body):
+	## get the parent of the thing that entered the area
+	swap_target = get_node(str(get_path_to(body))).get_parent()
+	if swap_target.is_in_group("player"):
+		can_swap = true
+		print(swap_target)
+		## TODO turn on up-arrow graphic to cue player to swap
+
+func _on_Area2D_body_exited(body):
+	if get_node(str(get_path_to(body))).is_in_group("shell"):
+		can_swap = false
