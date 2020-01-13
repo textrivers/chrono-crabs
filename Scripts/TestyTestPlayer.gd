@@ -17,7 +17,6 @@ func _physics_process(delta):
 
 func start_race():
 	racing = true
-	
 
 func reposition_camera():
 	$Camera2D.position = $TestPlayer.position

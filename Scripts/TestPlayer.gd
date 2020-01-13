@@ -103,10 +103,10 @@ func swap_shells():
 			n.occupied = false
 			swap_target.remove_child(n)
 			## TODO this is a problem. Don't know why adding the other shell to the world, or the track, breaks the game.
-			## track.add_child(n)
+			## track.add_child(n, true)
 	track.remove_child(self)
-	swap_target.add_child(self)
-	can_swap = false
+	swap_target.add_child(self, true)
+	print(self.name)
 	$Area2D/CollisionShape2D.disabled = true
 	$Sprite2/Sprite2.show()
 	occupied = true
@@ -144,7 +144,6 @@ func _on_Area2D_body_entered(body):
 	swap_target = get_node(str(get_path_to(body))).get_parent()
 	if swap_target.is_in_group("player"):
 		can_swap = true
-		print(swap_target)
 		## TODO turn on up-arrow graphic to cue player to swap
 
 func _on_Area2D_body_exited(body):
