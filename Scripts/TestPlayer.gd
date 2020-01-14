@@ -13,12 +13,13 @@ var flipped = false
 var flip_now = false
 
 var world
-var track
+
 
 var racing = false
 var occupied = false
 var can_swap = false
 var swap_target = ""
+signal swap_now(shell)
 
 const ROTATION_CONST = 1.8
 
@@ -29,12 +30,11 @@ func _ready():
 	
 	## accessing world variable for later
 	world = get_node("/root/ChronoCrabs/World")
-	track = get_node("..")
 	
 	## disable Area2D for player
 	if get_node("..").is_in_group("player"):
 		$Area2D/CollisionShape2D.disabled = true
-		$Sprite2/Sprite2.show()
+		$ShellSprite/CrabSprite.show()
 		occupied = true
 
 func get_floor_normal():
@@ -47,7 +47,7 @@ func get_input():
 		pass
 
 	if Input.is_action_pressed("ui_down"):
-		$Sprite2/Sprite2.hide()
+		$ShellSprite/CrabSprite.hide()
 		rolling = true
 		flip_now = false
 		if floor_normal == Vector2(0, -1):
@@ -56,17 +56,17 @@ func get_input():
 			else:
 				velocity.x = lerp(velocity.x, 0, 0.2)
 	else:
-		$Sprite2/Sprite2.show()
+		$ShellSprite/CrabSprite.show()
 		rolling = false
 		if is_on_floor():
 			if flipped == false:
 				if Input.is_action_pressed("ui_right"):
-					$Sprite2.flip_h = false
-					$Sprite2/Sprite2.flip_h = false
+					$ShellSprite.flip_h = false
+					$ShellSprite/CrabSprite.flip_h = false
 					velocity.x = min(velocity.x + accel, MAX_SPEED)
 				elif Input.is_action_pressed("ui_left"):
-					$Sprite2.flip_h = true
-					$Sprite2/Sprite2.flip_h = true
+					$ShellSprite.flip_h = true
+					$ShellSprite/CrabSprite.flip_h = true
 					velocity.x = max(velocity.x - accel, -MAX_SPEED)
 				else:
 					velocity.x = lerp(velocity.x, 0, 0.2)
@@ -96,21 +96,15 @@ func move_player():
 
 func swap_shells():
 	can_swap = false
-	for n in swap_target.get_children():
-		if n.is_in_group("shell"):
-			n.racing = false
-			n.can_swap = true
-			n.occupied = false
-			swap_target.remove_child(n)
-			## TODO next line is a problem. Don't know why adding the other shell to the world, or the track, breaks the game.
-			## Maybe this all would work better if the parent script was initiating all of it
-			## track.add_child(n, true)
-	track.remove_child(self)
-	swap_target.add_child(self, true)
-	swap_target.current_shell = get_node(".")
 	$Area2D/CollisionShape2D.disabled = true
-	$Sprite2/Sprite2.show()
+	$ShellSprite/CrabSprite.show()
 	occupied = true
+	racing = true
+	var glob_pos = global_position
+	get_parent().remove_child(self)
+	swap_target.add_child(self)
+	global_position = glob_pos
+	emit_signal("swap_now", self)
 
 func _physics_process(delta):
 	get_floor_normal()
@@ -119,7 +113,6 @@ func _physics_process(delta):
 			velocity.y += gravity * delta
 	
 	if occupied == true:
-		
 		if racing == true:
 			get_input()
 	
@@ -145,6 +138,7 @@ func _on_Area2D_body_entered(body):
 	swap_target = get_node(str(get_path_to(body))).get_parent()
 	if swap_target.is_in_group("player"):
 		can_swap = true
+		self.connect("swap_now", swap_target, "swap_shells", [], 4)
 		## TODO turn on up-arrow graphic to cue player to swap
 
 func _on_Area2D_body_exited(body):

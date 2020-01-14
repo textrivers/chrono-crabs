@@ -32,19 +32,19 @@ enabled = true
 [node name="FlipTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="ShellSprite" type="Sprite" parent="."]
 self_modulate = Color( 0.215686, 0.603922, 0.94902, 1 )
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 2 )
 offset = Vector2( 60, 0 )
 
-[node name="Sprite2" type="Sprite" parent="Sprite2"]
+[node name="CrabSprite" type="Sprite" parent="ShellSprite"]
 visible = false
 self_modulate = Color( 0.619608, 0.0862745, 0.270588, 1 )
 texture = ExtResource( 3 )
 offset = Vector2( 60, 0 )
 
-[node name="Sprite" type="Sprite" parent="Sprite2"]
+[node name="Sprite" type="Sprite" parent="ShellSprite"]
 visible = false
 modulate = Color( 0.321569, 0.494118, 0.952941, 1 )
 texture = ExtResource( 4 )

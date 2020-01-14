@@ -31,10 +31,9 @@ position = Vector2( -158, -83 )
 rotation = 1.5708
 
 [node name="TestPlayer" parent="." instance=ExtResource( 5 )]
-editor/display_folded = true
 position = Vector2( 3397.94, 3321.81 )
 
-[node name="Sprite2" parent="TestPlayer" index="4"]
+[node name="ShellSprite" parent="TestPlayer" index="4"]
 self_modulate = Color( 0.909804, 0.215686, 0.94902, 1 )
 
 [editable path="TestPlayer"]
