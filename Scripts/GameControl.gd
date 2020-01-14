@@ -38,8 +38,8 @@ func _physics_process(delta):
 	if racing == true:
 		elapsed = current_moment - start_moment
 
-	var minutes = elapsed / 60000
-	var seconds = elapsed / 1000
+	var minutes = (elapsed / 1000) / 60
+	var seconds = (elapsed / 1000) % 60
 	var milliseconds = elapsed % 1000
 	
 	str_elapsed = "%02d:%02d:%03d" % [minutes, seconds, milliseconds]
