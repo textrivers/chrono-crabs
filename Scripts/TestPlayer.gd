@@ -102,11 +102,12 @@ func swap_shells():
 			n.can_swap = true
 			n.occupied = false
 			swap_target.remove_child(n)
-			## TODO this is a problem. Don't know why adding the other shell to the world, or the track, breaks the game.
+			## TODO next line is a problem. Don't know why adding the other shell to the world, or the track, breaks the game.
+			## Maybe this all would work better if the parent script was initiating all of it
 			## track.add_child(n, true)
 	track.remove_child(self)
 	swap_target.add_child(self, true)
-	print(self.name)
+	swap_target.current_shell = get_node(".")
 	$Area2D/CollisionShape2D.disabled = true
 	$Sprite2/Sprite2.show()
 	occupied = true

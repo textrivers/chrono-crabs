@@ -31,7 +31,7 @@ func add_players():
 func add_ghosts():
 	if game_data.ghost_data.has(game_data.track_data_index):
 		var ghost = load("res://Scenes/Ghost.tscn").instance()
-		ghost.position = Vector2(150, 325)
+		ghost.position = Vector2(150, 250)
 		add_child(ghost)
 
 func destroy():
