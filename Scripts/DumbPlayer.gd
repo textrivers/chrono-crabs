@@ -21,7 +21,9 @@ const CAMERA_OFFSET_SPEED = 1
 
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
 	pass
 

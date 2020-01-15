@@ -25,7 +25,9 @@ const ROTATION_CONST = 1.8
 
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
 	
 	## accessing world variable for later
@@ -131,6 +133,7 @@ func _on_FlipTimer_timeout():
 func start_race():
 	racing = true
 
+# warning-ignore:unused_argument
 func finish_race(elapsed):
 	racing = false
 
@@ -141,6 +144,7 @@ func _on_Area2D_body_entered(body):
 		print(str(body) + " entered area of " + str(self.name))
 		can_swap = true
 		if !is_connected("swap_now", swap_target, "swap_shells"):
+# warning-ignore:return_value_discarded
 			self.connect("swap_now", swap_target, "swap_shells")
 		## TODO turn on up-arrow graphic to cue player to swap
 

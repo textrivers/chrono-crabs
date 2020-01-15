@@ -67,13 +67,22 @@ func _server_disconnected():
 
 func _end_game(with_error=""):
 	
-	show()
 	game_on = false
-	
-	get_tree().set_network_peer(null) ## remove peer
+	$Panel/Name.set_text("")
+	$Panel/Address.set_text("")
+	$Panel/Solo_Button.disabled = true
 	$Panel/Join_Button.set_disabled(false)
 	$Panel/Host_Button.set_disabled(false)
-	$Panel/Solo_Button.set_disabled(false)
+	
+	$Panel/Player_1.set_text("")
+	$Panel/Player_2.set_text("")
+	$Panel/Player_3.set_text("")
+	$Panel/Player_4.set_text("")
+	
+	show()
+	
+	get_tree().set_network_peer(null) ## remove peer
+
 	_set_status(with_error, false)
 
 func _set_status(text, isok):
@@ -99,7 +108,6 @@ remote func register_player(their_id, their_name):
 		info_index += 1 
 
 func _on_Host_Button_pressed():
-	$Panel/Solo_Button.set_text("PLAY")
 	
 	my_name = $Panel/Name.get_text()
 	if my_name == "":
@@ -122,6 +130,7 @@ func _on_Host_Button_pressed():
 	get_tree().set_network_peer(host)
 	$Panel/Join_Button.set_disabled(true)
 	$Panel/Host_Button.set_disabled(true)
+	$Panel/Solo_Button.disabled = false
 	_set_status("Waiting for players...", true)
 	
 	get_node("Panel/Player_1").set_text(my_name + " is hosting")
@@ -152,13 +161,14 @@ func _on_Solo_Button_pressed():
 	game_on = true
 	
 	## make player_info accessible
-	game_data.player_info = player_info
+	if player_info != {}:
+		game_data.player_info = player_info
 	
 	## hide lobby
 	hide()
 	
 	## show TrackSelectMenu
-	game_control.TrackSelectMenuContainer.show()
+	get_node(str(get_path_to(game_control)) + "/TrackSelectMenuContainer").show()
 	
 	
 

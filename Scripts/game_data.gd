@@ -1,17 +1,22 @@
 extends Node
 
+# warning-ignore:unused_class_variable
 var player_info = {
 	0: 1
 }
 
+# warning-ignore:unused_class_variable
 var track_data_index = 0
+# warning-ignore:unused_class_variable
 var track_data = {
 	0: "res://Scenes/BasicDownhillTrack.tscn",
 	1: "res://Scenes/TrackRollerCoaster.tscn", 
 	2: "res://Scenes/Bowl.tscn"
 }
 
+# warning-ignore:unused_class_variable
 var playing_with_ghost = false
+# warning-ignore:unused_class_variable
 var ghost_data = {}
 
 

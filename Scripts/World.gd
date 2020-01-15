@@ -6,6 +6,7 @@ var game_control
 func _ready():
 	game_control = get_node("/root/ChronoCrabs/GameControl")
 	
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_cancel"):
 		game_control._on_QuitToMenu_pressed()

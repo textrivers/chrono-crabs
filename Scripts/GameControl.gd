@@ -18,11 +18,11 @@ var timer_label
 
 var lobby
 var world
-var player
 
 func _ready():
 	
 	timer_label = get_node("TimerContainer/Label")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/Lobby").connect("start_game", self, "initiate_race")
 	
 func _on_Lobby_ready():
@@ -31,6 +31,7 @@ func _on_Lobby_ready():
 func _on_World_ready():
 	world = get_node("/root/ChronoCrabs/World")
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	
 	current_moment = OS.get_ticks_msec()
@@ -48,6 +49,7 @@ func _physics_process(delta):
 
 func initiate_race():
 	## TODO move all game creation functions from Lobby to here,
+	print(game_data.player_info)
 	## hide menu
 	$TrackSelectMenuContainer.hide()
 	## add track, correct number of players, and ghosts
@@ -135,7 +137,7 @@ func _on_SinglePlayer_pressed():
 	
 func _on_Multiplayer_pressed():
 	$MainMenuContainer.hide()
-	lobby.show()
+	lobby._end_game("")
 
 func _on_Options_pressed():
 	$MainMenuContainer/Panel/Options.set_text("Options coming soon")

@@ -12,12 +12,15 @@ var track
 
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
 	current_shell = $TestPlayer
 	current_shell_sprite = $TestPlayer/ShellSprite
 	track = get_node("..")
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	reposition_camera()
 	adjust_camera_offset()

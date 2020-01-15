@@ -7,10 +7,13 @@ var frame_index = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_playback")
+# warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_playback")
 	data = game_data.ghost_data[game_data.track_data_index]
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	if playback == true && data.has(frame_index):
 		position = data[frame_index][0]
@@ -30,3 +33,4 @@ func start_playback():
 func finish_playback():
 	playback = false
 	$Sprite.hide()
+	$Particles2D.hide()
