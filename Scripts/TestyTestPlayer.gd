@@ -40,7 +40,7 @@ func record_ghost():
 		ghost_data_index += 1
 
 func swap_shells(new_shell):
-	current_shell.racing = false
+	## current_shell.racing = true
 	current_shell.can_swap = false
 	current_shell.occupied = false
 	get_node(str(get_path_to(current_shell)) + "/ShellSprite/CrabSprite").hide()

@@ -112,15 +112,16 @@ func _physics_process(delta):
 	if !is_on_floor() or rolling:
 			velocity.y += gravity * delta
 	
-	if occupied == true:
-		if racing == true:
+	if racing == true:
+		
+		if occupied == true:
 			get_input()
+		if can_swap == true:
+			if Input.is_action_just_pressed("ui_up"):
+				swap_shells()
 	
-	move_player()
-	
-	if can_swap == true:
-		if Input.is_action_just_pressed("ui_up"):
-			swap_shells()
+		move_player()
+
 
 func _on_FlipTimer_timeout():
 	$FlipTimer.stop()
@@ -135,12 +136,16 @@ func finish_race(elapsed):
 
 func _on_Area2D_body_entered(body):
 	## get the parent of the thing that entered the area
-	swap_target = get_node(str(get_path_to(body))).get_parent()
+	swap_target = body.get_parent()
 	if swap_target.is_in_group("player"):
+		print(str(body) + " entered area of " + str(self.name))
 		can_swap = true
-		self.connect("swap_now", swap_target, "swap_shells", [], 4)
+		if !is_connected("swap_now", swap_target, "swap_shells"):
+			self.connect("swap_now", swap_target, "swap_shells")
 		## TODO turn on up-arrow graphic to cue player to swap
 
 func _on_Area2D_body_exited(body):
-	if get_node(str(get_path_to(body))).is_in_group("shell"):
+	if body.is_in_group("shell"):
+		print(str(body) + " exited area of " + str(self.name))
 		can_swap = false
+		## self.disconnect("swap_now", swap_target, "swap_shells")

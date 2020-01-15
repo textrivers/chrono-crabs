@@ -25,13 +25,13 @@ func add_players():
 		var player = load("res://Scenes/TestyTestPlayer.tscn").instance()
 		player.set_name(str(p))
 		player.set_network_master(p)
-		player.position = Vector2(150, 250)
+		player.position = Vector2(150, 200)
 		add_child(player)
 
 func add_ghosts():
 	if game_data.ghost_data.has(game_data.track_data_index):
 		var ghost = load("res://Scenes/Ghost.tscn").instance()
-		ghost.position = Vector2(150, 250)
+		ghost.position = Vector2(150, 200)
 		add_child(ghost)
 
 func destroy():
