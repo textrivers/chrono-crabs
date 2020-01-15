@@ -120,7 +120,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("ui_up"):
 				swap_shells()
 	
-		move_player()
+	move_player()
 
 
 func _on_FlipTimer_timeout():
@@ -136,8 +136,8 @@ func finish_race(elapsed):
 
 func _on_Area2D_body_entered(body):
 	## get the parent of the thing that entered the area
-	swap_target = body.get_parent()
-	if swap_target.is_in_group("player"):
+	if body.get_parent().is_in_group("player"):
+		swap_target = body.get_parent()
 		print(str(body) + " entered area of " + str(self.name))
 		can_swap = true
 		if !is_connected("swap_now", swap_target, "swap_shells"):
