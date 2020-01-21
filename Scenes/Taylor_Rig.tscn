@@ -10,7 +10,7 @@
 [ext_resource path="res://Sprites/taylor_leg-tip.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/shell_reference.png" type="Texture" id=9]
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 resource_name = "antenna_double_twitch"
 length = 2.0
 step = 0.03
@@ -591,8 +591,7 @@ tracks/47/keys = {
 "values": [ -37.6699 ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "antenna_twitch"
+[sub_resource type="Animation" id=2]
 step = 0.03
 tracks/0/type = "value"
 tracks/0/path = NodePath("leg_back_1:position")
@@ -1171,7 +1170,7 @@ tracks/47/keys = {
 "values": [ -37.6699 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("leg_back_1:position")
 tracks/0/interp = 1
@@ -1762,7 +1761,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -90.5771, -10.0514 ), Vector2( -85.5415, -30.0425 ), Vector2( -129.864, -88.8283 ), Vector2( -196.662, -0.0932617 ) ]
+"values": [ Vector2( -90.5771, -10.0514 ), Vector2( -85.5415, -30.0425 ), Vector2( -129.864, -88.8283 ), Vector2( -204.142, 10.7898 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("leg_back_1:rotation_degrees")
@@ -1774,7 +1773,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 23.3134, 30.0, 0.0, -44.9999 ]
+"values": [ 23.3134, 30.0, 0.0, -59.9999 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("claw_front_2/claw_front_2:position")
@@ -2549,6 +2548,7 @@ __meta__ = {
 }
 
 [node name="leg_back_end" type="Position2D" parent="body/leg_back_1/leg_back_2/leg_back_3"]
+visible = false
 position = Vector2( -83, 24 )
 rotation = -0.247716
 __meta__ = {
@@ -2557,9 +2557,9 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body"]
 autoplay = "rest"
-anims/antenna_double_twitch = SubResource( 5 )
-anims/antenna_twitch = SubResource( 1 )
-anims/rest = SubResource( 2 )
+anims/antenna_double_twitch = SubResource( 1 )
+anims/antenna_twitch = SubResource( 2 )
+anims/rest = SubResource( 3 )
 anims/withdraw = SubResource( 4 )
 
 [node name="shell_reference" type="Sprite" parent="."]
