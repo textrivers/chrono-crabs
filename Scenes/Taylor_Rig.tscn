@@ -2954,9 +2954,6 @@ scale = Vector2( 0.25, 0.25 )
 [node name="body" type="Sprite" parent="."]
 position = Vector2( 162.106, -49.4739 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="eye_right" type="Sprite" parent="body"]
 position = Vector2( 41.293, -11.1412 )
@@ -3069,7 +3066,7 @@ __meta__ = {
 
 [node name="leg_front_1" type="Sprite" parent="body"]
 position = Vector2( -65.3138, -8.99875 )
-rotation = 6.61728
+rotation = 6.45079
 texture = ExtResource( 6 )
 offset = Vector2( 38.1271, 30.9316 )
 __meta__ = {
@@ -3089,7 +3086,7 @@ __meta__ = {
 
 [node name="leg_front_3" type="Sprite" parent="body/leg_front_1/leg_front_2"]
 position = Vector2( 71.5066, 56.9141 )
-rotation = -1.3137
+rotation = -1.29048
 texture = ExtResource( 8 )
 offset = Vector2( -35.4089, 8.8363 )
 __meta__ = {
@@ -3105,8 +3102,8 @@ __meta__ = {
 }
 
 [node name="leg_back_1" type="Sprite" parent="body"]
-position = Vector2( -90.4835, -10.9707 )
-rotation = 0.354007
+position = Vector2( -90.5771, -10.0514 )
+rotation = 0.406896
 texture = ExtResource( 6 )
 offset = Vector2( 38.1271, 30.9316 )
 __meta__ = {
@@ -3116,7 +3113,7 @@ __meta__ = {
 
 [node name="leg_back_2" type="Sprite" parent="body/leg_back_1"]
 position = Vector2( 70.7151, 53.7458 )
-rotation = 1.03777
+rotation = 0.55624
 z_index = 7
 texture = ExtResource( 6 )
 offset = Vector2( 38.1083, 31.3388 )
@@ -3126,7 +3123,7 @@ __meta__ = {
 
 [node name="leg_back_3" type="Sprite" parent="body/leg_back_1/leg_back_2"]
 position = Vector2( 71.5066, 56.9141 )
-rotation = -1.84258
+rotation = -1.24593
 texture = ExtResource( 8 )
 offset = Vector2( -35.4089, 8.8363 )
 __meta__ = {
@@ -3143,7 +3140,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body"]
 autoplay = "rest"
-playback_speed = 0.5
 anims/antenna_double_twitch = SubResource( 1 )
 anims/antenna_twitch = SubResource( 2 )
 anims/rest = SubResource( 3 )
