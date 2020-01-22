@@ -1171,12 +1171,8 @@ tracks/47/keys = {
 "values": [ -37.6699 ]
 }
 
-<<<<<<< HEAD
 [sub_resource type="Animation" id=3]
-=======
-[sub_resource type="Animation" id=2]
 step = 0.03
->>>>>>> e8451ef80b6c2cd9537b27f091789c920bbf4b2f
 tracks/0/type = "value"
 tracks/0/path = NodePath("leg_back_1:position")
 tracks/0/interp = 1
@@ -1754,14 +1750,10 @@ tracks/47/keys = {
 "values": [ -37.6699 ]
 }
 
-<<<<<<< HEAD
 [sub_resource type="Animation" id=4]
 resource_name = "walk"
 loop = true
 step = 0.05
-=======
-[sub_resource type="Animation" id=3]
->>>>>>> e8451ef80b6c2cd9537b27f091789c920bbf4b2f
 tracks/0/type = "value"
 tracks/0/path = NodePath("leg_back_1:position")
 tracks/0/interp = 1
@@ -3151,19 +3143,12 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="body"]
 autoplay = "rest"
-<<<<<<< HEAD
 playback_speed = 0.5
 anims/antenna_double_twitch = SubResource( 1 )
 anims/antenna_twitch = SubResource( 2 )
 anims/rest = SubResource( 3 )
 anims/walk = SubResource( 4 )
 anims/withdraw = SubResource( 5 )
-=======
-anims/antenna_double_twitch = SubResource( 1 )
-anims/antenna_twitch = SubResource( 2 )
-anims/rest = SubResource( 3 )
-anims/withdraw = SubResource( 4 )
->>>>>>> e8451ef80b6c2cd9537b27f091789c920bbf4b2f
 
 [node name="shell_reference" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.494118 )
