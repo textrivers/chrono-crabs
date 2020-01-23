@@ -42,11 +42,10 @@ func record_ghost():
 		ghost_data_index += 1
 
 func swap_shells(new_shell):
-	print("Crab called swap")
 	current_shell.can_swap = false
 	current_shell.occupied = false
 	## TODO animate crab transition to new shell
-	get_node(str(get_path_to(current_shell)) + "/ShellSprite/Body").hide()
+	get_node(str(get_path_to(current_shell)) + "/ShellSprite/Crab").hide()
 	get_node(str(get_path_to(current_shell)) + "/Area2D/CollisionShape2D").disabled = false
 	var glob_pos = current_shell.global_position
 	remove_child(current_shell)
@@ -56,7 +55,6 @@ func swap_shells(new_shell):
 	current_shell_sprite = get_node(str(get_path_to(new_shell)) + "/ShellSprite")
 
 func finish_race(elapsed):
-	print(elapsed)
 
 	racing = false
 	current_ghost["time_msec"] = elapsed

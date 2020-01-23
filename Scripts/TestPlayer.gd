@@ -99,7 +99,7 @@ func move_player():
 func swap_shells():
 	can_swap = false
 	$Area2D/CollisionShape2D.disabled = true
-	$ShellSprite/CrabSprite.show()
+	$ShellSprite/Crab.show()
 	occupied = true
 	racing = true
 	var glob_pos = global_position

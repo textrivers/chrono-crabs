@@ -9,7 +9,7 @@ var rolling = false
 var gravity = 1600
 var last_frame_pos = Vector2(0,0)
 var pos_diff = 0
-var flipped = false
+var upside_down = false
 var flip_now = false
 var withdrawn = false
 
@@ -23,6 +23,7 @@ var swap_target = ""
 signal swap_now(shell)
 
 const ROTATION_CONST = 1.8
+const ANIM_WALK_CONST = 0.015
 
 func _ready():
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
@@ -38,12 +39,15 @@ func _ready():
 	if get_node("..").is_in_group("player"):
 		player = get_node("..")
 		$Area2D/CollisionShape2D.disabled = true
-		$ShellSprite/Body.show()
+		$ShellSprite/Crab.show()
 		occupied = true
 
 func get_floor_normal():
-	if $RayDown.is_colliding():
-		floor_normal = $RayDown.get_collision_normal()
+	## keep RayDown pointing straight down
+	$RayFloor.rotation_degrees = -rotation_degrees
+	
+	if $RayFloor.is_colliding():
+		floor_normal = $RayFloor.get_collision_normal()
 
 func get_input():
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -53,41 +57,46 @@ func get_input():
 	if Input.is_action_pressed("ui_down"):
 		if withdrawn == false:
 			withdrawn = true
-			if $ShellSprite/Body/AnimationPlayer.current_animation == "withdraw":
-				$ShellSprite/Body/AnimationPlayer.stop(false)
-			$ShellSprite/Body/AnimationPlayer.play("withdraw")
+			if $ShellSprite/Crab/AnimationPlayer.current_animation == "withdraw":
+				$ShellSprite/Crab/AnimationPlayer.stop(false) ## pauses animation without resetting
+			$ShellSprite/Crab/AnimationPlayer.playback_speed = 1.5
+			$ShellSprite/Crab/AnimationPlayer.play("withdraw")
 		rolling = true
 		flip_now = false
 		if floor_normal == Vector2(0, -1):
 			if abs(velocity.x) > 5:
 				velocity.x = lerp(velocity.x, 0, 0.01)
 			else:
-				velocity.x = lerp(velocity.x, 0, 0.2)
+				velocity.x = lerp(velocity.x, 0, 0.1)
 	else:
-		
 		if withdrawn == true:
 			withdrawn = false
-			if $ShellSprite/Body/AnimationPlayer.current_animation == "withdraw":
-				$ShellSprite/Body/AnimationPlayer.stop(false)
-			$ShellSprite/Body/AnimationPlayer.play_backwards("withdraw")
+			if $ShellSprite/Crab/AnimationPlayer.current_animation == "withdraw":
+				$ShellSprite/Crab/AnimationPlayer.stop(false) ## pauses animation without resetting
+			$ShellSprite/Crab/AnimationPlayer.playback_speed = 1.5
+			$ShellSprite/Crab/AnimationPlayer.play_backwards("withdraw")
 		
 		rolling = false
 		if is_on_floor():
-			if flipped == false:
+			if upside_down == false:
 				if Input.is_action_pressed("ui_right"):
-					## $ShellSprite.flip_h = false
-					## $ShellSprite/Body.flip_h = false
 					$ShellSprite.scale.x = abs($ShellSprite.scale.x)
 					velocity.x = min(velocity.x + accel, MAX_SPEED)
+					if $ShellSprite/Crab/AnimationPlayer.current_animation != "walk":
+						$ShellSprite/Crab/AnimationPlayer.play("walk")
+					$ShellSprite/Crab/AnimationPlayer.playback_speed = velocity.x * ANIM_WALK_CONST
 				elif Input.is_action_pressed("ui_left"):
-					## $ShellSprite.flip_h = true
-					## $ShellSprite/Body.flip_h = true
 					$ShellSprite.scale.x = -abs($ShellSprite.scale.x)
 					velocity.x = max(velocity.x - accel, -MAX_SPEED)
+					if $ShellSprite/Crab/AnimationPlayer.current_animation != "walk":
+						$ShellSprite/Crab/AnimationPlayer.play("walk")
+					$ShellSprite/Crab/AnimationPlayer.playback_speed = -velocity.x * ANIM_WALK_CONST
 				else:
 					velocity.x = lerp(velocity.x, 0, 0.2)
+					$ShellSprite/Crab/AnimationPlayer.play("rest")
 			else:
 				velocity.x = lerp(velocity.x, 0, 0.2)
+				$ShellSprite/Crab/AnimationPlayer.play("rest")
 
 func move_player():
 
@@ -105,18 +114,17 @@ func move_player():
 			## timer for flipping upright
 			if $FlipTimer.is_stopped():
 				flip_now = false
-				flipped = true
+				upside_down = true
 				$FlipTimer.start()
 
 	last_frame_pos.x = position.x
 
 func swap_shells():
-	print("Shell called swap")
 	can_swap = false
 	$Area2D/CollisionShape2D.disabled = true
 	occupied = true
 	## TODO swap animation
-	$ShellSprite/Body.show()
+	$ShellSprite/Crab.show()
 	racing = true
 	var glob_pos = global_position
 	get_parent().remove_child(self)
@@ -128,24 +136,26 @@ func swap_shells():
 func _physics_process(delta):
 	get_floor_normal()
 
-	if !is_on_floor() or rolling:
+	if !is_on_floor() || rolling == true:
 			velocity.y += gravity * delta
 
 	if racing == true:
-
 		if occupied == true:
 			get_input()
 		if can_swap == true:
 			if Input.is_action_just_pressed("ui_up"):
 				swap_shells()
-
+	else: 
+		velocity.x = lerp(velocity.x, 0, 0.2)
+		$ShellSprite/Crab/AnimationPlayer.play("rest")
+	
 	move_player()
 
 
 func _on_FlipTimer_timeout():
 	$FlipTimer.stop()
 	flip_now = true
-	flipped = false
+	upside_down = false
 
 func start_race():
 	racing = true
@@ -153,6 +163,7 @@ func start_race():
 # warning-ignore:unused_argument
 func finish_race(elapsed):
 	racing = false
+	$ShellSprite/Crab/AnimationPlayer.play("rest")
 
 func _on_Area2D_body_entered(body):
 	## get the parent of the thing that entered the area

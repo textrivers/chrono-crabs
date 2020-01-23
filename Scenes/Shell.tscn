@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Shell.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/shell_teal-green.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Body.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -33,6 +33,9 @@ disabled = true
 [node name="RayDown" type="RayCast2D" parent="."]
 enabled = true
 
+[node name="RayFloor" type="RayCast2D" parent="."]
+enabled = true
+
 [node name="FlipTimer" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -43,10 +46,12 @@ z_index = 5
 texture = ExtResource( 2 )
 offset = Vector2( 27, -37 )
 
-[node name="Body" parent="ShellSprite" instance=ExtResource( 3 )]
+[node name="Crab" parent="ShellSprite" instance=ExtResource( 3 )]
+visible = false
 z_index = -5
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = -10

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/BowlLeft.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/TestPlayer.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/shell_tropical.png" type="Texture" id=6]
 
 [node name="Bowl" type="Node2D"]
 position = Vector2( 208, 248 )
@@ -16,7 +17,6 @@ position = Vector2( 6125, 0 )
 scale = Vector2( -1, 1 )
 
 [node name="StartingLine" parent="." instance=ExtResource( 2 )]
-visible = true
 position = Vector2( 104.252, -185.965 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 3 )]
@@ -30,10 +30,10 @@ position = Vector2( -83, 71 )
 position = Vector2( -158, -83 )
 rotation = 1.5708
 
-[node name="TestPlayer" parent="." instance=ExtResource( 5 )]
-position = Vector2( 3397.94, 3321.81 )
+[node name="Shell" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3278.89, 3187.75 )
 
-[node name="ShellSprite" parent="TestPlayer" index="4"]
-self_modulate = Color( 0.909804, 0.215686, 0.94902, 1 )
+[node name="ShellSprite" parent="Shell" index="4"]
+texture = ExtResource( 6 )
 
-[editable path="TestPlayer"]
+[editable path="Shell"]
