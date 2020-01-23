@@ -23,7 +23,7 @@ func add_track():
 
 func add_players():
 	for p in game_data.player_info:
-		var player = load("res://Scenes/TestyTestPlayer.tscn").instance()
+		var player = load("res://Scenes/Crab.tscn").instance()
 		player.set_name(str(p))
 		player.set_network_master(p)
 		player.position = Vector2(150, 200)

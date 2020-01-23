@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scripts/TestPlayer.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/clumsy_shell.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/clumsy_crab.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/shell_outline.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Shell.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/shell_teal-green.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Body.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -12,19 +11,24 @@ radius = 33.4425
 radius = 18.0198
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 204.002
+radius = 200.0
 
-[node name="TestPlayer" type="KinematicBody2D" groups=[
+[node name="Shell" type="KinematicBody2D" groups=[
 "shell",
 ]]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -6 )
+z_index = -10
 shape = SubResource( 1 )
 
 [node name="SmallCollider" type="CollisionShape2D" parent="."]
-position = Vector2( 30, -15 )
+visible = false
+position = Vector2( 27, -21 )
+z_index = -10
 shape = SubResource( 2 )
+disabled = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
 enabled = true
@@ -34,23 +38,18 @@ wait_time = 0.5
 
 [node name="ShellSprite" type="Sprite" parent="."]
 self_modulate = Color( 0.215686, 0.603922, 0.94902, 1 )
-scale = Vector2( 0.6, 0.6 )
+scale = Vector2( 0.25, 0.25 )
+z_index = 5
 texture = ExtResource( 2 )
-offset = Vector2( 60, 0 )
+offset = Vector2( 27, -37 )
 
-[node name="CrabSprite" type="Sprite" parent="ShellSprite"]
-self_modulate = Color( 0.619608, 0.0862745, 0.270588, 1 )
-texture = ExtResource( 3 )
-offset = Vector2( 60, 0 )
-
-[node name="Sprite" type="Sprite" parent="ShellSprite"]
-visible = false
-modulate = Color( 0.321569, 0.494118, 0.952941, 1 )
-texture = ExtResource( 4 )
+[node name="Body" parent="ShellSprite" instance=ExtResource( 3 )]
+z_index = -5
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = -10
 shape = SubResource( 3 )
 [connection signal="timeout" from="FlipTimer" to="." method="_on_FlipTimer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -67,7 +67,7 @@ position = Vector2( 2545.84, 2704.54 )
 rotation = 1.57079
 
 [node name="RacetrackRectangle49" parent="TrackPieces" instance=ExtResource( 1 )]
-position = Vector2( -48.7138, 261.241 )
+position = Vector2( -48.7138, 258.723 )
 rotation = 1.57079
 
 [node name="RacetrackRectangle35" parent="TrackPieces" instance=ExtResource( 1 )]
@@ -230,14 +230,7 @@ rotation = -0.785397
 [node name="Bowl" parent="TrackPieces" instance=ExtResource( 4 )]
 position = Vector2( 10382.6, 4534.66 )
 
-[node name="StartingLine" parent="TrackPieces/Bowl" index="2"]
-visible = false
-
-[node name="FinishSystem" parent="TrackPieces/Bowl" index="3"]
-visible = false
-
 [node name="StartingLine" parent="." instance=ExtResource( 5 )]
-visible = true
 position = Vector2( 200.624, 171.962 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 6 )]
