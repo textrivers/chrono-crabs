@@ -46,7 +46,9 @@ func get_floor_normal():
 	## keep RayDown pointing straight down
 	$RayFloor.rotation_degrees = -rotation_degrees
 	
-	if $RayFloor.is_colliding():
+	if $RayDown.is_colliding():
+		floor_normal = $RayDown.get_collision_normal()
+	elif $RayFloor.is_colliding():
 		floor_normal = $RayFloor.get_collision_normal()
 
 func get_input():
@@ -75,7 +77,6 @@ func get_input():
 				$ShellSprite/Crab/AnimationPlayer.stop(false) ## pauses animation without resetting
 			$ShellSprite/Crab/AnimationPlayer.playback_speed = 1.5
 			$ShellSprite/Crab/AnimationPlayer.play_backwards("withdraw")
-		
 		rolling = false
 		if is_on_floor():
 			if upside_down == false:
