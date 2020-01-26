@@ -97,7 +97,6 @@ func get_input():
 					$ShellSprite/Crab/AnimationPlayer.play("rest")
 			else:
 				velocity.x = lerp(velocity.x, 0, 0.2)
-				$ShellSprite/Crab/AnimationPlayer.play("rest")
 
 func move_player():
 
@@ -125,6 +124,7 @@ func swap_shells():
 	$Area2D/CollisionShape2D.disabled = true
 	occupied = true
 	## TODO swap animation
+	$ShellSprite/Crab/AnimationPlayer.stop()
 	$ShellSprite/Crab.show()
 	racing = true
 	var glob_pos = global_position
@@ -143,12 +143,14 @@ func _physics_process(delta):
 	if racing == true:
 		if occupied == true:
 			get_input()
+		else:
+			velocity.x = lerp(velocity.x, 0, 0.2)
+		
 		if can_swap == true:
 			if Input.is_action_just_pressed("ui_up"):
 				swap_shells()
 	else: 
 		velocity.x = lerp(velocity.x, 0, 0.2)
-		$ShellSprite/Crab/AnimationPlayer.play("rest")
 	
 	move_player()
 
