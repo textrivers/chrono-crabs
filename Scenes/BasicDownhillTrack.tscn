@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/RacetrackTriangle.tscn" type="PackedScene" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://Scenes/Bowl.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=7]
 
 [node name="BasicDownhillTrack" type="Node2D"]
 
 [node name="TrackPieces" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="RacetrackRectangle" parent="TrackPieces" instance=ExtResource( 1 )]
 position = Vector2( 201, 409 )
@@ -235,5 +237,12 @@ position = Vector2( 200.624, 171.962 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 6 )]
 position = Vector2( 10193.5, 3993.34 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+texture = ExtResource( 7 )
+centered = false
 
 [editable path="TrackPieces/Bowl"]

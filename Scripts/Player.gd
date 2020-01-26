@@ -29,11 +29,14 @@ func start_race():
 	racing = true
 
 func reposition_camera():
-	$Camera2D.position = current_shell.position
-
+	## this should now be done by default
+	## $Camera2D.position = current_shell.position
+	pass
+	
 func adjust_camera_offset():
-	$Camera2D.offset.x = lerp($Camera2D.offset.x, clamp(current_shell.velocity.x, 100, 300), 0.03)
-	$Camera2D.offset.y = lerp($Camera2D.offset.y, clamp(current_shell.velocity.y, 0, 200), 0.03)
+	## $Camera2D.offset.x = lerp($Camera2D.offset.x, clamp(current_shell.velocity.x, 100, 300), 0.03)
+	## $Camera2D.offset.y = lerp($Camera2D.offset.y, clamp(current_shell.velocity.y, 0, 200), 0.03)
+	pass
 
 func record_ghost():
 	if racing == true:

@@ -9,6 +9,8 @@ var rolling = false
 var gravity = 1600
 var last_frame_pos = Vector2(0,0)
 var pos_diff = 0
+
+var facing_right = true
 var upside_down = false
 var flip_now = false
 var withdrawn = false
@@ -81,12 +83,14 @@ func get_input():
 		if is_on_floor():
 			if upside_down == false:
 				if Input.is_action_pressed("ui_right"):
+					facing_right = true
 					$ShellSprite.scale.x = abs($ShellSprite.scale.x)
 					velocity.x = min(velocity.x + accel, MAX_SPEED)
 					if $ShellSprite/Crab/AnimationPlayer.current_animation != "walk":
 						$ShellSprite/Crab/AnimationPlayer.play("walk")
 					$ShellSprite/Crab/AnimationPlayer.playback_speed = velocity.x * ANIM_WALK_CONST
 				elif Input.is_action_pressed("ui_left"):
+					facing_right = false
 					$ShellSprite.scale.x = -abs($ShellSprite.scale.x)
 					velocity.x = max(velocity.x - accel, -MAX_SPEED)
 					if $ShellSprite/Crab/AnimationPlayer.current_animation != "walk":
