@@ -30,7 +30,7 @@ func add_players():
 		add_child(player)
 		
 		var crab = load("res://Scenes/Crab.tscn").instance()
-		player.add_child(crab)
+		get_node(str(get_path_to(player)) + "/CrabContainer").add_child(crab)
 		## set crab position appropriately
 		
 

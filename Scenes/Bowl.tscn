@@ -33,7 +33,8 @@ rotation = 1.5708
 [node name="Shell" parent="." instance=ExtResource( 5 )]
 position = Vector2( 3278.89, 3187.75 )
 
-[node name="ShellSprite" parent="Shell" index="4"]
+[node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
+self_modulate = Color( 1, 1, 1, 1 )
 texture = ExtResource( 6 )
 
 [editable path="Shell"]

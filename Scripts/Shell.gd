@@ -35,11 +35,9 @@ func _ready():
 	world = get_node("/root/ChronoCrabs/World")
 
 	## disable Area2D for player
-	if get_node("..").is_in_group("player"):
-		player = get_node("..")
+	if occupied == true:
 		$Area2D/CollisionShape2D.disabled = true
-		$ShellSprite/Crab.show()
-		occupied = true
+		
 
 func get_floor_normal():
 	## keep RayDown pointing straight down
@@ -67,11 +65,11 @@ func get_input():
 			if upside_down == false:
 				if Input.is_action_pressed("ui_right"):
 					facing_right = true
-					$ShellSprite.scale.x = abs($ShellSprite.scale.x)
+					## $ShellSprite.scale.x = abs($ShellSprite.scale.x)
 					velocity.x = min(velocity.x + accel, MAX_SPEED)
 				elif Input.is_action_pressed("ui_left"):
 					facing_right = false
-					$ShellSprite.scale.x = -abs($ShellSprite.scale.x)
+					## $ShellSprite.scale.x = -abs($ShellSprite.scale.x)
 					velocity.x = max(velocity.x - accel, -MAX_SPEED)
 				else:
 					velocity.x = lerp(velocity.x, 0, 0.2)
@@ -100,6 +98,11 @@ func move_player():
 	last_frame_pos.x = position.x
 
 func _physics_process(delta):
+	if facing_right == true:
+		$CrabContainer.scale.x = lerp($CrabContainer.scale.x, 1, 0.3)
+	else:
+		$CrabContainer.scale.x = lerp($CrabContainer.scale.x, -1, 0.3)
+	
 	get_floor_normal()
 
 	if !is_on_floor() || rolling == true:
@@ -126,6 +129,5 @@ func start_race():
 # warning-ignore:unused_argument
 func finish_race(elapsed):
 	racing = false
-	$ShellSprite/Crab/AnimationPlayer.play("rest")
 
 
