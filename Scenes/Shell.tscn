@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Shell.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/shell_teal-green.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/Crab.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -46,10 +45,6 @@ z_index = 5
 texture = ExtResource( 2 )
 offset = Vector2( 27, -37 )
 
-[node name="Crab" parent="ShellSprite" instance=ExtResource( 3 )]
-visible = false
-z_index = -5
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 
@@ -57,5 +52,3 @@ collision_layer = 2
 z_index = -10
 shape = SubResource( 3 )
 [connection signal="timeout" from="FlipTimer" to="." method="_on_FlipTimer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

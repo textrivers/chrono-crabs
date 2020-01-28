@@ -5,9 +5,8 @@ var shell
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	## FIX for new player configuration
-	shell = get_node("..")
+	shell = get_parent().get_parent()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	##zoom is 1 at 0 velocity and 2 maximum
 	zoom.x = lerp(zoom.x, clamp((shell.velocity.x / 200), 1.0, 2.0), 0.01)

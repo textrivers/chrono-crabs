@@ -23,11 +23,15 @@ func add_track():
 
 func add_players():
 	for p in game_data.player_info:
-		var player = load("res://Scenes/Player.tscn").instance()
+		var player = load("res://Scenes/Shell.tscn").instance()
 		player.set_name(str(p))
 		player.set_network_master(p)
 		player.position = Vector2(150, 200)
 		add_child(player)
+		
+		var crab = load("res://Scenes/Crab.tscn").instance()
+		player.add_child(crab)
+		## set crab position appropriately
 		
 
 func add_ghosts():

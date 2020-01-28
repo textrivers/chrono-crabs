@@ -1,6 +1,8 @@
 extends Node
 
 var player_info
+var swap_target
+var can_swap
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -33,3 +35,19 @@ remotesync func update_player_registry(other_player_info, other_player_info_inde
 func display_time(minutes, seconds, msec):
 	$Camera2D/Panel/Label.set_text(str(minutes) + ":" + str(seconds) + ":" + str(msec))
 	$Camera2D/Panel/Label.set_text(str(minutes) + ":" + str(seconds) + ":" + str(msec))
+	
+func _on_Area2D_area_entered(area):
+	## get the parent of the thing that entered the area
+	if area.is_in_group("shell"):
+		swap_target = area.get_parent()
+		print(str(area) + " entered area of " + str(self.name))
+		can_swap = true
+		if !is_connected("swap_now", swap_target, "swap_shells"):
+# warning-ignore:return_value_discarded
+			self.connect("swap_now", swap_target, "swap_shells")
+		## TODO turn on up-arrow graphic to cue player to swap
+		
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("shell"):
+		print(str(body) + " exited area of " + str(self.name))
+		can_swap = false
