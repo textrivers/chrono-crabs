@@ -14,10 +14,6 @@ var facing_right = true
 var upside_down = false
 var flip_now = false
 
-
-var world
-var player
-
 var racing = false
 var occupied = false
 
@@ -30,9 +26,6 @@ func _ready():
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
 # warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
-
-	## accessing world variable for later
-	world = get_node("/root/ChronoCrabs/World")
 
 	## disable Area2D for player
 	if occupied == true:
