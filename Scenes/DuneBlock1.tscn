@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/dune1.png" type="Texture" id=1]
+
+[node name="DuneBlock1" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 281.406, 106.875, -281.406, 76.339, -286.795, 67.3579, -276.616, 57.7781, -266.438, 57.1794, -232.909, 37.4211, -193.991, 2.09558, -147.289, -55.3832, -122.142, -81.1289, -102.384, -94.8998, -77.2371, -104.48, -50.8926, -106.276, -15.5672, -102.683, 12.5735, -90.1099, 43.7078, -63.7655, 78.4345, -21.8539, 116.155, 22.4526, 162.258, 55.9819, 211.354, 80.5301, 256.259, 93.7023, 280.808, 94.3011, 286.795, 99.6897 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

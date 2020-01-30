@@ -9,7 +9,7 @@
 [ext_resource path="res://Sprites/taylor_leg-basic.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/taylor_claw.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/taylor_leg-tip.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/CrabCamera.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/PlayerCamera.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "antenna_double_twitch"
@@ -2025,9 +2025,8 @@ anims/struggle = SubResource( 4 )
 anims/walk = SubResource( 5 )
 anims/withdraw = SubResource( 6 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
-script = ExtResource( 10 )
+[node name="Camera2D" parent="." instance=ExtResource( 10 )]
+smoothing_enabled = true
 
 [node name="Area2D" type="Area2D" parent="." groups=[
 "player",
