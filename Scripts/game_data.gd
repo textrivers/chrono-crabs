@@ -12,7 +12,8 @@ var track_data = {
 	0: "res://Scenes/BasicDownhillTrack.tscn",
 	1: "res://Scenes/TrackRollerCoaster.tscn", 
 	2: "res://Scenes/Bowl.tscn",
-	3: "res://Scenes/ProperDunesTrack.tscn"
+	3: "res://Scenes/ProperDunesTrack.tscn",
+	4: "res://Scenes/RepetitiveDunesTrack.tscn"
 }
 
 # warning-ignore:unused_class_variable

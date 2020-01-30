@@ -1,0 +1,185 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/SandFiller.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/DuneBlock1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/DuneBlock4.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=9]
+
+[sub_resource type="VisualShader" id=1]
+graph_offset = Vector2( 0, 71.6007 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="RepetitiveDunesTrack" type="Node2D"]
+
+[node name="Dunes" type="Node2D" parent="."]
+position = Vector2( 136, -104 )
+
+[node name="SandFiller" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( -1038.41, 1106.3 )
+rotation = 0.0096096
+
+[node name="SandFiller2" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 1378.79, 1158.25 )
+rotation = 0.303125
+
+[node name="SandFiller3" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 1393.49, 1163.74 )
+rotation = 1.63094
+
+[node name="SandFiller13" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 3746.29, 1830.99 )
+rotation = 1.74956
+
+[node name="SandFiller4" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 3711.47, 1821.38 )
+rotation = 0.303662
+
+[node name="SandFiller5" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 6350.52, 2735.35 )
+rotation = 1.95084
+
+[node name="SandFiller6" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 6029.21, 2603.77 )
+rotation = 0.574649
+
+[node name="SandFiller7" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 8145.05, 4071.34 )
+rotation = 2.25953
+
+[node name="SandFiller8" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 10705.7, 5106.74 )
+rotation = 1.93464
+scale = Vector2( 1, 0.99974 )
+
+[node name="SandFiller9" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 9302.52, 5723.74 )
+rotation = 3.55613
+
+[node name="SandFiller10" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 10264.5, 4939.83 )
+rotation = 6.47961
+
+[node name="SandFiller11" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 12109.9, 5307.51 )
+rotation = 6.47254
+
+[node name="SandFiller12" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 13170, 5501.18 )
+rotation = 6.0456
+
+[node name="DuneBlock1" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 1129.87, 1062.29 )
+
+[node name="DuneBlock2" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 3473.02, 1694.5 )
+rotation = 0.118199
+
+[node name="DuneBlock5" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 2376.82, 1159.13 )
+rotation = 0.26308
+
+[node name="DuneBlock6" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 4699.33, 1819.83 )
+rotation = 0.26308
+
+[node name="DuneBlock15" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( -89.1968, 821.509 )
+rotation = -0.0300524
+
+[node name="DuneBlock8" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 5799.62, 2416.35 )
+rotation = 0.325242
+
+[node name="DuneBlock9" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 7878.55, 3741.74 )
+rotation = 0.634461
+
+[node name="DuneBlock16" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 10037.2, 4765.84 )
+rotation = 0.300463
+
+[node name="DuneBlock18" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 12880.7, 5371.24 )
+rotation = 0.111464
+
+[node name="RacetrackRectangle" parent="Dunes" instance=ExtResource( 4 )]
+position = Vector2( -311.233, 337.018 )
+rotation = 1.5708
+
+[node name="DuneBlock12" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 6969.94, 2858.49 )
+rotation = 0.538134
+
+[node name="DuneBlock17" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 9005.51, 4091.34 )
+rotation = 0.376288
+
+[node name="DuneBlock19" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 11225.3, 4830.4 )
+rotation = 0.154589
+
+[node name="DuneBlock14" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 13974.9, 5001.94 )
+rotation = -0.275032
+
+[node name="DuneBlock13" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 12345, 5269.12 )
+rotation = 0.257462
+scale = Vector2( -1, 1 )
+
+[node name="StartingLine" parent="." instance=ExtResource( 5 )]
+position = Vector2( 200.624, 171.962 )
+
+[node name="FinishSystem" parent="." instance=ExtResource( 6 )]
+position = Vector2( 13284.3, 5182.65 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -20
+offset = Vector2( 0, -540 )
+transform = Transform2D( 1, 0, 0, 1, 0, -540 )
+scroll_offset = Vector2( 1, 1 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BeachBackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1919, 1079 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sun" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 8 )]
+position = Vector2( 1407.07, 162.303 )
+z_index = 2
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 50 )
+motion_scale = Vector2( 0.1, 0 )
+motion_mirroring = Vector2( 1920, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dunes" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+material = SubResource( 2 )
+texture = ExtResource( 9 )
+centered = false
+region_rect = Rect2( 0, 0, 1920, 1080 )
+__meta__ = {
+"_edit_lock_": true
+}
