@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Dune1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Dune2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Dune3.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Dune4.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/SandFiller.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=12]
+
+[node name="ProperDunesTrack" type="Node2D"]
+
+[node name="Dunes" type="Node2D" parent="."]
+
+[node name="Dune1" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 128.705, 562.235 )
+
+[node name="Dune2" parent="Dunes" instance=ExtResource( 2 )]
+position = Vector2( 1273.5, 781.505 )
+rotation = 0.261799
+
+[node name="Dune3" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 3011.05, 984.209 )
+
+[node name="Dune4" parent="Dunes" instance=ExtResource( 4 )]
+position = Vector2( 4905.38, 1355.27 )
+rotation = 0.261799
+
+[node name="Dune5" parent="Dunes" instance=ExtResource( 3 )]
+position = Vector2( 6718.12, 1800.11 )
+rotation = 0.261799
+scale = Vector2( -1, 1 )
+
+[node name="Dune6" parent="Dunes" instance=ExtResource( 1 )]
+modulate = Color( 0.592157, 0.164706, 0.164706, 1 )
+position = Vector2( -229.927, 352.574 )
+rotation = -1.57079
+
+[node name="Dune7" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 7822.47, 2257.85 )
+rotation = 0.11385
+
+[node name="Dune8" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 8376.13, 2421.64 )
+rotation = 0.340508
+
+[node name="Dune9" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 8883.66, 2707.7 )
+rotation = 0.573252
+
+[node name="Dune10" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 9308.13, 3099.88 )
+rotation = 0.804444
+
+[node name="Dune11" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 9635.72, 3575.11 )
+rotation = 1.01788
+
+[node name="Dune12" parent="Dunes" instance=ExtResource( 4 )]
+position = Vector2( 10644.8, 4066.73 )
+rotation = 0.473758
+
+[node name="Dune14" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 11623.3, 4746.43 )
+rotation = 2.94343
+scale = Vector2( 1, -1 )
+
+[node name="Dune16" parent="Dunes" instance=ExtResource( 1 )]
+position = Vector2( 15543.5, 4746.43 )
+rotation = 4.40469
+scale = Vector2( 1, -1 )
+
+[node name="Dune13" parent="Dunes" instance=ExtResource( 4 )]
+position = Vector2( 12863, 4787.82 )
+rotation = 0.178852
+
+[node name="Dune15" parent="Dunes" instance=ExtResource( 4 )]
+position = Vector2( 14601.6, 4861.03 )
+rotation = -0.178246
+
+[node name="SandFiller" parent="Dunes" instance=ExtResource( 5 )]
+position = Vector2( -1321.96, 585.466 )
+rotation = 0.0437802
+
+[node name="SandFiller2" parent="Dunes" instance=ExtResource( 5 )]
+position = Vector2( 472.522, 692.665 )
+rotation = 0.326577
+
+[node name="SandFiller3" parent="Dunes" instance=ExtResource( 5 )]
+position = Vector2( 1963.64, 1235.94 )
+rotation = 0.055329
+
+[node name="SandFiller4" parent="Dunes" instance=ExtResource( 5 )]
+position = Vector2( 3828.49, 1328.41 )
+rotation = 0.303662
+
+[node name="SandFiller5" parent="Dunes" instance=ExtResource( 5 )]
+position = Vector2( 5628.5, 1898.8 )
+rotation = 0.206872
+
+[node name="StartingLine" parent="." instance=ExtResource( 6 )]
+position = Vector2( 200.624, 171.962 )
+
+[node name="FinishSystem" parent="." instance=ExtResource( 7 )]
+position = Vector2( 13722.1, 5084.86 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -20
+offset = Vector2( 0, -540 )
+transform = Transform2D( 1, 0, 0, 1, 0, -540 )
+scroll_offset = Vector2( 40, 40 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="BeachBackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1919, 1079 )
+
+[node name="Sun" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 9 )]
+position = Vector2( 1407.07, 162.303 )
+z_index = 2
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( 0, 50 )
+motion_scale = Vector2( 1, 0 )
+motion_mirroring = Vector2( 1920, 0 )
+
+[node name="Dunes" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource( 10 )
+centered = false
+region_rect = Rect2( 0, 0, 1920, 1080 )
+
+[node name="Shell" parent="." instance=ExtResource( 11 )]
+editor/display_folded = true
+position = Vector2( 5960.53, 3423.8 )
+
+[node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
+self_modulate = Color( 1, 1, 1, 1 )
+texture = ExtResource( 12 )
+
+[editable path="Shell"]

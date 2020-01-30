@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/RacetrackTriangle.tscn" type="PackedScene" id=2]
@@ -7,9 +7,10 @@
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=11]
 
 [node name="BasicDownhillTrack" type="Node2D"]
 
@@ -243,7 +244,9 @@ position = Vector2( 10193.5, 3993.34 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -20
-scroll_base_offset = Vector2( 0, -400 )
+offset = Vector2( 0, -540 )
+transform = Transform2D( 1, 0, 0, 1, 0, -540 )
+scroll_offset = Vector2( 1, 1 )
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -256,24 +259,27 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1919, 1079 )
 
+[node name="Sun" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 8 )]
+position = Vector2( 1407.07, 162.303 )
+z_index = 2
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( 0, 50 )
 motion_scale = Vector2( 0.5, 0 )
-motion_mirroring = Vector2( 1, 0 )
+motion_mirroring = Vector2( 1920, 0 )
 
 [node name="Dunes" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 centered = false
-region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 1080 )
 
-[node name="Shell" parent="." instance=ExtResource( 9 )]
+[node name="Shell" parent="." instance=ExtResource( 10 )]
 editor/display_folded = true
 position = Vector2( 5960.53, 3423.8 )
 
 [node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
 self_modulate = Color( 1, 1, 1, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
 [editable path="TrackPieces/Bowl"]
 

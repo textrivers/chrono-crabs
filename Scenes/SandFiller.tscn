@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/sand_filler.png" type="Texture" id=1]
+
+[node name="SandFiller" type="Sprite"]
+z_index = -25
+texture = ExtResource( 1 )
+centered = false
