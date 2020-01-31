@@ -9,11 +9,9 @@ var player_info = {
 var track_data_index = 0
 # warning-ignore:unused_class_variable
 var track_data = {
-	0: "res://Scenes/BasicDownhillTrack.tscn",
-	1: "res://Scenes/TrackRollerCoaster.tscn", 
-	2: "res://Scenes/Bowl.tscn",
-	3: "res://Scenes/ProperDunesTrack.tscn",
-	4: "res://Scenes/RepetitiveDunesTrack.tscn"
+	0: "res://Scenes/ProperDunesTrack.tscn",
+	1: "res://Scenes/RepetitiveDunesTrack.tscn", 
+	2: "res://Scenes/SkiJumpDunesTrack.tscn"
 }
 
 # warning-ignore:unused_class_variable

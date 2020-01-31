@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Shell.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/shell_yellow-black.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/shell_tropical.png" type="Texture" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -49,7 +49,6 @@ shape = SubResource( 3 )
 [node name="CrabContainer" type="Node2D" parent="."]
 
 [node name="ShellSprite" type="Sprite" parent="CrabContainer"]
-self_modulate = Color( 0.94902, 0.215686, 0.439216, 1 )
 scale = Vector2( 0.25, 0.25 )
 z_index = 5
 texture = ExtResource( 2 )

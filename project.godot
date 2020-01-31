@@ -16,8 +16,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Chrono Crabs"
-run/main_scene="res://Scenes/ChronoCrabs.tscn"
-boot_splash/image="res://Sprites/levity_well_logo_draft.png"
+run/main_scene="res://Scenes/LogoPlayer.tscn"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
