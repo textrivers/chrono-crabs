@@ -139,6 +139,7 @@ func _on_Host_Button_pressed():
 	get_node("Panel/Player_1").set_text(my_name + " is hosting")
 	
 	player_info[1] = my_name
+	player_info.erase(0)
 
 func _on_Join_Button_pressed():
 	

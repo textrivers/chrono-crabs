@@ -54,9 +54,10 @@ func initiate_race():
 	$TrackSelectMenuContainer.hide()
 	## add track, correct number of players, and ghosts
 	world.build()
-	world.show()
 	
-	## sync all (with yield/coroutine? See GDSCript basics page)
+	
+	## sync all (with pre-configure function, see Multiplayer basics page)
+	world.show()
 	
 	## start race countdown sequence
 	$TimerContainer.show()
@@ -150,9 +151,7 @@ func _on_MainMenu_pressed():
 	$MainMenuContainer.show()
 	
 func _on_TrackList_item_selected(index):
-	game_data.track_data_index = index
 	rset("game_data.track_data_index", index)
-	## TODO add multiplayer selectability
 	
 	$TrackSelectMenuContainer/Panel/PlayAlready.disabled = false
 	if game_data.ghost_data.has(game_data.track_data_index):

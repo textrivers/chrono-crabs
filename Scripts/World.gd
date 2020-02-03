@@ -11,7 +11,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_cancel"):
 		game_control._on_QuitToMenu_pressed()
 
-remotesync func build():
+func build():
 	add_track()
 	add_players()
 	if game_data.playing_with_ghost == true:
