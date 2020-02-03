@@ -151,6 +151,7 @@ func _on_MainMenu_pressed():
 	
 func _on_TrackList_item_selected(index):
 	game_data.track_data_index = index
+	rset("game_data.track_data_index", index)
 	## TODO add multiplayer selectability
 	
 	$TrackSelectMenuContainer/Panel/PlayAlready.disabled = false
