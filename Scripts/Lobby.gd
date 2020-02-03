@@ -52,6 +52,7 @@ func _player_disconnected(id):
 
 func _connected_ok(): ## client only, not server
 	$Panel/Solo_Button.set_text("PLAY")
+	print("this should have printed in client console")
 
 func _connected_fail(): ## client only, not server
 	_set_status("Couldn't connect", false)
@@ -78,6 +79,8 @@ func _end_game(with_error=""):
 	$Panel/Player_2.set_text("")
 	$Panel/Player_3.set_text("")
 	$Panel/Player_4.set_text("")
+	
+	player_info = { }
 	
 	show()
 	

@@ -8,11 +8,14 @@ margin_bottom = 40.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
 margin_left = 200.0
 margin_top = 40.0
-margin_right = 824.0
+margin_right = 1720.0
 margin_bottom = 80.0
 size_flags_horizontal = 4
 size_flags_vertical = 1
@@ -21,10 +24,10 @@ align = 1
 valign = 1
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 400.0
-margin_top = 100.0
-margin_right = 620.0
-margin_bottom = 340.0
+margin_left = 850.0
+margin_top = 200.0
+margin_right = 1070.0
+margin_bottom = 440.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
