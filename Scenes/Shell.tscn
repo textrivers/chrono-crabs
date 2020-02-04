@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Shell.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/shell_tropical.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/shell_swap_arrow_glow.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -44,8 +45,10 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 z_index = -10
 shape = SubResource( 3 )
+disabled = true
 
 [node name="CrabContainer" type="Node2D" parent="."]
 
@@ -54,4 +57,12 @@ scale = Vector2( 0.25, 0.25 )
 z_index = 5
 texture = ExtResource( 2 )
 offset = Vector2( 27, -37 )
+
+[node name="Sprite" type="Sprite" parent="CrabContainer"]
+visible = false
+position = Vector2( 7, -36 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 3 )
 [connection signal="timeout" from="FlipTimer" to="." method="_on_FlipTimer_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

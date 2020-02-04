@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/SandFiller.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/DuneBlock1.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/shell_bw.png" type="Texture" id=11]
 
 [sub_resource type="VisualShader" id=1]
 graph_offset = Vector2( 0, 71.6007 )
@@ -183,3 +185,11 @@ region_rect = Rect2( 0, 0, 1920, 1080 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Shell" parent="." instance=ExtResource( 10 )]
+position = Vector2( 959.289, 945.272 )
+
+[node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
+texture = ExtResource( 11 )
+
+[editable path="Shell"]

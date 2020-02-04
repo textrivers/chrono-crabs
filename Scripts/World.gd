@@ -27,6 +27,7 @@ func add_players():
 		player.set_name(str(p))
 		player.set_network_master(p)
 		player.position = Vector2(150, 200)
+		player.occupied = true
 		add_child(player)
 		
 		var crab = load("res://Scenes/Crab.tscn").instance()

@@ -11,6 +11,6 @@ func _ready():
 	if direction == 0:
 		direction = -1
 
-func _process(delta):
+func _process(_delta):
 	$Aura1.rotation_degrees += (ROT_CONST * direction)
 	$Aura2.rotation_degrees -= (ROT_CONST * direction)

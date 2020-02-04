@@ -30,7 +30,8 @@ func _ready():
 	## disable Area2D for player
 	if occupied == true:
 		$Area2D/CollisionShape2D.disabled = true
-		
+	else:
+		$Area2D/CollisionShape2D.disabled = false
 
 func get_floor_normal():
 	## keep RayDown pointing straight down
@@ -123,4 +124,11 @@ func start_race():
 func finish_race(elapsed):
 	racing = false
 
+func _on_Area2D_area_entered(area):
+	if occupied == false:
+		if area.is_in_group("player"):
+			$CrabContainer/Sprite.show()
 
+func _on_Area2D_area_exited(area):
+	if area.is_in_group("player"):
+		$CrabContainer/Sprite.hide()

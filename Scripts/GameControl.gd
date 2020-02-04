@@ -151,7 +151,7 @@ func _on_MainMenu_pressed():
 	$MainMenuContainer.show()
 	
 func _on_TrackList_item_selected(index):
-	rset("game_data.track_data_index", index)
+	game_data.track_data_index = index
 	
 	$TrackSelectMenuContainer/Panel/PlayAlready.disabled = false
 	if game_data.ghost_data.has(game_data.track_data_index):

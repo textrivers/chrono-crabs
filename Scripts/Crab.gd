@@ -8,27 +8,44 @@ var current_shell
 
 var swap_target
 var ready_to_swap = false
+var swapping = false
+var current_container
+var new_container
+var world
+var swap_velocity = Vector2()
 
 var withdrawn = false
 
 const ANIM_WALK_CONST = 0.015
+const SWAP_HOP_CONST = -10
+const SWAP_GRAV_CONST = 20
 
 func _ready():
 # warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
 # warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
+	world = get_node("/root/ChronoCrabs/World")
 	current_shell = get_parent().get_parent()
 	current_shell.occupied = true
 
+	ready_to_swap = false
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
+	
 	get_crab_input()
+	
 	record_ghost()
+	
+	## swap shells movement
+	if swapping == true:
+		position.x += swap_velocity.x * delta## constant speed laterally
+		position.y += swap_velocity.y
+		swap_velocity.y += SWAP_GRAV_CONST * delta
+		
 
 func get_crab_input():
-	
 	## pause
 	if Input.is_action_just_pressed("ui_cancel"):
 		## TODO pause
@@ -54,19 +71,20 @@ func get_crab_input():
 				$AnimationPlayer.stop(false) ## pauses animation without resetting
 			$AnimationPlayer.playback_speed = 1.5
 			$AnimationPlayer.play_backwards("withdraw")
-		if current_shell.upside_down == false:
-			if Input.is_action_pressed("ui_right"):
-				if $AnimationPlayer.current_animation != "walk":
-					$AnimationPlayer.play("walk")
-				$AnimationPlayer.playback_speed = current_shell.velocity.x * ANIM_WALK_CONST
-			elif Input.is_action_pressed("ui_left"):
-				if $AnimationPlayer.current_animation != "walk":
-					$AnimationPlayer.play("walk")
-				$AnimationPlayer.playback_speed = -current_shell.velocity.x * ANIM_WALK_CONST
-			else:
-				$AnimationPlayer.play("rest")
 		else:
-			current_shell.velocity.x = lerp(current_shell.velocity.x, 0, 0.2)
+			if current_shell.upside_down == false:
+				if Input.is_action_pressed("ui_right"):
+					if $AnimationPlayer.current_animation != "walk":
+						$AnimationPlayer.play("walk")
+					$AnimationPlayer.playback_speed = current_shell.velocity.x * ANIM_WALK_CONST
+				elif Input.is_action_pressed("ui_left"):
+					if $AnimationPlayer.current_animation != "walk":
+						$AnimationPlayer.play("walk")
+					$AnimationPlayer.playback_speed = -current_shell.velocity.x * ANIM_WALK_CONST
+				else:
+					$AnimationPlayer.play("rest")
+			else:
+				current_shell.velocity.x = lerp(current_shell.velocity.x, 0, 0.2)
 
 func record_ghost():
 	if racing == true:
@@ -75,19 +93,23 @@ func record_ghost():
 		ghost_data_index += 1
 
 func swap_shells(new_shell):
-	print("swap shells called")
+	print(str(new_shell.name))
 	$AnimationPlayer.stop()
 	$Camera2D.shell = new_shell
+	$Camera2D.swapping = true
 	current_shell.occupied = false
 	new_shell.occupied = true
+	current_container = get_node(str(get_path_to(current_shell)) + "/CrabContainer")
+	new_container = get_node(str(get_path_to(new_shell)) + "/CrabContainer")
+	swapping = true
+	$SwapTimer.start()
+	swap_velocity.x = new_shell.position.x - global_position.x
+	swap_velocity.y = SWAP_HOP_CONST
 	## TODO animate crab transition to new shell
-	var current_container = get_node(str(get_path_to(current_shell)) + "/CrabContainer")
-	var new_container = get_node(str(get_path_to(new_shell)) + "/CrabContainer")
+	var current_global_pos = global_position
 	current_container.remove_child(self)
-	new_container.add_child(self)
-	get_node(str(get_path_to(current_shell)) + "/Area2D/CollisionShape2D").disabled = false
-	get_node(str(get_path_to(new_shell)) + "/Area2D/CollisionShape2D").disabled = true
-	current_shell = new_shell
+	world.add_child(self)
+	position = current_global_pos
 
 func start_race():
 	racing = true
@@ -108,6 +130,7 @@ func _on_Area2D_area_entered(area):
 	print("area entered")
 	## make sure it's a shell's area
 	if area.get_parent().is_in_group("shell"):
+		print("it's a shell")
 		swap_target = area.get_parent()
 		ready_to_swap = true
 		## TODO turn on up-arrow graphic to cue player to swap
@@ -121,3 +144,17 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "withdraw":
 		if withdrawn == false && current_shell.upside_down == true: 
 			$AnimationPlayer.play("struggle")
+
+func _on_SwapTimer_timeout():
+	$SwapTimer.wait_time = 1
+	$Camera2D.swapping = false
+	swapping = false
+	swap_velocity = Vector2()
+	world.remove_child(self)
+	new_container.add_child(self)
+	current_container = new_container
+	position = Vector2(40, -12)
+	get_node(str(get_path_to(current_shell)) + "/Area2D/CollisionShape2D").disabled = false
+	get_node(str(get_path_to(swap_target)) + "/Area2D/CollisionShape2D").disabled = true
+	current_shell = swap_target
+	
