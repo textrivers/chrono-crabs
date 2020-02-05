@@ -12,110 +12,6 @@
 [ext_resource path="res://Scenes/PlayerCamera.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sprites/shell_reference.png" type="Texture" id=11]
 
-[sub_resource type="Animation" id=1]
-resource_name = "antenna_double_twitch"
-length = 2.0
-step = 0.03
-tracks/0/type = "value"
-tracks/0/path = NodePath("antenna1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.09, 0.24, 0.39, 0.63, 0.72, 0.87, 1.02, 1.26, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("antenna1:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.09, 0.24, 0.39, 0.63, 0.72, 0.87, 1.02, 1.26, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, -8.0, 17.0, 0.0, 0.0, -8.0, 17.0, 0.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("antenna2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.54, 0.63, 0.78, 0.93, 1.17, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("antenna2:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.54, 0.63, 0.78, 0.93, 1.17, 2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, -7.72339, 17.7427, 0.0, 0.0, -7.72339, 17.7427, 0.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=2]
-step = 0.03
-tracks/0/type = "value"
-tracks/0/path = NodePath("antenna1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.24, 0.39, 0.54, 0.78, 0.99 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("antenna1:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.24, 0.39, 0.54, 0.78, 0.99 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, -8.0, 17.0, 0.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("antenna2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.69, 0.99 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("antenna2:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.69, 0.99 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 0.0, -7.72339, 17.7427, 0.0, 0.0 ]
-}
-
 [sub_resource type="Animation" id=3]
 step = 0.03
 tracks/0/type = "value"
@@ -469,7 +365,7 @@ tracks/28/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "struggle"
-length = 0.24
+length = 0.48
 step = 0.03
 tracks/0/type = "value"
 tracks/0/path = NodePath("claw_back_1:position")
@@ -478,10 +374,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ) ]
+"values": [ Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ), Vector2( -28.2065, -21.4139 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("claw_back_1:rotation_degrees")
@@ -490,10 +386,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 18.3479, 42.6082, -15.4676, 42.6082, 42.6082 ]
+"values": [ 18.3479, 42.6082, -15.4676, 42.6082, 42.6082, 42.6082, -15.4676, 42.6082, 18.3479 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("claw_back_1/claw_back_2:position")
@@ -502,10 +398,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ) ]
+"values": [ Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("claw_back_1/claw_back_2:rotation_degrees")
@@ -514,10 +410,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -15.2556, -30.0, -30.0, -30.0, -30.0 ]
+"values": [ -15.2556, -30.0, -30.0, -30.0, -30.0, -30.0, -30.0, -30.0, -15.2556 ]
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath("leg_front_1:position")
@@ -526,10 +422,10 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ) ]
+"values": [ Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ), Vector2( -65.3138, -8.99875 ) ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("leg_front_1:rotation_degrees")
@@ -538,10 +434,10 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 373.72, 381.737, 344.751, 381.737, 381.737 ]
+"values": [ 373.72, 381.737, 344.751, 381.737, 381.737, 381.737, 344.751, 381.737, 373.72 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("claw_front_1/claw_front_2:position")
@@ -550,10 +446,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ) ]
+"values": [ Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ), Vector2( 67.562, 55.0848 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("claw_front_1/claw_front_2:rotation_degrees")
@@ -562,10 +458,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -37.6699, -30.0, -44.9999, -30.0, -37.6699 ]
+"values": [ -37.6699, -30.0, -44.9999, -30.0, -37.6699, -30.0, -44.9999, -30.0, -37.6699 ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("claw_front_1:position")
@@ -574,10 +470,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ) ]
+"values": [ Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ), Vector2( 5.79165, -20.3191 ) ]
 }
 tracks/9/type = "value"
 tracks/9/path = NodePath("claw_front_1:rotation_degrees")
@@ -586,10 +482,10 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 15.7627, -7.0938, 56.4528, -7.0938, 15.7627 ]
+"values": [ 15.7627, -7.0938, 56.4528, -7.0938, 15.7627, -7.0938, 56.4528, -7.0938, 15.7627 ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("leg_front_1/leg_front_2:position")
@@ -598,10 +494,10 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ) ]
+"values": [ Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ) ]
 }
 tracks/11/type = "value"
 tracks/11/path = NodePath("leg_front_1/leg_front_2:rotation_degrees")
@@ -610,10 +506,10 @@ tracks/11/loop_wrap = true
 tracks/11/imported = false
 tracks/11/enabled = true
 tracks/11/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 34.9335, 56.4588, 34.0049, 56.4588, 34.9335 ]
+"values": [ 34.9335, 56.4588, 34.0049, 56.4588, 34.9335, 56.4588, 34.0049, 56.4588, 34.9335 ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("leg_back_1:position")
@@ -622,10 +518,10 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ) ]
+"values": [ Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ), Vector2( -90.5771, -10.0514 ) ]
 }
 tracks/13/type = "value"
 tracks/13/path = NodePath("leg_back_1:rotation_degrees")
@@ -634,10 +530,10 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 22.8416, 8.59475, 25.4712, 8.59475, 22.8416 ]
+"values": [ 22.8416, 8.59475, 25.4712, 8.59475, 22.8416, 8.59475, 25.4712, 8.59475, 22.8416 ]
 }
 tracks/14/type = "value"
 tracks/14/path = NodePath("leg_back_1/leg_back_2:position")
@@ -646,10 +542,10 @@ tracks/14/loop_wrap = true
 tracks/14/imported = false
 tracks/14/enabled = true
 tracks/14/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ) ]
+"values": [ Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ), Vector2( 70.7151, 53.7458 ) ]
 }
 tracks/15/type = "value"
 tracks/15/path = NodePath("leg_back_1/leg_back_2:rotation_degrees")
@@ -658,10 +554,10 @@ tracks/15/loop_wrap = true
 tracks/15/imported = false
 tracks/15/enabled = true
 tracks/15/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ 43.9111, -2.60626, 43.2969, -2.60626, 43.9111 ]
+"values": [ 43.9111, -2.60626, 43.2969, -2.60626, 43.9111, -2.60626, 43.2969, -2.60626, 43.9111 ]
 }
 tracks/16/type = "value"
 tracks/16/path = NodePath("leg_front_1/leg_front_2/leg_front_3:position")
@@ -670,10 +566,10 @@ tracks/16/loop_wrap = true
 tracks/16/imported = false
 tracks/16/enabled = true
 tracks/16/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ) ]
+"values": [ Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ) ]
 }
 tracks/17/type = "value"
 tracks/17/path = NodePath("leg_front_1/leg_front_2/leg_front_3:rotation_degrees")
@@ -682,10 +578,10 @@ tracks/17/loop_wrap = true
 tracks/17/imported = false
 tracks/17/enabled = true
 tracks/17/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -73.9391, -74.9999, -89.9999, -74.9999, -73.9391 ]
+"values": [ -73.9391, -74.9999, -89.9999, -74.9999, -73.9391, -74.9999, -89.9999, -74.9999, -73.9391 ]
 }
 tracks/18/type = "value"
 tracks/18/path = NodePath("leg_back_1/leg_back_2/leg_back_3:position")
@@ -694,10 +590,10 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ) ]
+"values": [ Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ), Vector2( 71.5066, 56.9141 ) ]
 }
 tracks/19/type = "value"
 tracks/19/path = NodePath("leg_back_1/leg_back_2/leg_back_3:rotation_degrees")
@@ -706,10 +602,10 @@ tracks/19/loop_wrap = true
 tracks/19/imported = false
 tracks/19/enabled = true
 tracks/19/keys = {
-"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.06, 0.12, 0.18, 0.24, 0.3, 0.36, 0.42, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ -87.7582, -74.9999, -89.9999, -74.9999, -87.7582 ]
+"values": [ -87.7582, -74.9999, -89.9999, -74.9999, -87.7582, -74.9999, -89.9999, -74.9999, -87.7582 ]
 }
 tracks/20/type = "value"
 tracks/20/path = NodePath("eye_left:rotation_degrees")
@@ -718,10 +614,10 @@ tracks/20/loop_wrap = true
 tracks/20/imported = false
 tracks/20/enabled = true
 tracks/20/keys = {
-"times": PoolRealArray( 0, 0.12, 0.24 ),
-"transitions": PoolRealArray( 2.92817, 0.5, 1 ),
+"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48 ),
+"transitions": PoolRealArray( 2.92817, 0.5, 1, 0.5, 2.92817 ),
 "update": 0,
-"values": [ 0.0, 15.0, 0.0 ]
+"values": [ 0.0, 15.0, 0.0, 15.0, 0.0 ]
 }
 tracks/21/type = "value"
 tracks/21/path = NodePath("eye_right:rotation_degrees")
@@ -730,34 +626,10 @@ tracks/21/loop_wrap = true
 tracks/21/imported = false
 tracks/21/enabled = true
 tracks/21/keys = {
-"times": PoolRealArray( 0, 0.12, 0.24 ),
-"transitions": PoolRealArray( 0.5, 1.93187, 1 ),
+"times": PoolRealArray( 0, 0.12, 0.24, 0.36, 0.48 ),
+"transitions": PoolRealArray( 0.5, 1.93187, 1, 1.93187, 0.5 ),
 "update": 0,
-"values": [ 0.0, 30.0, 0.0 ]
-}
-tracks/22/type = "value"
-tracks/22/path = NodePath("antenna1:scale")
-tracks/22/interp = 1
-tracks/22/loop_wrap = true
-tracks/22/imported = false
-tracks/22/enabled = true
-tracks/22/keys = {
-"times": PoolRealArray( 0, 0.09, 0.24 ),
-"transitions": PoolRealArray( 0.450625, 2.92817, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.635581, 1 ), Vector2( 1, 1 ) ]
-}
-tracks/23/type = "value"
-tracks/23/path = NodePath("antenna2:scale")
-tracks/23/interp = 1
-tracks/23/loop_wrap = true
-tracks/23/imported = false
-tracks/23/enabled = true
-tracks/23/keys = {
-"times": PoolRealArray( 0, 0.15, 0.24 ),
-"transitions": PoolRealArray( 0.203063, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0.605012, 1 ), Vector2( 1, 1 ) ]
+"values": [ 0.0, 30.0, 0.0, 30.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -1683,6 +1555,111 @@ tracks/39/keys = {
 [sub_resource type="CircleShape2D" id=7]
 radius = 195.091
 
+[sub_resource type="Animation" id=1]
+resource_name = "antenna_double_twitch"
+length = 2.0
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("antenna1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.09, 0.24, 0.39, 0.63, 0.72, 0.87, 1.02, 1.26, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("antenna1:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.09, 0.24, 0.39, 0.63, 0.72, 0.87, 1.02, 1.26, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -8.0, 17.0, 0.0, 0.0, -8.0, 17.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("antenna2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.54, 0.63, 0.78, 0.93, 1.17, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("antenna2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.54, 0.63, 0.78, 0.93, 1.17, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -7.72339, 17.7427, 0.0, 0.0, -7.72339, 17.7427, 0.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "antenna_twitch"
+step = 0.03
+tracks/0/type = "value"
+tracks/0/path = NodePath("antenna1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.24, 0.39, 0.54, 0.78, 0.99 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ), Vector2( 21.6492, 18.9384 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("antenna1:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.24, 0.39, 0.54, 0.78, 0.99 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -8.0, 17.0, 0.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("antenna2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.69, 0.99 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ), Vector2( 17.9659, 12.1859 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("antenna2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.15, 0.3, 0.45, 0.69, 0.99 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -7.72339, 17.7427, 0.0, 0.0 ]
+}
+
 [node name="Crab" type="Sprite" groups=[
 "player",
 ]]
@@ -1750,8 +1727,8 @@ __meta__ = {
 }
 
 [node name="claw_back_1" type="Sprite" parent="."]
-position = Vector2( -24.2084, -20.3191 )
-rotation = 0.429981
+position = Vector2( -28.2065, -21.4139 )
+rotation = 0.320231
 scale = Vector2( 1.01334, 0.99776 )
 texture = ExtResource( 7 )
 offset = Vector2( 37.5799, 32.2223 )
@@ -1762,7 +1739,7 @@ __meta__ = {
 
 [node name="claw_back_2" type="Sprite" parent="claw_back_1"]
 position = Vector2( 67.562, 55.0848 )
-rotation = -0.657464
+rotation = -0.26626
 texture = ExtResource( 8 )
 offset = Vector2( 18.7364, 58.464 )
 __meta__ = {
@@ -1778,7 +1755,7 @@ __meta__ = {
 
 [node name="claw_front_1" type="Sprite" parent="."]
 position = Vector2( 5.79165, -20.3191 )
-rotation = 0.429981
+rotation = 0.275111
 z_index = -1
 texture = ExtResource( 7 )
 offset = Vector2( 37.5799, 32.2223 )
@@ -1805,7 +1782,7 @@ __meta__ = {
 
 [node name="leg_front_1" type="Sprite" parent="."]
 position = Vector2( -65.3138, -8.99875 )
-rotation = 6.45079
+rotation = 6.52264
 texture = ExtResource( 7 )
 offset = Vector2( 38.1271, 30.9316 )
 __meta__ = {
@@ -1842,7 +1819,7 @@ __meta__ = {
 
 [node name="leg_back_1" type="Sprite" parent="."]
 position = Vector2( -90.5771, -10.0514 )
-rotation = 0.406896
+rotation = 0.398661
 texture = ExtResource( 7 )
 offset = Vector2( 38.1271, 30.9316 )
 __meta__ = {
@@ -1852,7 +1829,7 @@ __meta__ = {
 
 [node name="leg_back_2" type="Sprite" parent="leg_back_1"]
 position = Vector2( 70.7151, 53.7458 )
-rotation = 0.55624
+rotation = 0.766393
 z_index = 7
 texture = ExtResource( 7 )
 offset = Vector2( 38.1083, 31.3388 )
@@ -1862,7 +1839,7 @@ __meta__ = {
 
 [node name="leg_back_3" type="Sprite" parent="leg_back_1/leg_back_2"]
 position = Vector2( 71.5066, 56.9141 )
-rotation = -1.24593
+rotation = -1.53167
 texture = ExtResource( 9 )
 offset = Vector2( -35.4089, 8.8363 )
 __meta__ = {
@@ -1879,8 +1856,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "rest"
-anims/antenna_double_twitch = SubResource( 1 )
-anims/antenna_twitch = SubResource( 2 )
 anims/rest = SubResource( 3 )
 anims/struggle = SubResource( 4 )
 anims/walk = SubResource( 5 )
@@ -1902,10 +1877,19 @@ shape = SubResource( 7 )
 one_shot = true
 
 [node name="ShellReference" type="Sprite" parent="."]
+visible = false
 position = Vector2( -134.149, 11.3372 )
 z_index = 5
 texture = ExtResource( 11 )
+
+[node name="AntennaTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="AntennaAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/antenna_double_twitch = SubResource( 1 )
+anims/antenna_twitch = SubResource( 2 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
 [connection signal="timeout" from="SwapTimer" to="." method="_on_SwapTimer_timeout"]
+[connection signal="timeout" from="AntennaTimer" to="." method="_on_AntennaTimer_timeout"]

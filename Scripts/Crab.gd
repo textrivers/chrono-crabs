@@ -21,6 +21,7 @@ const SWAP_HOP_CONST = -10
 const SWAP_GRAV_CONST = 20
 
 func _ready():
+	randomize()
 # warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
 # warning-ignore:return_value_discarded
@@ -34,16 +35,15 @@ func _ready():
 # warning-ignore:unused_argument
 func _physics_process(delta):
 	
-	get_crab_input()
-	
-	record_ghost()
+	if racing == true:
+		get_crab_input()
+		record_ghost()
 	
 	## swap shells movement
 	if swapping == true:
 		position.x += swap_velocity.x * delta## constant speed laterally
 		position.y += swap_velocity.y
 		swap_velocity.y += SWAP_GRAV_CONST * delta
-		
 
 func get_crab_input():
 	## pause
@@ -57,7 +57,13 @@ func get_crab_input():
 			swap_shells(swap_target)
 	
 	## animation(s)
+	if Input.is_action_just_released("ui_down"):
+		$AnimationPlayer.playback_speed = 1.5
+		$AnimationPlayer.play_backwards("withdraw")
+		withdrawn = false
+	
 	if Input.is_action_pressed("ui_down"):
+		$AntennaAnimationPlayer.stop(true)
 		if withdrawn == false:
 			withdrawn = true
 			if $AnimationPlayer.current_animation == "withdraw":
@@ -65,12 +71,8 @@ func get_crab_input():
 			$AnimationPlayer.playback_speed = 1.5
 			$AnimationPlayer.play("withdraw")
 	else:
-		if withdrawn == true:
-			withdrawn = false
-			if $AnimationPlayer.current_animation == "withdraw":
-				$AnimationPlayer.stop(false) ## pauses animation without resetting
-			$AnimationPlayer.playback_speed = 1.5
-			$AnimationPlayer.play_backwards("withdraw")
+		if $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "withdraw":
+			pass
 		else:
 			if current_shell.upside_down == false:
 				if Input.is_action_pressed("ui_right"):
@@ -87,10 +89,9 @@ func get_crab_input():
 				current_shell.velocity.x = lerp(current_shell.velocity.x, 0, 0.2)
 
 func record_ghost():
-	if racing == true:
-		## record ghost data: position, rotation, ?
-		current_ghost[ghost_data_index] = [current_shell.global_position, current_shell.rotation_degrees, current_shell.facing_right]
-		ghost_data_index += 1
+	## record ghost data: position, rotation, ?
+	current_ghost[ghost_data_index] = [current_shell.global_position, current_shell.rotation_degrees, current_shell.facing_right]
+	ghost_data_index += 1
 
 func swap_shells(new_shell):
 	print(str(new_shell.name))
@@ -157,4 +158,12 @@ func _on_SwapTimer_timeout():
 	get_node(str(get_path_to(current_shell)) + "/Area2D/CollisionShape2D").disabled = false
 	get_node(str(get_path_to(swap_target)) + "/Area2D/CollisionShape2D").disabled = true
 	current_shell = swap_target
-	
+
+func _on_AntennaTimer_timeout():
+	$AntennaTimer.wait_time = randi() % 3 + 1
+	$AntennaTimer.start()
+	if withdrawn == false:
+		if randi() % 1 == 0:
+			$AntennaAnimationPlayer.play("antenna_double_twitch")
+		else:
+			$AntennaAnimationPlayer.play("antenna_twitch")
