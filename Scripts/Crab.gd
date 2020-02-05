@@ -96,10 +96,10 @@ func record_ghost():
 func swap_shells(new_shell):
 	print(str(new_shell.name))
 	$AnimationPlayer.stop()
+	$AnimationPlayer.play("swap_flip")
 	$Camera2D.shell = new_shell
 	$Camera2D.swapping = true
 	current_shell.occupied = false
-	new_shell.occupied = true
 	current_container = get_node(str(get_path_to(current_shell)) + "/CrabContainer")
 	new_container = get_node(str(get_path_to(new_shell)) + "/CrabContainer")
 	swapping = true
@@ -128,16 +128,12 @@ func finish_race(elapsed):
 		game_data.ghost_data[game_data.track_data_index] = current_ghost
 
 func _on_Area2D_area_entered(area):
-	print("area entered")
 	## make sure it's a shell's area
 	if area.get_parent().is_in_group("shell"):
-		print("it's a shell")
 		swap_target = area.get_parent()
 		ready_to_swap = true
-		## TODO turn on up-arrow graphic to cue player to swap
 
 func _on_Area2D_area_exited(area):
-	print("area exited")
 	if area.get_parent().is_in_group("shell"):
 		ready_to_swap = false
 
@@ -158,12 +154,13 @@ func _on_SwapTimer_timeout():
 	get_node(str(get_path_to(current_shell)) + "/Area2D/CollisionShape2D").disabled = false
 	get_node(str(get_path_to(swap_target)) + "/Area2D/CollisionShape2D").disabled = true
 	current_shell = swap_target
+	current_shell.occupied = true
 
 func _on_AntennaTimer_timeout():
 	$AntennaTimer.wait_time = randi() % 3 + 1
 	$AntennaTimer.start()
 	if withdrawn == false:
-		if randi() % 1 == 0:
+		if randi() % 2 == 0:
 			$AntennaAnimationPlayer.play("antenna_double_twitch")
 		else:
 			$AntennaAnimationPlayer.play("antenna_twitch")
