@@ -36,8 +36,9 @@ func _ready():
 func _physics_process(delta):
 	
 	if racing == true:
-		get_crab_input()
 		record_ghost()
+		if swapping == false:
+			get_crab_input()
 	
 	## swap shells movement
 	if swapping == true:
@@ -84,7 +85,7 @@ func get_crab_input():
 						$AnimationPlayer.play("walk")
 					$AnimationPlayer.playback_speed = -current_shell.velocity.x * ANIM_WALK_CONST
 				else:
-					$AnimationPlayer.play("rest")
+					$AnimationPlayer.stop(false)
 			else:
 				current_shell.velocity.x = lerp(current_shell.velocity.x, 0, 0.2)
 

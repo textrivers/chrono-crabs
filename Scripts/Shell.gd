@@ -69,6 +69,8 @@ func get_input():
 					velocity.x = lerp(velocity.x, 0, 0.2)
 			else:
 				velocity.x = lerp(velocity.x, 0, 0.2)
+		else:
+			velocity.x = lerp(velocity.x, 0, 0.01)
 
 func move_player():
 

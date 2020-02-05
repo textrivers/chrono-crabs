@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Sun.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/sunitself.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=5]
+
+[sub_resource type="VisualShader" id=1]
+graph_offset = Vector2( 0, 71.6007 )
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[node name="BeachParallaxBackground" type="ParallaxBackground"]
+layer = -20
+offset = Vector2( 0, -540 )
+transform = Transform2D( 1, 0, 0, 1, 0, -540 )
+scroll_offset = Vector2( 1, 1 )
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0 )
+motion_mirroring = Vector2( 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BeachBackground" type="Sprite" parent="ParallaxLayer"]
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1919, 1079 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sun" type="Sprite" parent="ParallaxLayer" instance=ExtResource( 1 )]
+position = Vector2( 1407.07, 162.303 )
+z_index = 2
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2( 0, 400 )
+motion_scale = Vector2( 0.05, 0 )
+motion_mirroring = Vector2( 960, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dunes" type="Sprite" parent="ParallaxLayer2"]
+material = SubResource( 2 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 3840, 1080 )

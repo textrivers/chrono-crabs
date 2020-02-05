@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/SandFiller.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/DuneBlock1.tscn" type="PackedScene" id=2]
@@ -6,17 +6,9 @@
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/basic_beach.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Sun.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/parallax_dunes.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/BeachParallaxBackground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sprites/shell_bw.png" type="Texture" id=11]
-
-[sub_resource type="VisualShader" id=1]
-graph_offset = Vector2( 0, 71.6007 )
-
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
 
 [node name="RepetitiveDunesTrack" type="Node2D"]
 
@@ -142,49 +134,7 @@ position = Vector2( 200.624, 171.962 )
 [node name="FinishSystem" parent="." instance=ExtResource( 6 )]
 position = Vector2( 13284.3, 5182.65 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-layer = -20
-offset = Vector2( 0, -540 )
-transform = Transform2D( 1, 0, 0, 1, 0, -540 )
-scroll_offset = Vector2( 1, 1 )
-scroll_ignore_camera_zoom = true
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0, 0 )
-motion_mirroring = Vector2( 1, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="BeachBackground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 7 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 0, 0, 1919, 1079 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Sun" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource( 8 )]
-position = Vector2( 1407.07, 162.303 )
-z_index = 2
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 0, 50 )
-motion_scale = Vector2( 0.1, 0 )
-motion_mirroring = Vector2( 1920, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Dunes" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-material = SubResource( 2 )
-texture = ExtResource( 9 )
-centered = false
-region_rect = Rect2( 0, 0, 1920, 1080 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="BeachParallaxBackground" parent="." instance=ExtResource( 7 )]
 
 [node name="Shell" parent="." instance=ExtResource( 10 )]
 position = Vector2( 959.289, 945.272 )
