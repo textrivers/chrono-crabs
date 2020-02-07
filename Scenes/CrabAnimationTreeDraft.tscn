@@ -1,0 +1,62 @@
+[gd_scene load_steps=18 format=2]
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "struggle"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "swap_flip"
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "walk"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "withdraw"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/struggle/node = SubResource( 6 )
+states/struggle/position = Vector2( 140, 253 )
+states/swap_flip/node = SubResource( 7 )
+states/swap_flip/position = Vector2( 446, 95 )
+states/walk/node = SubResource( 8 )
+states/walk/position = Vector2( 140, 95 )
+states/withdraw/node = SubResource( 9 )
+states/withdraw/position = Vector2( 446, 323 )
+transitions = [ "withdraw", "struggle", SubResource( 10 ), "struggle", "walk", SubResource( 11 ), "walk", "swap_flip", SubResource( 12 ), "struggle", "swap_flip", SubResource( 13 ), "walk", "withdraw", SubResource( 14 ), "swap_flip", "walk", SubResource( 15 ), "swap_flip", "withdraw", SubResource( 16 ), "swap_flip", "struggle", SubResource( 17 ), "struggle", "withdraw", SubResource( 18 ), "withdraw", "walk", SubResource( 19 ), "withdraw", "swap_flip", SubResource( 20 ) ]
+graph_offset = Vector2( -345.619, 36.8861 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+
+[node name="AnimationTree" type="AnimationTree"]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 22 )

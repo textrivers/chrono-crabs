@@ -97,6 +97,8 @@ func record_ghost():
 func swap_shells(new_shell):
 	print(str(new_shell.name))
 	$AnimationPlayer.stop()
+	if withdrawn == true:
+		$AnimationPlayer.play_backwards("withdraw")
 	$AnimationPlayer.play("swap_flip")
 	$Camera2D.shell = new_shell
 	$Camera2D.swapping = true

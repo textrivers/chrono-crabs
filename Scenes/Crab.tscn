@@ -1568,10 +1568,10 @@ tracks/39/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=6]
+[sub_resource type="CircleShape2D" id=23]
 radius = 195.091
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=24]
 length = 2.0
 step = 0.03
 tracks/0/type = "value"
@@ -1623,7 +1623,7 @@ tracks/3/keys = {
 "values": [ 0.0, -7.72339, 17.7427, 0.0, 0.0, -7.72339, 17.7427, 0.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=25]
 step = 0.03
 tracks/0/type = "value"
 tracks/0/path = NodePath("antenna1:position")
@@ -1742,8 +1742,8 @@ __meta__ = {
 }
 
 [node name="claw_back_1" type="Sprite" parent="."]
-position = Vector2( -28.2065, -21.4139 )
-rotation = 0.320231
+position = Vector2( -24.2084, -20.3191 )
+rotation = 0.429981
 scale = Vector2( 1.01334, 0.99776 )
 texture = ExtResource( 7 )
 offset = Vector2( 37.5799, 32.2223 )
@@ -1754,7 +1754,7 @@ __meta__ = {
 
 [node name="claw_back_2" type="Sprite" parent="claw_back_1"]
 position = Vector2( 67.562, 55.0848 )
-rotation = -0.26626
+rotation = -0.657464
 texture = ExtResource( 8 )
 offset = Vector2( 18.7364, 58.464 )
 __meta__ = {
@@ -1770,7 +1770,7 @@ __meta__ = {
 
 [node name="claw_front_1" type="Sprite" parent="."]
 position = Vector2( 5.79165, -20.3191 )
-rotation = 0.275111
+rotation = 0.429981
 z_index = -1
 texture = ExtResource( 7 )
 offset = Vector2( 37.5799, 32.2223 )
@@ -1797,7 +1797,7 @@ __meta__ = {
 
 [node name="leg_front_1" type="Sprite" parent="."]
 position = Vector2( -65.3138, -8.99875 )
-rotation = 6.52264
+rotation = 6.45079
 texture = ExtResource( 7 )
 offset = Vector2( 38.1271, 30.9316 )
 __meta__ = {
@@ -1834,7 +1834,7 @@ __meta__ = {
 
 [node name="leg_back_1" type="Sprite" parent="."]
 position = Vector2( -90.5771, -10.0514 )
-rotation = 0.398661
+rotation = 0.406896
 texture = ExtResource( 7 )
 offset = Vector2( 38.1271, 30.9316 )
 __meta__ = {
@@ -1844,7 +1844,7 @@ __meta__ = {
 
 [node name="leg_back_2" type="Sprite" parent="leg_back_1"]
 position = Vector2( 70.7151, 53.7458 )
-rotation = 0.766393
+rotation = 0.55624
 z_index = 7
 texture = ExtResource( 7 )
 offset = Vector2( 38.1083, 31.3388 )
@@ -1854,7 +1854,7 @@ __meta__ = {
 
 [node name="leg_back_3" type="Sprite" parent="leg_back_1/leg_back_2"]
 position = Vector2( 71.5066, 56.9141 )
-rotation = -1.53167
+rotation = -1.24593
 texture = ExtResource( 9 )
 offset = Vector2( -35.4089, 8.8363 )
 __meta__ = {
@@ -1886,7 +1886,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-shape = SubResource( 6 )
+shape = SubResource( 23 )
 
 [node name="SwapTimer" type="Timer" parent="."]
 one_shot = true
@@ -1901,8 +1901,8 @@ texture = ExtResource( 11 )
 autostart = true
 
 [node name="AntennaAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/antenna_double_twitch = SubResource( 7 )
-anims/antenna_twitch = SubResource( 8 )
+anims/antenna_double_twitch = SubResource( 24 )
+anims/antenna_twitch = SubResource( 25 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

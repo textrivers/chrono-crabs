@@ -1,0 +1,13 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/MAGNETOB.TTF" type="DynamicFontData" id=1]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "Magneto"
+size = 22
+outline_size = 1
+outline_color = Color( 1, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
