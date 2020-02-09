@@ -9,12 +9,13 @@
 [ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/BeachParallaxBackground.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=11]
 
 [node name="ProperDunesTrack" type="Node2D"]
 
 [node name="Dunes" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 136, -104 )
 
 [node name="SandFiller" parent="Dunes" instance=ExtResource( 1 )]
@@ -135,10 +136,11 @@ position = Vector2( 13756, 4941.54 )
 
 [node name="BeachParallaxBackground" parent="." instance=ExtResource( 9 )]
 
-[node name="Shell" parent="." instance=ExtResource( 12 )]
+[node name="Shell" parent="." instance=ExtResource( 10 )]
+editor/display_folded = true
 position = Vector2( 10002.7, 3745.8 )
 
 [node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
-texture = ExtResource( 13 )
+texture = ExtResource( 11 )
 
 [editable path="Shell"]

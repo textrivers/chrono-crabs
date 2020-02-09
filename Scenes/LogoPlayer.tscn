@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/LogoPlayer.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/levity_well_background_1920x1080.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/levity_well_logo_draft.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/levity_well_text-only.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/levity_well_itself_2.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/levity_well_moon.png" type="Texture" id=5]
 
@@ -80,8 +80,6 @@ texture = ExtResource( 2 )
 centered = false
 
 [node name="text" type="Sprite" parent="."]
-position = Vector2( 250, 165 )
-scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 3 )
 centered = false
 
