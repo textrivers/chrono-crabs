@@ -68,9 +68,9 @@ text = "Multiplayer Game"
 
 [node name="Options" type="Button" parent="MainMenuContainer/Panel"]
 margin_left = 120.0
-margin_top = 170.815
+margin_top = 172.107
 margin_right = 280.0
-margin_bottom = 210.815
+margin_bottom = 212.107
 text = "Options"
 
 [node name="QuitToDesktop" type="Button" parent="MainMenuContainer/Panel"]
@@ -90,6 +90,10 @@ margin_left = -200.0
 margin_top = -142.0
 margin_right = 200.0
 margin_bottom = 142.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="TrackSelectMenuContainer"]
 margin_right = 400.0
@@ -113,19 +117,23 @@ allow_reselect = true
 [node name="MainMenu" type="Button" parent="TrackSelectMenuContainer/Panel"]
 margin_left = 15.0
 margin_top = 245.0
-margin_right = 125.0
+margin_right = 104.0
 margin_bottom = 270.0
-text = "Back to Menu"
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="GhostCheckbox" type="CheckButton" parent="TrackSelectMenuContainer/Panel"]
-margin_left = 135.0
+margin_left = 112.292
 margin_top = 238.0
-margin_right = 275.0
+margin_right = 272.292
 margin_bottom = 279.0
 grow_horizontal = 0
 grow_vertical = 2
 disabled = true
-text = "Use ghost?"
+text = "Ghost?"
+align = 2
 
 [node name="PlayAlready" type="Button" parent="TrackSelectMenuContainer/Panel"]
 margin_left = 275.0
@@ -134,31 +142,38 @@ margin_right = 385.0
 margin_bottom = 270.0
 disabled = true
 text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimerContainer" type="MarginContainer" parent="."]
 visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -100.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = 50.0
+margin_left = -177.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = 75.0
+theme = ExtResource( 2 )
+custom_constants/margin_right = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Panel" type="Panel" parent="TimerContainer"]
-margin_right = 85.0
-margin_bottom = 35.0
+margin_right = 147.0
+margin_bottom = 45.0
 
 [node name="Label" type="Label" parent="TimerContainer"]
-margin_left = 21.0
-margin_top = 10.0
-margin_right = 85.0
-margin_bottom = 24.0
+margin_left = 12.0
+margin_top = 11.0
+margin_right = 147.0
+margin_bottom = 34.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
 theme = SubResource( 1 )
 text = "00:00:000"
-align = 1
 
 [node name="PostRaceMenuContainer" type="MarginContainer" parent="."]
 visible = false
@@ -170,6 +185,7 @@ margin_left = -200.0
 margin_top = -142.0
 margin_right = 200.0
 margin_bottom = 142.0
+theme = ExtResource( 2 )
 
 [node name="Panel" type="Panel" parent="PostRaceMenuContainer"]
 margin_right = 400.0
@@ -183,31 +199,31 @@ text = "Race this course again?"
 align = 1
 
 [node name="RaceGhost" type="Button" parent="PostRaceMenuContainer/Panel"]
-margin_left = 132.138
+margin_left = 50.0
 margin_top = 50.0284
-margin_right = 262.138
-margin_bottom = 94.0284
+margin_right = 350.0
+margin_bottom = 95.0
 text = "Race against ghost"
 
 [node name="RaceNoGhost" type="Button" parent="PostRaceMenuContainer/Panel"]
-margin_left = 130.304
-margin_top = 103.681
-margin_right = 263.304
-margin_bottom = 147.681
+margin_left = 50.0
+margin_top = 105.0
+margin_right = 350.0
+margin_bottom = 150.0
 text = "Race without ghost"
 
 [node name="QuitToMenu" type="Button" parent="PostRaceMenuContainer/Panel"]
-margin_left = 133.304
-margin_top = 158.166
-margin_right = 262.304
-margin_bottom = 202.166
+margin_left = 50.0
+margin_top = 160.0
+margin_right = 350.0
+margin_bottom = 205.0
 text = "Quit to Menu"
 
 [node name="QuitToDesktop" type="Button" parent="PostRaceMenuContainer/Panel"]
-margin_left = 133.304
-margin_top = 213.166
-margin_right = 262.304
-margin_bottom = 257.166
+margin_left = 50.0
+margin_top = 215.0
+margin_right = 350.0
+margin_bottom = 260.0
 text = "Quit to Desktop"
 
 [node name="StartingTimer" type="Timer" parent="."]
