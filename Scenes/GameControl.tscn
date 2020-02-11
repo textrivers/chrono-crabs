@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/GameControl.gd" type="Script" id=1]
 [ext_resource path="res://Themes/ChronoCrabsTheme.tres" type="Theme" id=2]
 [ext_resource path="res://Fonts/Magneto.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Audio/basic_blip.wav" type="AudioStream" id=4]
-
-[sub_resource type="Theme" id=1]
 
 [node name="GameControl" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -152,27 +150,26 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -177.0
 margin_top = 30.0
-margin_right = -30.0
+margin_right = -29.0
 margin_bottom = 75.0
+grow_horizontal = 2
 theme = ExtResource( 2 )
-custom_constants/margin_right = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Panel" type="Panel" parent="TimerContainer"]
-margin_right = 147.0
+margin_right = 148.0
 margin_bottom = 45.0
 
 [node name="Label" type="Label" parent="TimerContainer"]
-margin_left = 12.0
+margin_left = 13.0
 margin_top = 11.0
-margin_right = 147.0
+margin_right = 148.0
 margin_bottom = 34.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
-theme = SubResource( 1 )
 text = "00:00:000"
 
 [node name="PostRaceMenuContainer" type="MarginContainer" parent="."]
