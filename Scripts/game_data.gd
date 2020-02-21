@@ -11,7 +11,8 @@ var track_data_index = 0
 var track_data = {
 	0: "res://Scenes/ProperDunesTrack.tscn",
 	1: "res://Scenes/RepetitiveDunesTrack.tscn", 
-	2: "res://Scenes/SkiJumpDunesTrack.tscn"
+	2: "res://Scenes/SkiJumpDunesTrack.tscn",
+	3: "res://Scenes/SnowySunsetTrack.tscn"
 }
 
 # warning-ignore:unused_class_variable

@@ -9,7 +9,7 @@ graph_offset = Vector2( 0, 71.6007 )
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 
-[node name="BeachParallaxBackground" type="ParallaxBackground"]
+[node name="SnowParallaxBackground" type="ParallaxBackground"]
 layer = -20
 offset = Vector2( 0, -540 )
 transform = Transform2D( 1, 0, 0, 1, 0, -540 )
