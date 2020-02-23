@@ -14,14 +14,18 @@ signal race_started
 signal race_finished
 
 var timer_countdown = 3
-var timer_label
+var min_label
+var sec_label
+var msec_label
 
 var lobby
 var world
 
 func _ready():
 	
-	timer_label = get_node("TimerContainer/Label")
+	min_label = get_node("TimerContainer/Panel/HBoxContainer/MinLabel")
+	sec_label = get_node("TimerContainer/Panel/HBoxContainer/SecLabel")
+	msec_label = get_node("TimerContainer/Panel/HBoxContainer/MsecLabel")
 # warning-ignore:return_value_discarded
 	get_node("/root/ChronoCrabs/Lobby").connect("start_game", self, "initiate_race")
 	
@@ -45,7 +49,9 @@ func _physics_process(delta):
 	
 	str_elapsed = "%02d:%02d:%03d" % [minutes, seconds, milliseconds]
 
-	timer_label.set_text(str_elapsed)
+	min_label.set_text("%02d" % [minutes])
+	sec_label.set_text("%02d" % [seconds])
+	msec_label.set_text("%02d" % [milliseconds])
 
 func initiate_race():
 	## TODO move all game creation functions from Lobby to here,
@@ -61,6 +67,7 @@ func initiate_race():
 	
 	## start race countdown sequence
 	$TimerContainer.show()
+	$BoostContainer.show()
 	$StartingTimer.start()
 
 func _on_StartingTimer_timeout():
@@ -110,6 +117,9 @@ func reset_race():
 	
 	## clear track, all players, and all ghosts
 	world.destroy()
+	
+func display_boosts(boosts):
+	$BoostContainer/Panel/HBoxContainer/NumLabel.set_text(str(boosts))
 
 func _on_RaceGhost_pressed():
 	
@@ -129,6 +139,7 @@ func _on_QuitToMenu_pressed():
 	
 	lobby.hide()
 	$TimerContainer.hide()
+	$BoostContainer.hide()
 	$TrackSelectMenuContainer.hide()
 	$MainMenuContainer.show()
 
@@ -164,3 +175,4 @@ func _on_GhostCheckbox_toggled(button_pressed):
 		game_data.playing_with_ghost = true
 	else:
 		game_data.playing_with_ghost = false
+

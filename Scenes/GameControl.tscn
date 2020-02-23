@@ -43,8 +43,7 @@ margin_top = 34.0
 margin_right = 400.0
 margin_bottom = 63.0
 theme = ExtResource( 2 )
-custom_fonts/font = ExtResource( 3 )
-text = "CHRONO CRABS"
+text = "ChronoCrabs"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -109,7 +108,7 @@ margin_left = 15.0
 margin_top = 50.0
 margin_right = 385.0
 margin_bottom = 230.0
-items = [ "Proper Dunes", null, false, "Repetitive Dunes", null, false, "Ski Jump Dunes", null, false, "Snowy Sunset 1", null, false ]
+items = [ "Proper Dunes", null, false, "Repetitive Dunes", null, false, "Ski Jump Dunes", null, false, "Long Snowy Sunset", null, false, "Simple Snowy Decision", null, false ]
 allow_reselect = true
 
 [node name="MainMenu" type="Button" parent="TrackSelectMenuContainer/Panel"]
@@ -145,10 +144,9 @@ __meta__ = {
 }
 
 [node name="TimerContainer" type="MarginContainer" parent="."]
-visible = false
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -177.0
+margin_left = -192.0
 margin_top = 30.0
 margin_right = -29.0
 margin_bottom = 75.0
@@ -159,18 +157,97 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="TimerContainer"]
-margin_right = 148.0
+margin_right = 163.0
 margin_bottom = 45.0
 
-[node name="Label" type="Label" parent="TimerContainer"]
-margin_left = 13.0
-margin_top = 11.0
-margin_right = 148.0
-margin_bottom = 34.0
+[node name="HBoxContainer" type="HBoxContainer" parent="TimerContainer/Panel"]
+margin_left = 6.0
+margin_top = 3.0
+margin_right = 157.0
+margin_bottom = 47.0
+
+[node name="MinLabel" type="Label" parent="TimerContainer/Panel/HBoxContainer"]
+margin_top = 10.0
+margin_right = 34.0
+margin_bottom = 33.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 8
-text = "00:00:000"
+text = "00"
+
+[node name="ColonLabel1" type="Label" parent="TimerContainer/Panel/HBoxContainer"]
+margin_left = 38.0
+margin_top = 10.0
+margin_right = 46.0
+margin_bottom = 33.0
+text = ":"
+
+[node name="SecLabel" type="Label" parent="TimerContainer/Panel/HBoxContainer"]
+margin_left = 50.0
+margin_top = 10.0
+margin_right = 84.0
+margin_bottom = 33.0
+text = "00"
+
+[node name="ColonLabel2" type="Label" parent="TimerContainer/Panel/HBoxContainer"]
+margin_left = 88.0
+margin_top = 10.0
+margin_right = 96.0
+margin_bottom = 33.0
+text = ":"
+
+[node name="MsecLabel" type="Label" parent="TimerContainer/Panel/HBoxContainer"]
+margin_left = 100.0
+margin_top = 10.0
+margin_right = 151.0
+margin_bottom = 33.0
+text = "000"
+
+[node name="BoostContainer" type="MarginContainer" parent="."]
+margin_left = 1728.0
+margin_top = 83.9468
+margin_right = 1891.0
+margin_bottom = 128.947
+grow_horizontal = 2
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="BoostContainer"]
+margin_right = 163.0
+margin_bottom = 45.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BoostContainer/Panel"]
+margin_left = 6.0
+margin_top = 3.0
+margin_right = 157.0
+margin_bottom = 42.0
+alignment = 1
+
+[node name="BoostsLabel" type="Label" parent="BoostContainer/Panel/HBoxContainer"]
+margin_left = 12.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 31.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+text = "Boosts"
+
+[node name="ColonLabel1" type="Label" parent="BoostContainer/Panel/HBoxContainer"]
+margin_left = 96.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 31.0
+text = " : "
+
+[node name="NumLabel" type="Label" parent="BoostContainer/Panel/HBoxContainer"]
+margin_left = 124.0
+margin_top = 8.0
+margin_right = 139.0
+margin_bottom = 31.0
+text = "3"
 
 [node name="PostRaceMenuContainer" type="MarginContainer" parent="."]
 visible = false

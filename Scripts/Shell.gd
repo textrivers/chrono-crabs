@@ -3,6 +3,8 @@ extends KinematicBody2D
 export (int) var MAX_SPEED = 200
 export (int) var accel = 10
 
+var game_control
+
 var velocity = Vector2(0, 0)
 var floor_normal = Vector2(0, -1)
 var rolling = false
@@ -13,19 +15,25 @@ var pos_diff = 0
 var facing_right = true
 var upside_down = false
 var flip_now = false
+var can_boost = true
+var boosts_remaining = 3
 
 var racing = false
 var occupied = false
 
 const ROTATION_CONST = 1.8
 
+signal decrement_boost
 
 func _ready():
+	game_control = get_node("/root/ChronoCrabs/GameControl")
 	## get_node("/root/World/BasicDownhillTrack/FinishSystem").connect("race_finished", self, "finish_race")
 # warning-ignore:return_value_discarded
-	get_node("/root/ChronoCrabs/GameControl").connect("race_started", self, "start_race")
+	game_control.connect("race_started", self, "start_race")
 # warning-ignore:return_value_discarded
-	get_node("/root/ChronoCrabs/GameControl").connect("race_finished", self, "finish_race")
+	game_control.connect("race_finished", self, "finish_race")
+	self.connect("decrement_boost", game_control, "display_boosts")
+	emit_signal("decrement_boost", boosts_remaining)
 
 	## disable Area2D for player
 	if occupied == true:
@@ -43,6 +51,15 @@ func get_floor_normal():
 		floor_normal = $RayFloor.get_collision_normal()
 
 func get_input():
+
+	## boost
+	if can_boost == true:
+		if Input.is_action_pressed("ui_select"):
+			can_boost = false
+			boosts_remaining -= 1
+			MAX_SPEED = 300
+			$BoostTimer.start()
+			emit_signal("decrement_boost", boosts_remaining)
 
 	## shell movement
 	if Input.is_action_pressed("ui_down"):
@@ -134,3 +151,9 @@ func _on_Area2D_area_entered(area):
 func _on_Area2D_area_exited(area):
 	if area.is_in_group("player"):
 		$CrabContainer/Sprite.hide()
+
+func _on_BoostTimer_timeout():
+	MAX_SPEED = 200
+	$BoostTimer.wait_time = 3
+	if boosts_remaining > 0:
+		can_boost = true
