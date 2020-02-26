@@ -20,6 +20,13 @@ const ANIM_WALK_CONST = 0.015
 const SWAP_HOP_CONST = -10
 const SWAP_GRAV_CONST = 20
 
+## var withdraw_file_path = "res://Audio/withdraw2.wav"
+## var unwithdraw_file_path = "res://Audio/unwithdraw.wav"
+
+var withdraw_snd = preload("res://Audio/withdraw2.wav")
+var unwithdraw_snd = preload("res://Audio/unwithdraw.wav")
+var struggle_snd = preload("res://Audio/crab_shell_struggle_6.wav")
+
 func _ready():
 	randomize()
 # warning-ignore:return_value_discarded
@@ -31,6 +38,10 @@ func _ready():
 	current_shell.occupied = true
 
 	ready_to_swap = false
+	
+	## var withdraw = load(withdraw_file_path)
+	## var unwithdraw = load(unwithdraw_file_path)
+	
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
@@ -62,6 +73,8 @@ func get_crab_input():
 		$AnimationPlayer.playback_speed = 1.5
 		$AnimationPlayer.play_backwards("withdraw")
 		withdrawn = false
+		$AudioStreamPlayer.set_stream(unwithdraw_snd)
+		$AudioStreamPlayer.play()
 	
 	if Input.is_action_pressed("ui_down"):
 		$AntennaAnimationPlayer.stop(true)
@@ -71,6 +84,8 @@ func get_crab_input():
 				$AnimationPlayer.stop(false) ## pauses animation without resetting
 			$AnimationPlayer.playback_speed = 1.5
 			$AnimationPlayer.play("withdraw")
+			$AudioStreamPlayer.set_stream(withdraw_snd)
+			$AudioStreamPlayer.play()
 	else:
 		if $AnimationPlayer.is_playing() && $AnimationPlayer.current_animation == "withdraw":
 			pass
@@ -144,6 +159,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "withdraw":
 		if withdrawn == false && current_shell.upside_down == true: 
 			$AnimationPlayer.play("struggle")
+			$AudioStreamPlayer.set_stream(struggle_snd)
+			$AudioStreamPlayer.play()
 
 func _on_SwapTimer_timeout():
 	$SwapTimer.wait_time = 1

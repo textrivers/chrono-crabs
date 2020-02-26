@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Shell.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/shell_tropical.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/shell_swap_arrow_glow.png" type="Texture" id=3]
+[ext_resource path="res://Audio/Boost.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.4425
@@ -67,6 +68,9 @@ texture = ExtResource( 3 )
 [node name="BoostTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="timeout" from="FlipTimer" to="." method="_on_FlipTimer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]

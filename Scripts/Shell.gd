@@ -57,8 +57,9 @@ func get_input():
 		if Input.is_action_pressed("ui_select"):
 			can_boost = false
 			boosts_remaining -= 1
-			MAX_SPEED = 300
+			MAX_SPEED = 400
 			$BoostTimer.start()
+			$AudioStreamPlayer.play()
 			emit_signal("decrement_boost", boosts_remaining)
 
 	## shell movement
