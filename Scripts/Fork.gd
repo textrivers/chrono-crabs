@@ -12,15 +12,22 @@ func _process(delta):
 		if Input.is_action_pressed("ui_fork_down"):
 			ready_to_decide = false
 			parent_collider.disabled = true
-		elif Input.is_action_pressed("ui_fork_up"):
-			ready_to_decide = false
+			$SpriteSign/SpriteUpArrow.hide()
+			$SpriteSign/SpriteDownArrow.show()
+			$SpriteCtrl.hide()
+		## elif Input.is_action_pressed("ui_fork_up"):
+			## ready_to_decide = false
 
 
 func _on_Fork_area_entered(area):
 	if area.is_in_group("player"):
 		ready_to_decide = true
+		$SpriteSign/SpriteForkText.show()
+		$SpriteCtrl.show()
 
 
 func _on_Fork_area_exited(area):
 	if area.is_in_group("player"):
 		ready_to_decide = false
+		$SpriteSign/SpriteForkText.hide()
+		$SpriteCtrl.hide()

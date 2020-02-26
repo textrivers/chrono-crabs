@@ -4,8 +4,6 @@ var data
 var playback = false
 var frame_index = 0
 
-var start_pos = Vector2(0, 0)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

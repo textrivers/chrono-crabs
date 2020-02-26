@@ -16,6 +16,7 @@
 [node name="SnowySunsetTrack" type="Node2D"]
 
 [node name="Snow" type="Node2D" parent="."]
+editor/display_folded = true
 position = Vector2( 136, -104 )
 
 [node name="RacetrackRectangle" parent="Snow" instance=ExtResource( 1 )]
