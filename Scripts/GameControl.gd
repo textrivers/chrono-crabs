@@ -148,11 +148,12 @@ func _on_SinglePlayer_pressed():
 	$TrackSelectMenuContainer.show()
 	
 func _on_Multiplayer_pressed():
-	$MainMenuContainer.hide()
-	lobby._end_game("")
+	## $MainMenuContainer.hide()
+	## lobby._end_game("")
+	$MainMenuContainer/Panel/Multiplayer.set_text("Coming soon")
 
 func _on_Options_pressed():
-	$MainMenuContainer/Panel/Options.set_text("Options coming soon")
+	$MainMenuContainer/Panel/Options.set_text("Coming soon")
 
 func _on_QuitToDesktop_pressed():
 	get_tree().quit()
