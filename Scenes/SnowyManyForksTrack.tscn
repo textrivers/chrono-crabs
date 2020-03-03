@@ -1,0 +1,160 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/SnowBlock6.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/SnowParallaxBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/FinishSystem.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Shell.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/StartingLine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/SnowBlock2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/SnowBlock3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/SnowBlock1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/SnowBlock4.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/SnowBlock5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=12]
+
+[node name="SnowyManyForksTrack" type="Node2D"]
+
+[node name="Snow" type="Node2D" parent="."]
+position = Vector2( 136, -104 )
+
+[node name="RacetrackRectangle" parent="Snow" instance=ExtResource( 8 )]
+position = Vector2( -262.63, 442.324 )
+rotation = 1.5708
+
+[node name="RacetrackRectangle2" parent="Snow" instance=ExtResource( 8 )]
+position = Vector2( 29097.8, 7689.7 )
+rotation = 1.5708
+
+[node name="SnowBlock1" parent="Snow" instance=ExtResource( 9 )]
+position = Vector2( 2254.94, 414.648 )
+
+[node name="SnowBlock2" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 442.602, 414.648 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock3" parent="Snow" instance=ExtResource( 7 )]
+position = Vector2( 3738.93, 1065.47 )
+
+[node name="SnowBlock5" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 4289.29, 1341.37 )
+rotation = -8.74228e-08
+
+[node name="SnowBlock6" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 5944.86, 1371.08 )
+
+[node name="SnowBlock19" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 23175.6, 7176.06 )
+
+[node name="SnowBlock20" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 23414.7, 7181.1 )
+
+[node name="SnowBlock21" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 23749.6, 7188.65 )
+
+[node name="SnowBlock22" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 24170, 7196.2 )
+
+[node name="SnowBlock23" parent="Snow" instance=ExtResource( 6 )]
+position = Vector2( 24055.5, 7224.82 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock4" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 7561.24, 1226.08 )
+rotation = 0.0230736
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock14" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 16166.7, 6837.3 )
+rotation = 0.0458559
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock15" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 17468.6, 6864.56 )
+rotation = 0.0458559
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock18" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 20077.8, 6920.79 )
+rotation = 0.0458559
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock16" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 18763.7, 6894.1 )
+rotation = 0.0458559
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock17" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 21372.8, 6950.32 )
+rotation = 0.0458559
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock26" parent="Snow" instance=ExtResource( 10 )]
+position = Vector2( 28416.1, 7501.72 )
+rotation = 0.148131
+
+[node name="SnowBlock7" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 8966.51, 1469.02 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock8" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 9774.49, 1947.06 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock9" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 10601.3, 2498.27 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock10" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 10924.6, 2654.62 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock11" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 12228.4, 2763.27 )
+
+[node name="SnowBlock24" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 25276.7, 7417.34 )
+
+[node name="SnowBlock25" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 26639.1, 7628.02 )
+
+[node name="SnowBlock13" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 12995.5, 2944.59 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock27" parent="Snow" instance=ExtResource( 7 )]
+position = Vector2( 13758.6, 3466.46 )
+
+[node name="SnowBlock28" parent="Snow" instance=ExtResource( 7 )]
+position = Vector2( 14845.1, 5787.58 )
+rotation = 0.261799
+
+[node name="SnowBlock29" parent="Snow" instance=ExtResource( 7 )]
+position = Vector2( 15149.3, 6778.85 )
+
+[node name="SnowBlock31" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 13480.3, 4928.75 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock12" parent="Snow" instance=ExtResource( 11 )]
+position = Vector2( 14095, 5232.22 )
+
+[node name="SnowBlock30" parent="Snow" instance=ExtResource( 1 )]
+position = Vector2( 14076.1, 4250.06 )
+
+[node name="SnowParallaxBackground" parent="." instance=ExtResource( 2 )]
+
+[node name="StartingLine" parent="." instance=ExtResource( 5 )]
+position = Vector2( 200.624, 171.962 )
+
+[node name="FinishSystem" parent="." instance=ExtResource( 3 )]
+position = Vector2( 28905.9, 7531.93 )
+
+[node name="Shell" parent="." instance=ExtResource( 4 )]
+position = Vector2( 10002.7, 3745.8 )
+
+[node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
+texture = ExtResource( 12 )
+
+[editable path="Shell"]

@@ -1,48 +1,48 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/Fork.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/fork_sign_unlit.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/fork_up_arrow_lit.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/fork_down_arrow_lit.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/ForkTwoWay.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/fork_down_arrow_lit.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/fork_ctrl.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/fork_up_arrow_lit.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/fork_text_lit.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/fork_pole.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/fork_ctrl.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/fork_sign_unlit.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/fork_pole.png" type="Texture" id=7]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 233.545
-height = 239.625
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 198.011, 197.833 )
 
-[node name="Fork" type="Area2D"]
+[node name="ForkTwoWay" type="Area2D"]
 scale = Vector2( 0.5, 0.5 )
 collision_layer = 2
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 6.10352e-05, -103.551 )
+position = Vector2( -200.159, -78.9194 )
 rotation = 1.57192
 shape = SubResource( 1 )
 
 [node name="SpriteSign" type="Sprite" parent="."]
 position = Vector2( 84.7798, -176.927 )
-texture = ExtResource( 2 )
+texture = ExtResource( 6 )
 
 [node name="SpriteUpArrow" type="Sprite" parent="SpriteSign"]
-texture = ExtResource( 3 )
+visible = false
+texture = ExtResource( 4 )
 
 [node name="SpriteDownArrow" type="Sprite" parent="SpriteSign"]
 visible = false
-texture = ExtResource( 4 )
+texture = ExtResource( 2 )
 
 [node name="SpriteForkText" type="Sprite" parent="SpriteSign"]
 visible = false
 texture = ExtResource( 5 )
 
 [node name="SpritePole" type="Sprite" parent="."]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="SpriteCtrl" type="Sprite" parent="."]
 visible = false
-position = Vector2( 342.906, -126.999 )
-texture = ExtResource( 7 )
+position = Vector2( 70.8529, -272.081 )
+texture = ExtResource( 3 )
 [connection signal="area_entered" from="." to="." method="_on_Fork_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_Fork_area_exited"]

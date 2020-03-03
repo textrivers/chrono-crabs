@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/RacetrackRectangle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SnowBlock2.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Fork.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ForkTwoWay.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/SnowBlock3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/SnowBlock4.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/SnowBlock5.tscn" type="PackedScene" id=6]
@@ -32,11 +32,11 @@ scale = Vector2( -1, 1 )
 
 [node name="SnowBlock5" parent="Snow" instance=ExtResource( 2 )]
 position = Vector2( 1527.95, 615.919 )
-rotation = -8.74228e-008
+rotation = -8.74228e-08
 
-[node name="Fork" parent="Snow/SnowBlock5" instance=ExtResource( 3 )]
+[node name="ForkTwoWay" parent="Snow/SnowBlock5" instance=ExtResource( 3 )]
 show_behind_parent = true
-position = Vector2( -922.356, 158.159 )
+position = Vector2( -932.649, 138.44 )
 
 [node name="SnowBlock3" parent="Snow" instance=ExtResource( 4 )]
 position = Vector2( 1259.82, 1288.39 )
@@ -145,7 +145,6 @@ position = Vector2( 200.624, 171.962 )
 position = Vector2( 4929.06, 1399.28 )
 
 [node name="Shell" parent="." instance=ExtResource( 11 )]
-editor/display_folded = true
 position = Vector2( 10002.7, 3745.8 )
 
 [node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
