@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/SnowBlock6.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SnowParallaxBackground.tscn" type="PackedScene" id=2]
@@ -12,136 +12,394 @@
 [ext_resource path="res://Scenes/SnowBlock4.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/SnowBlock5.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Sprites/shell_70s-green.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/ForkTwoWay.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/ForkTwoWayLeft.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/shell_teal-green.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/shell_bw.png" type="Texture" id=16]
 
 [node name="SnowyManyForksTrack" type="Node2D"]
 
 [node name="Snow" type="Node2D" parent="."]
 position = Vector2( 136, -104 )
 
-[node name="RacetrackRectangle" parent="Snow" instance=ExtResource( 8 )]
-position = Vector2( -262.63, 442.324 )
+[node name="Rectangles" type="Node2D" parent="Snow"]
+
+[node name="RacetrackRectangle" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( -820.713, 587.764 )
 rotation = 1.5708
 
-[node name="RacetrackRectangle2" parent="Snow" instance=ExtResource( 8 )]
-position = Vector2( 29097.8, 7689.7 )
+[node name="RacetrackRectangle3" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 134.386, 1883.38 )
 rotation = 1.5708
 
-[node name="SnowBlock1" parent="Snow" instance=ExtResource( 9 )]
-position = Vector2( 2254.94, 414.648 )
+[node name="RacetrackRectangle6" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 11105.9, 3228.93 )
+rotation = 1.5708
 
-[node name="SnowBlock2" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 442.602, 414.648 )
-scale = Vector2( -1, 1 )
+[node name="RacetrackRectangle4" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 3259.84, 3873.89 )
+rotation = 1.5708
 
-[node name="SnowBlock3" parent="Snow" instance=ExtResource( 7 )]
-position = Vector2( 3738.93, 1065.47 )
+[node name="RacetrackRectangle5" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 18622.9, 4839.81 )
+rotation = 1.5708
 
-[node name="SnowBlock5" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 4289.29, 1341.37 )
+[node name="RacetrackRectangle8" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 25474, 4174.75 )
+rotation = 1.5708
+
+[node name="ForkTwoWay" parent="Snow/Rectangles/RacetrackRectangle8" instance=ExtResource( 13 )]
+position = Vector2( 102.641, 170.289 )
+rotation = -1.83632
+
+[node name="RacetrackRectangle7" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 22298.2, 6272.2 )
+rotation = 1.5708
+
+[node name="RacetrackRectangle2" parent="Snow/Rectangles" instance=ExtResource( 8 )]
+position = Vector2( 33351, 3262.84 )
+rotation = 1.5708
+
+[node name="Uppermost" type="Node2D" parent="Snow"]
+
+[node name="SnowBlock2" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 1978.5, 586.165 )
+
+[node name="ForkTwoWay" parent="Snow/Uppermost/SnowBlock2" instance=ExtResource( 13 )]
+position = Vector2( -874.222, 136.906 )
+
+[node name="SnowBlock1" parent="Snow/Uppermost" instance=ExtResource( 9 )]
+position = Vector2( 157.899, 556.706 )
+rotation = -0.0329978
+
+[node name="SnowBlock33" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 4932.36, -566.952 )
 rotation = -8.74228e-08
 
-[node name="SnowBlock6" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 5944.86, 1371.08 )
+[node name="SnowBlock3" parent="Snow/Uppermost" instance=ExtResource( 7 )]
+position = Vector2( 3706.25, 79.5629 )
+rotation = 3.11795
+scale = Vector2( 1, -1 )
 
-[node name="SnowBlock19" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 23175.6, 7176.06 )
+[node name="ForkTwoWay" parent="Snow/Uppermost/SnowBlock3" instance=ExtResource( 13 )]
+position = Vector2( 397.232, 375.895 )
+rotation = 0.692846
+scale = Vector2( -0.5, 0.5 )
 
-[node name="SnowBlock20" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 23414.7, 7181.1 )
+[node name="SnowBlock25" parent="Snow/Uppermost" instance=ExtResource( 11 )]
+position = Vector2( 5501.97, -415.597 )
 
-[node name="SnowBlock21" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 23749.6, 7188.65 )
+[node name="SnowBlock6" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 6507.39, -188.35 )
 
-[node name="SnowBlock22" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 24170, 7196.2 )
-
-[node name="SnowBlock23" parent="Snow" instance=ExtResource( 6 )]
-position = Vector2( 24055.5, 7224.82 )
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock4" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 7561.24, 1226.08 )
-rotation = 0.0230736
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock14" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 16166.7, 6837.3 )
-rotation = 0.0458559
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock15" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 17468.6, 6864.56 )
-rotation = 0.0458559
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock18" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 20077.8, 6920.79 )
-rotation = 0.0458559
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock16" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 18763.7, 6894.1 )
-rotation = 0.0458559
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock17" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 21372.8, 6950.32 )
-rotation = 0.0458559
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock26" parent="Snow" instance=ExtResource( 10 )]
-position = Vector2( 28416.1, 7501.72 )
-rotation = 0.148131
-
-[node name="SnowBlock7" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 8966.51, 1469.02 )
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock8" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 9774.49, 1947.06 )
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock9" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 10601.3, 2498.27 )
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock10" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 10924.6, 2654.62 )
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock11" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 12228.4, 2763.27 )
-
-[node name="SnowBlock24" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 25276.7, 7417.34 )
-
-[node name="SnowBlock25" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 26639.1, 7628.02 )
-
-[node name="SnowBlock13" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 12995.5, 2944.59 )
-scale = Vector2( -1, 1 )
-
-[node name="SnowBlock27" parent="Snow" instance=ExtResource( 7 )]
-position = Vector2( 13758.6, 3466.46 )
-
-[node name="SnowBlock28" parent="Snow" instance=ExtResource( 7 )]
-position = Vector2( 14845.1, 5787.58 )
-rotation = 0.261799
-
-[node name="SnowBlock29" parent="Snow" instance=ExtResource( 7 )]
-position = Vector2( 15149.3, 6778.85 )
-
-[node name="SnowBlock31" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 13480.3, 4928.75 )
+[node name="SnowBlock40" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 13574.8, -291.345 )
 rotation = -3.14159
 scale = Vector2( 1, -1 )
 
-[node name="SnowBlock12" parent="Snow" instance=ExtResource( 11 )]
-position = Vector2( 14095, 5232.22 )
+[node name="SnowBlock41" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 15278.6, -320.499 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
 
-[node name="SnowBlock30" parent="Snow" instance=ExtResource( 1 )]
-position = Vector2( 14076.1, 4250.06 )
+[node name="SnowBlock42" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 17123.5, -521.005 )
+scale = Vector2( 1, 2 )
+
+[node name="SnowBlock27" parent="Snow/Uppermost" instance=ExtResource( 7 )]
+position = Vector2( 12015.9, -509.09 )
+scale = Vector2( 2, 1 )
+
+[node name="SnowBlock11" parent="Snow/Uppermost" instance=ExtResource( 11 )]
+position = Vector2( 11106.4, -1102.23 )
+
+[node name="SnowBlock10" parent="Snow/Uppermost" instance=ExtResource( 11 )]
+position = Vector2( 10514.9, -430.097 )
+rotation = -3.14159
+scale = Vector2( 1, -1.5 )
+
+[node name="SnowBlock39" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 10142.1, -122.763 )
+
+[node name="SnowBlock5" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 3786.79, 616.412 )
+rotation = -8.74228e-08
+
+[node name="SnowBlock4" parent="Snow/Uppermost" instance=ExtResource( 10 )]
+position = Vector2( 8337.4, -329.79 )
+rotation = 3.16141
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock13" parent="Snow/Uppermost" instance=ExtResource( 11 )]
+position = Vector2( 20581.1, -199.992 )
+rotation = -3.14159
+scale = Vector2( 3, -1 )
+
+[node name="SnowBlock26" parent="Snow/Uppermost" instance=ExtResource( 10 )]
+position = Vector2( 23709, -329.909 )
+rotation = -0.00303589
+
+[node name="ForkTwoWay" parent="Snow/Uppermost/SnowBlock26" instance=ExtResource( 13 )]
+position = Vector2( 54.0918, 257.379 )
+
+[node name="SnowBlock43" parent="Snow/Uppermost" instance=ExtResource( 7 )]
+position = Vector2( 26456.5, 1468.28 )
+rotation = -3.14159
+scale = Vector2( -1, -1 )
+
+[node name="SnowBlock44" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 27141.5, 2078.82 )
+rotation = -3.14159
+scale = Vector2( -1, -1 )
+
+[node name="SnowBlock47" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 30249.2, 2264.66 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="SnowBlock48" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 30885.2, 2320.46 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="SnowBlock46" parent="Snow/Uppermost" instance=ExtResource( 6 )]
+position = Vector2( 28917.3, 1903.3 )
+scale = Vector2( 1, 2 )
+
+[node name="SnowBlock45" parent="Snow/Uppermost" instance=ExtResource( 7 )]
+position = Vector2( 25325.5, 553.665 )
+rotation = -3.11795
+scale = Vector2( -1, -1 )
+
+[node name="Middlemost" type="Node2D" parent="Snow"]
+
+[node name="SnowBlock17" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 12693.4, 2409.64 )
+rotation = 3.61522
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock25" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 14296.5, 3307.86 )
+rotation = 3.69708
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock27" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 15856.3, 4060.7 )
+rotation = 3.49554
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock33" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 17554.6, 4529.19 )
+rotation = 3.33741
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock39" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 19273.8, 4738.98 )
+rotation = 3.19951
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock40" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 21025.3, 4700.9 )
+rotation = -3.23606
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock41" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 22794.9, 4451.27 )
+rotation = -3.3208
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock42" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 24590.3, 4134.71 )
+rotation = -3.30618
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock15" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 7477.29, 600.708 )
+rotation = 3.30604
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock18" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 11056.5, 1583.9 )
+rotation = 3.61073
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock16" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 9281.26, 948.839 )
+rotation = 3.3596
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock34" parent="Snow/Middlemost" instance=ExtResource( 10 )]
+position = Vector2( 5622.81, 453.803 )
+rotation = 3.14042
+scale = Vector2( 1, -1 )
+
+[node name="Lowermost" type="Node2D" parent="Snow"]
+
+[node name="SnowBlock30" parent="Snow/Lowermost" instance=ExtResource( 1 )]
+position = Vector2( 6947.65, 5552.37 )
+rotation = -0.241757
+
+[node name="SnowBlock28" parent="Snow/Lowermost" instance=ExtResource( 7 )]
+position = Vector2( 11606.2, 6196.78 )
+rotation = 0.044468
+scale = Vector2( 3, 1 )
+
+[node name="SnowBlock29" parent="Snow/Lowermost" instance=ExtResource( 7 )]
+position = Vector2( 1203.35, 3422.74 )
+
+[node name="SnowBlock38" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 1716.05, 3940.36 )
+
+[node name="SnowBlock31" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 6040.24, 5025.15 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock39" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 21592.5, 5942.84 )
+rotation = 2.53518e-06
+
+[node name="ForkTwoWay" parent="Snow/Lowermost/SnowBlock39" instance=ExtResource( 13 )]
+position = Vector2( -595.902, -140.645 )
+switch_up = false
+
+[node name="SnowBlock34" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 20996.6, 6253.74 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="ForkTwoWayLeft" parent="Snow/Lowermost/SnowBlock34" instance=ExtResource( 14 )]
+position = Vector2( -375.936, -64.6729 )
+rotation = 2.87979
+scale = Vector2( 0.5, -0.5 )
+switch_up = false
+
+[node name="SnowBlock33" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 21685.6, 6551.88 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock12" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 8456.35, 5474.97 )
+
+[node name="SnowBlock8" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 5269.59, 4308.22 )
+rotation = 3.37456
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock9" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 3892.99, 1902.57 )
+
+[node name="SnowBlock10" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 4608.83, 2444.29 )
+
+[node name="SnowBlock11" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 5402.06, 3024.7 )
+
+[node name="SnowBlock13" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 6853.08, 3295.55 )
+
+[node name="SnowBlock43" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 9841.71, 3304.22 )
+rotation = -3.14159
+scale = Vector2( 2, -1 )
+
+[node name="SnowBlock35" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 1065.51, 1197.92 )
+
+[node name="SnowBlock19" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 13631.6, 6492.33 )
+
+[node name="SnowBlock20" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 15451.1, 6523.42 )
+
+[node name="SnowBlock21" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 17264.5, 6556.46 )
+
+[node name="SnowBlock22" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 19074.4, 6587.16 )
+
+[node name="SnowBlock23" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 20862.9, 6586.7 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock44" parent="Snow/Lowermost" instance=ExtResource( 10 )]
+position = Vector2( 8184.3, 3081.02 )
+rotation = 3.13306
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock45" parent="Snow/Lowermost" instance=ExtResource( 10 )]
+position = Vector2( 22972.3, 5716.95 )
+rotation = 3.13306
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock7" parent="Snow/Lowermost" instance=ExtResource( 11 )]
+position = Vector2( 1853.48, 2355.19 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="ForkTwoWay" parent="Snow/Lowermost/SnowBlock7" instance=ExtResource( 13 )]
+position = Vector2( 748.09, -29.707 )
+rotation = 0.221553
+scale = Vector2( -0.5, 0.5 )
+
+[node name="SnowBlock37" parent="Snow/Lowermost" instance=ExtResource( 7 )]
+position = Vector2( 857.874, 2559.75 )
+rotation = 0.0236382
+
+[node name="SnowBlock32" parent="Snow/Lowermost" instance=ExtResource( 10 )]
+position = Vector2( 2126.98, 962.659 )
+rotation = 3.118
+scale = Vector2( 1, -1.5 )
+
+[node name="ForkTwoWayLeft" parent="Snow/Lowermost/SnowBlock32" instance=ExtResource( 14 )]
+position = Vector2( -879.179, 345.305 )
+scale = Vector2( -0.5, 0.33 )
+
+[node name="SnowBlock36" parent="Snow/Lowermost" instance=ExtResource( 6 )]
+position = Vector2( 2691.53, 1715.69 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock14" parent="Snow/Lowermost" instance=ExtResource( 10 )]
+position = Vector2( 3528.4, 3821.92 )
+rotation = 3.18581
+scale = Vector2( 1, -1 )
+
+[node name="Reverso" type="Node2D" parent="Snow/Lowermost"]
+position = Vector2( 36219, -622.584 )
+scale = Vector2( -1, 1 )
+
+[node name="SnowBlock18" parent="Snow/Lowermost/Reverso" instance=ExtResource( 11 )]
+position = Vector2( 4819.86, 4683.46 )
+rotation = 3.14068
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock15" parent="Snow/Lowermost/Reverso" instance=ExtResource( 11 )]
+position = Vector2( 5602.68, 4950.09 )
+rotation = -3.14068
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock40" parent="Snow/Lowermost/Reverso" instance=ExtResource( 11 )]
+position = Vector2( 6229.31, 5282.97 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+
+[node name="SnowBlock42" parent="Snow/Lowermost/Reverso" instance=ExtResource( 1 )]
+position = Vector2( 6947.65, 5552.37 )
+rotation = -0.241757
+
+[node name="SnowBlock41" parent="Snow/Lowermost/Reverso" instance=ExtResource( 7 )]
+position = Vector2( 11606.2, 6196.78 )
+rotation = 0.044468
+scale = Vector2( 3, 1 )
+
+[node name="SnowBlock16" parent="Snow/Lowermost/Reverso" instance=ExtResource( 11 )]
+position = Vector2( 8456.35, 5474.97 )
+
+[node name="SnowBlock17" parent="Snow/Lowermost/Reverso" instance=ExtResource( 10 )]
+position = Vector2( 3659.86, 3846.01 )
+rotation = 3.33756
+scale = Vector2( 1, -1 )
 
 [node name="SnowParallaxBackground" parent="." instance=ExtResource( 2 )]
 
@@ -149,12 +407,28 @@ position = Vector2( 14076.1, 4250.06 )
 position = Vector2( 200.624, 171.962 )
 
 [node name="FinishSystem" parent="." instance=ExtResource( 3 )]
-position = Vector2( 28905.9, 7531.93 )
+position = Vector2( 33097.2, 3105.1 )
 
 [node name="Shell" parent="." instance=ExtResource( 4 )]
-position = Vector2( 10002.7, 3745.8 )
+position = Vector2( 3511.23, 3935.93 )
 
 [node name="ShellSprite" parent="Shell/CrabContainer" index="0"]
 texture = ExtResource( 12 )
 
+[node name="Shell2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 18883.8, 4870.28 )
+
+[node name="ShellSprite" parent="Shell2/CrabContainer" index="0"]
+texture = ExtResource( 16 )
+
+[node name="Shell3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 11246.2, 2867.96 )
+
+[node name="ShellSprite" parent="Shell3/CrabContainer" index="0"]
+texture = ExtResource( 15 )
+
 [editable path="Shell"]
+
+[editable path="Shell2"]
+
+[editable path="Shell3"]

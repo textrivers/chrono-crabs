@@ -13,7 +13,7 @@ var track_data = {
 	1: "res://Scenes/RepetitiveDunesTrack.tscn", 
 	2: "res://Scenes/SkiJumpDunesTrack.tscn",
 	3: "res://Scenes/SnowySunsetTrack.tscn",
-	4: "res://Scenes/SimpleSnowyDecisionTrack.tscn"
+	4: "res://Scenes/SnowyManyForksTrack.tscn"
 }
 
 # warning-ignore:unused_class_variable

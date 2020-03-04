@@ -12,7 +12,8 @@ func _physics_process(_delta):
 	if swapping == true:
 		pass
 	else:
-		global_position = shell.global_position
+		global_position.x = shell.global_position.x
+		global_position.y = shell.global_position.y - 200
 		
 		##zoom is 1 at 0 velocity and 2 maximum
 		zoom.x = lerp(zoom.x, clamp((shell.velocity.x / 200), 1.0, 2.0), 0.01)
