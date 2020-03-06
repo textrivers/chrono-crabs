@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/SnowBlock6.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SnowParallaxBackground.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Scenes/ForkTwoWayLeft.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Sprites/shell_teal-green.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/shell_bw.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/snow_level_blue_screen.png" type="Texture" id=18]
 
 [node name="SnowyManyForksTrack" type="Node2D"]
 
@@ -400,6 +401,155 @@ position = Vector2( 8456.35, 5474.97 )
 position = Vector2( 3659.86, 3846.01 )
 rotation = 3.33756
 scale = Vector2( 1, -1 )
+
+[node name="BlueSnow" type="Node2D" parent="Snow"]
+
+[node name="Blue1" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 111.288, 1329.84 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue2" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( -1786.05, 1329.84 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue7" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 6862.39, 565.557 )
+rotation = 0.021817
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue9" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 8645.94, 603.505 )
+rotation = 0.021817
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue8" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 4502.03, 952.626 )
+rotation = 0.0767607
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue3" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 1140.1, 1325.4 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue4" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 2851.85, 1355.53 )
+rotation = 0.0170184
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue5" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 4541.31, 1154.4 )
+rotation = 0.0170184
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue10" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 10943.1, 267.323 )
+rotation = 0.0170184
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue11" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 12510.2, 476.308 )
+rotation = -0.00597843
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue12" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 14266.2, 446.945 )
+rotation = -0.00597843
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue13" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 15841.4, 422.331 )
+rotation = -0.00597843
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue14" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 17465.9, 461.009 )
+rotation = 0.0464187
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue15" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 23645.8, 597.221 )
+rotation = 0.00602199
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue16" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 24221, 1771.61 )
+rotation = 0.00602199
+scale = Vector2( 1.60614, 1.40595 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue17" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 25850.8, 2458.67 )
+rotation = 0.00602199
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue18" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 28607.2, 2858.3 )
+rotation = 0.0285987
+scale = Vector2( 1.91042, 1 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="Blue6" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 5021.02, 568.516 )
+rotation = 0.0170184
+scale = Vector2( 1.0735, 1.75209 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="LargeBlue1" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 13501.7, 5015.61 )
+scale = Vector2( 9.87666, 9.1399 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="LargeBlue2" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 2844.67, 3924.32 )
+rotation = 0.0170184
+scale = Vector2( 4, 4 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="LargeBlue3" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 13072.6, 6845.3 )
+rotation = 0.0170184
+scale = Vector2( 4, 4 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="LargeBlue4" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 20095.4, 7333.2 )
+rotation = 0.0170184
+scale = Vector2( 4, 4 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="LargeBlue5" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 26266.2, 5475.25 )
+scale = Vector2( 4, 5.74772 )
+z_index = -5
+texture = ExtResource( 18 )
+
+[node name="LargeBlue6" type="Sprite" parent="Snow/BlueSnow"]
+position = Vector2( 19113.4, 3033.42 )
+scale = Vector2( 4.04993, 5.74772 )
+z_index = -5
+texture = ExtResource( 18 )
 
 [node name="SnowParallaxBackground" parent="." instance=ExtResource( 2 )]
 

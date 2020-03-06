@@ -14,5 +14,5 @@ visible = false
 [node name="World" parent="." instance=ExtResource( 3 )]
 visible = false
 [connection signal="ready" from="Lobby" to="GameControl" method="_on_Lobby_ready"]
-[connection signal="ready" from="World" to="GameControl" method="_on_World_ready"]
 [connection signal="ready" from="World" to="Lobby" method="_on_World_ready"]
+[connection signal="ready" from="World" to="GameControl" method="_on_World_ready"]
